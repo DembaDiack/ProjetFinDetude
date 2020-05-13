@@ -16,13 +16,14 @@
     "cors": "^2.8.5",
     "crypto-js": "^4.0.0",
     "dropbox": "^4.0.30",
+    "express": "^4.17.1",
     "jquery": "^3.5.1",
     "mongoose": "^5.9.3"
   },
   "nodemonConfig": {
     "ignore": "Client/"
   },
-  "engines" : {
+  "engines": {
     "node": "12.16.x"
   }
 }
