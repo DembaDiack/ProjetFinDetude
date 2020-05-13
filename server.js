@@ -1,11 +1,11 @@
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 2000;
 const express = require("express");
 const app = express();
 const db = require("./Database/db");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const routes = require("./Routes/Routes");
-
+const path = require("path");
 app.use(cors());
 
 
