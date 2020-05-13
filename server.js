@@ -12,7 +12,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-app.use("/",routes.routes);
+app.use(routes.routes);
 
 
 
