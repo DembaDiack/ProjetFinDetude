@@ -1,0 +1,9 @@
+.sign-up-btn{
+    transition: "0.3s";
+}
+.sign-up-btn:hover
+{
+    background: #0062cc !important;
+    color: white !important;
+    border: solid 2px white !important;
+}
