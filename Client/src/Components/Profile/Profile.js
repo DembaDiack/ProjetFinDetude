@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Auth from "../../Auth/Auth";
-import { downloadFile, temp_link, deleteFile, editProfilePicture } from "../../Dropbox/Dropbox";
+import { downloadFile, temp_link, deleteFile, editProfilePicture } from "../../Dropbox/Dropbox.js";
 import Axios from "axios";
 import { Link, useParams } from "react-router-dom";
 
