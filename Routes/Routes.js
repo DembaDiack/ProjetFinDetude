@@ -1,12 +1,6 @@
 const Router = require("express").Router();
 const controller = require("../Controllers/Controller");
 
-
-
-
-
-Router.get("/",(request,response)=>{response.send("hello welcome to our server");})
-
 Router.post("/login",controller.loginController);
 
 Router.post("/signup",controller.signUpController);
