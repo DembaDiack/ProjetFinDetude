@@ -1,6 +1,6 @@
 {
   "name": "client",
-  "homepage": ".",
+  "homepage": "https://intense-mountain-22680.herokuapp.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
