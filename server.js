@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const routes = require("./Routes/Routes");
 const path = require("path");
+//server
 app.use(cors());
 
 
