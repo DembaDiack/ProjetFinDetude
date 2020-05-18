@@ -76,7 +76,9 @@ const Profile = (props) => {
             <div>
                 <div className="container d-sm-flex justify-content-sm-center align-items-sm-center" style={{ paddingLeft: 0, paddingRight: 0 }}>
                     <div className="col"><strong style={{ color: 'rgb(255,255,255)', fontSize: 30 }}>Profile de {state.firstName} {state.lastName}</strong></div>
-                    <div className="col d-sm-flex justify-content-sm-end"><Link to="/settings/profile"><button className="btn btn-primary" type="button">Edit profile</button></Link></div>
+                    <div className="col d-sm-flex justify-content-sm-end"><Link to="/settings/profile">
+                        </Link>
+                        </div>
                 </div>
                 <div>
                     <div className="container">

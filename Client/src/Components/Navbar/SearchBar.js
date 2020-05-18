@@ -1,60 +1,66 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import SearchDropdown from "./SearchDropDown";
 
+const SearchBar = props => {
 
-const SearchBar = props =>
-{
-    const initialState = {
-        search : "",
-        width : 237
+    const inputRef = useRef();
+
+    const intialState = {
+        dropdownHeight: 0,
+        dropdownBorder: "none",
+        backgroundColor: 'rgb(57,63,69)',
+        color: 'white',
+        width: 'inherit',
+        height: 39,
     }
-    const [state,setState] = useState(initialState);
+    const [state, setState] = useState(intialState);
+    const [active, setActive] = useState(false);
 
-    const handleChange = event =>
-    {
-        setState({
-            ...state,
-            [event.target.name] : event.target.value
-        })
+    const handleInput = event => {
+        const query = event.target.value;
+
+        if (query === "") {
+            setActive(false);
+            setState({ ...state, ...intialState });
+        }
+        else {
+            setActive(true);
+            setState({ ...state, dropdownHeight: 150, backgroundColor: "rgb(232, 232, 232)", color: "rgb(57,63,69)", dropdownBorder: "solid 1px #d0d0d0" });
+        }
     }
-    useEffect(()=>{
-        if(state.search === "")
-        {
-            if(props.loading) props.setLoading(false);
+    useEffect(() => {
+        const ref = document.querySelector(".search-dropdown");
 
-            if(state.width !== initialState.width)
-            {
-                setState({...state,width : initialState.width})
+        const event = event => {
+            if ((event.target != ref && event.target != inputRef.current) && active == true) {
+                setActive(false);
+                setState({ ...state, ...intialState });
             }
         }
-        else{
-            if(props.loading === false) props.setLoading(true);
-            if(state.width !== 350)
-            {
-                setState({...state,width : 350});
-            }
-        }
-    },[state.search,initialState.width,state,props]);
+        document.body.addEventListener("click", event);
 
-    return(
-        <div>
-            <input
-            name="search"
-          type="search"
-          className="mr-4"
-          style={{
-            backgroundColor: "#393f45",
-            border: "none",
-            height: 37,
-            width: state.width,
-            paddingLeft: 27,
-            color : "white",
-            transition : "0.3s"
-          }}
-          placeholder="rechercher des cours"
-          value={state.search}
-          onChange={(e) => handleChange(e)}
-          autoComplete="off"
-        />
+        return () => {
+            document.body.removeEventListener("click", event);
+        }
+    }, [active]);
+
+
+    return (
+        <div style={{ width: active ? 400 : 294, marginRight: 13, transition: "0.1s" }}>
+            <input type="text"
+                ref={inputRef}
+                onInput={(e) => handleInput(e)}
+                style={{
+                    backgroundColor: state.backgroundColor,
+                    paddingLeft: 13,
+                    position: 'relative',
+                    borderRadius: 3,
+                    border: 'none',
+                    color: state.color,
+                    width: state.width,
+                    height: state.height
+                }} placeholder="Search here" />
+            <SearchDropdown height={state.dropdownHeight} border={state.dropdownBorder} />
         </div>
     )
 }

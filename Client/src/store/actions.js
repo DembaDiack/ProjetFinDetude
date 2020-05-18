@@ -20,8 +20,15 @@ const setUserInfo = (user)=>
         user : user
     }
 }
+const searchActive = (value) => {
+    return {
+        type : "UPDATE_SEARCH",
+        active : value
+    }
+}
 export 
 {
     connect,
-    disconnect
+    disconnect,
+    searchActive
 }

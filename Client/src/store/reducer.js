@@ -31,6 +31,13 @@ const reducer = (state = initialState ,action) =>
             connected : false
         }
     }
+    if(action.type === "UPDATE_SEARCH")
+    {
+        return{
+            ...state,
+            active : action.active
+        }
+    }
     return state;
 }
 
