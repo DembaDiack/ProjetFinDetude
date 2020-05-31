@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import SearchDropdown from "./SearchDropDown";
+import Axios from "axios";
 
 const SearchBar = props => {
 
@@ -15,6 +16,22 @@ const SearchBar = props => {
     }
     const [state, setState] = useState(intialState);
     const [active, setActive] = useState(false);
+    const [searchResult,setSearchResult] = useState();
+
+    const search = async query => {
+        let result = null;
+        try
+        {
+            result = await Axios.post("/search",{
+                query : query
+            });
+            return result;
+        }
+        catch(err)
+        {
+            search(query);
+        }
+    }
 
     const handleInput = event => {
         const query = event.target.value;
@@ -24,6 +41,10 @@ const SearchBar = props => {
             setState({ ...state, ...intialState });
         }
         else {
+            search(query)
+            .then(result => {
+                console.log(result);
+            })
             setActive(true);
             setState({ ...state, dropdownHeight: 150, backgroundColor: "rgb(232, 232, 232)", color: "rgb(57,63,69)", dropdownBorder: "solid 1px #d0d0d0" });
         }

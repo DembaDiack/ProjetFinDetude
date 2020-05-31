@@ -65,6 +65,11 @@ const user = new Schema({
         type : Number,
         required : false,
         unique : true
+    },
+    course : {
+        type : String,
+        required : false,
+        default : null
     }
 })
 

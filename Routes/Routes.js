@@ -36,4 +36,6 @@ Router.get("/user/getByMatricule/:matricule",controller.getUserEmailByMatricule)
 
 Router.post("/user/customQuery",controller.customQuery);
 
+Router.post("/search",controller.regexSearch);
+
 exports.routes = Router;

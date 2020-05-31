@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "./spinner.css";
 
 const SearchDropdown = props => {
     const initialState = {
@@ -21,8 +21,11 @@ const SearchDropdown = props => {
           top: 51,
           /*zIndex: -1, */ borderBottomLeftRadius: 5,
           borderBottomRightRadius: 5,
+          overflow : "hidden"
         }}
-      />
+      >
+        <div className="loader"/>
+      </div>
     );
 }
 

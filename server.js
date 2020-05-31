@@ -6,12 +6,17 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const routes = require("./Routes/Routes");
 const path = require("path");
+const helmet = require("helmet");
+
+
+
 //server
 app.use(cors());
 
 
 app.use(bodyParser.json());
 
+app.use(helmet.frameguard({ action: "sameorigin" }));
 
 app.use(routes.routes);
 
@@ -28,12 +33,18 @@ if(process.env.NODE_ENV === "production")
     })
 }
 
-db.connect()
-.then(()=>{
-    app.listen(port,()=>{
-        console.log(`app started on port ${port}`);
+const connectServer = ()=> {
+    db.connect()
+    .then(()=>{
+        app.listen(port,()=>{
+            console.log(`app started on port ${port}`);
+        })
     })
-})
-.catch(err => {
-    console.log(err);
-})
+    .catch(err => {
+        console.log(err);
+        connectServer();
+    })
+}
+
+
+connectServer();

@@ -75,3 +75,20 @@ exports.getUserDocuments = email =>
     })
     
 }
+
+exports.searchRegex = query => {
+    const regex = [
+        {"info.name" : {"$regex" : query , "$options" : "i"}},
+        {"info.faculty" : {"$regex" : query , "$options" : "i"}},
+        {"info.title" : {"$regex" : query , "$options" : "i"}},
+        {"userInfo.email" : {"$regex" : query , "$options" : "i"}}
+    ];
+    return Document.find({"$or" : regex})
+    .limit(3)
+    .then(result => {
+        return result
+    })
+    .catch(err => {
+        return err
+    })
+}

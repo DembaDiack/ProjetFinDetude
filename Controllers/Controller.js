@@ -117,7 +117,30 @@ exports.getUserEmailByMatricule = (request,response) => {
     })
 
 }
+exports.regexSearch = (request,response) => {
+    const query = request.body.query;
+    const searchResult = {
+        users : null,
+        Documents : null
+    }
 
+    Auth.regexSearch(query)
+    .then(result => {
+        searchResult.users = result;
+        console.log(result);
+    })
+    .catch(err => console.log(err));
+
+    Documents.searchRegex(query)
+    .then(result => {
+        searchResult.Documents = result;
+        response.send(searchResult);
+    })
+    .catch(err => response.send(searchResult));
+
+
+
+}
 exports.customQuery = (request,response) => {
     const query = request.body.query;
     Auth.customQuery(query)

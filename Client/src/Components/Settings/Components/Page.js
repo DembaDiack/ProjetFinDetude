@@ -44,6 +44,7 @@ const Page = ()=>{
             auth.getUserDocs(auth.getEmail()).then(result => {
                 if (Array.isArray(result.data)) {
                     temp_docs = result.data.map(elem => {
+                        console.log(elem);
                         return temp_link(elem.info.id)
                             .then(result => {
                                 return <li className="list-inline-item d-md-flex" key={elem._id}>
@@ -51,6 +52,7 @@ const Page = ()=>{
                                     <div><a href="#" style={{ width: '20%', marginLeft: 12, color: 'rgb(0,178,255)' }}>{elem.info.name}</a></div>
                                     <div><a href={result.link} style={{ width: '20%', marginLeft: 12, color: 'rgb(0,178,255)' }} onClick={() => downloadFile(elem.info.id)}>Download</a></div>
                                     <div><a href="#" style={{ width: '20%', marginLeft: 12, color: 'rgb(0,178,255)' }} onClick={() => delete_file(elem.info.id)}>Delete</a></div>
+                                    <div><Link to={`/preview/${elem.info.id}`} style={{ width: '20%', marginLeft: 12, color: 'rgb(0,178,255)' }}>Preview</Link></div>
                                 </li>
                             })
                     })

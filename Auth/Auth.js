@@ -12,7 +12,8 @@ exports.signUp = ({
     lastName,
     user_type,
     faculty,
-    matricule
+    matricule,
+    course
 }) => {
     return User.findOne({
             "email": email
@@ -28,6 +29,7 @@ exports.signUp = ({
                         lastName: lastName,
                         user_type : user_type,
                         matricule : matricule,
+                        course : course,
                         faculty : faculty,
                         avatar : `http://gravatar.com/avatar/${crypto.MD5(email)}?d=identicon`
             })
@@ -268,6 +270,27 @@ exports.getUserEmailByMatricule = matricule => {
 
 exports.customQuery = query => {
     return User.find(query)
+    .then(result => {
+        return result;
+    })
+    .catch(err => {
+        return err;
+    })
+}
+
+exports.regexSearch = query => {
+   
+
+    const regex = [
+        {"email" : {"$regex" : query , "$options" : "i"}},
+        {"firstName" : {"$regex" : query , "$options" : "i"}},
+        {"lastName" : {"$regex" : query , "$options" : "i"}},
+        {"firstName" : {"$regex" : query.split(" ")[0] , "$options" : "i"}},
+    ]
+    query.split(" ")[1] ? regex.push({"lastName" : {"$regex" : query.split(" ")[1] , "$options" : "i"}})
+    : null;
+
+    return User.find({"$or" : regex})
     .then(result => {
         return result;
     })
