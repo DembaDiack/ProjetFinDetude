@@ -44,9 +44,10 @@ const SearchBar = props => {
             search(query)
             .then(result => {
                 console.log(result);
+                setSearchResult(result);
             })
             setActive(true);
-            setState({ ...state, dropdownHeight: 150, backgroundColor: "rgb(232, 232, 232)", color: "rgb(57,63,69)", dropdownBorder: "solid 1px #d0d0d0" });
+            setState({ ...state, dropdownHeight: "auto", backgroundColor: "rgb(232, 232, 232)", color: "rgb(57,63,69)", dropdownBorder: "solid 1px #d0d0d0" });
         }
     }
     useEffect(() => {
@@ -67,7 +68,7 @@ const SearchBar = props => {
 
 
     return (
-        <div style={{ width: active ? 400 : 294, marginRight: 13, transition: "0.1s" }}>
+        <div style={{ width: active ? 600 : 294, marginRight: 13, transition: "0.1s" }}>
             <input type="text"
                 ref={inputRef}
                 onInput={(e) => handleInput(e)}
@@ -79,9 +80,10 @@ const SearchBar = props => {
                     border: 'none',
                     color: state.color,
                     width: state.width,
-                    height: state.height
+                    height: state.height,
+                    paddingTop : 0
                 }} placeholder="Search here" />
-            <SearchDropdown height={state.dropdownHeight} border={state.dropdownBorder} />
+            <SearchDropdown height={state.dropdownHeight} border={state.dropdownBorder} searchResult={searchResult}/>
         </div>
     )
 }

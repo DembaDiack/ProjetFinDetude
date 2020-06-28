@@ -67,7 +67,6 @@ const App = (props) =>
                 <Route path="/signup" component={SignUp}/>
                 <Route path="/reset" component={ResetPassword}/>
                 <Route path="/reset/:token" component={ResetPasswordToken}/>
-                <Route path="/list" component={List} />
                 <Route path="/logout" component={Logout}/>
                 <Route path="/preview/:id" component={Preview}/>
                 <Route path="/profile/:id" component={Profile} />

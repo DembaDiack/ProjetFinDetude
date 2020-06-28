@@ -1,9 +1,9 @@
 import React,{useState,useEffect, useRef} from "react";
 import Auth from "../../../Auth/Auth";
-import { downloadFile, temp_link, deleteFile,editProfilePicture } from "../../../Dropbox/Dropbox";
+import { downloadFile, temp_link, deleteFile,editProfilePicture , getProfilePicture } from "../../../Dropbox/Dropbox";
 import Axios from "axios";
 import {Link} from "react-router-dom";
-
+import Pagination from "./Pagination";
 
 
 const Page = ()=>{
@@ -11,6 +11,12 @@ const Page = ()=>{
     const [state, setState] = useState(0);
     const [docs, setDocs] = useState("loading...");
     const auth = new Auth();
+    const pageNumber = useRef(1);
+    const ITEMSPERPAGE = 4;
+    const indexOfLast = pageNumber.current * ITEMSPERPAGE;
+    const indexOfFirst = indexOfLast -ITEMSPERPAGE;
+
+
     useEffect(() => {
         const initial = document.body.style;
         document.body.style.backgroundColor = style.backgroundColor;
@@ -23,8 +29,12 @@ const Page = ()=>{
     const delete_file = id => {
         deleteFile(id)
             .then(result => {
-                Axios.get("/docs/delete/id")
+                Axios.get(`/docs/delete/${id}`)
                 console.log("delete : ", result);
+                if(result !== -1)
+                {
+                    deleteFile(id);
+                }
                 setDocs("loading...");
             })
             .catch(err => err)
@@ -49,7 +59,7 @@ const Page = ()=>{
                             .then(result => {
                                 return <li className="list-inline-item d-md-flex" key={elem._id}>
                                     <div><strong>{elem.info.server_modified}</strong></div>
-                                    <div><a href="#" style={{ width: '20%', marginLeft: 12, color: 'rgb(0,178,255)' }}>{elem.info.name}</a></div>
+                                    <div><Link to={`/preview/${elem.info.id}`} style={{ width: '20%', marginLeft: 12, color: 'rgb(0,178,255)' }}>{elem.info.name}</Link></div>
                                     <div><a href={result.link} style={{ width: '20%', marginLeft: 12, color: 'rgb(0,178,255)' }} onClick={() => downloadFile(elem.info.id)}>Download</a></div>
                                     <div><a href="#" style={{ width: '20%', marginLeft: 12, color: 'rgb(0,178,255)' }} onClick={() => delete_file(elem.info.id)}>Delete</a></div>
                                     <div><Link to={`/preview/${elem.info.id}`} style={{ width: '20%', marginLeft: 12, color: 'rgb(0,178,255)' }}>Preview</Link></div>
@@ -93,11 +103,13 @@ const Page = ()=>{
     useEffect(()=>{
         if(picture)
         {
+            console.log(picture);
             const email = auth.getEmail();
             editProfilePicture(picture,email);
             setPicture(null);
         }
     })
+   
     return(
         <form>
             <div>
@@ -149,8 +161,11 @@ const Page = ()=>{
                 </div>
                 <div className="container d-sm-flex" style={{ paddingLeft: 0, paddingRight: 0 }}>
                     <ul className="list-inline" style={{ width: '100%' }}>
-                        {docs.length == 0 ? `${state.firstName} ${state.lastName} didnt upload files yet` : docs}
+                        {docs.length == 0 ? `${state.firstName} ${state.lastName} didnt upload files yet` : docs.slice(indexOfFirst,indexOfLast)}
                     </ul>
+                </div>
+                <div className={"container"}>
+                    <Pagination pageNumber={pageNumber} ITEMSPERPAGE={ITEMSPERPAGE}/>
                 </div>
             </div>
         </div>

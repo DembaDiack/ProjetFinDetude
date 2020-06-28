@@ -21,7 +21,7 @@ const Profile = (props) => {
         return () => {
             document.body.style = initial;
         }
-    })
+    },[])
 
 
 
@@ -58,7 +58,7 @@ const Profile = (props) => {
                 })
         }
 
-    }, [docs])
+    }, [docs,id])
 
     const [picture, setPicture] = useState(null);
 

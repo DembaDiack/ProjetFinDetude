@@ -219,9 +219,9 @@ exports.getUser = email =>
 exports.setUserProfile = data => {
     console.log(data);
     const filter = {
-        "email" : data.email
+        "email" : data.data.email
     }
-   User.findOneAndUpdate(filter,data,(err,result) => {
+   User.findOneAndUpdate(filter,data.data,(err,result) => {
        if(err){
            return false
        }
@@ -231,7 +231,7 @@ exports.setUserProfile = data => {
        }
    },{
        new : true,
-       useFindAndModify : false
+       useFindAndModify : false,
     });
    
 }
@@ -290,7 +290,7 @@ exports.regexSearch = query => {
     query.split(" ")[1] ? regex.push({"lastName" : {"$regex" : query.split(" ")[1] , "$options" : "i"}})
     : null;
 
-    return User.find({"$or" : regex})
+    return User.find({"$or" : regex}).limit(3)
     .then(result => {
         return result;
     })

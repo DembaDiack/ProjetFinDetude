@@ -51,10 +51,13 @@ exports.list = ()=>
 
 exports.deleteById = id =>
 {
-   const filter = {"_id" : mongoose.Types.ObjectId(id)};
-   return Document.findByIdAndDelete(filter)
+   const filter = {"info.id" : id};
+   console.log(filter);
+   return Document.findOneAndDelete(filter,(result) => {
+       console.log("callback result : ",result);
+   })
    .then(result => {
-       console.log("delete document : ",result);
+       console.log(result);
    })
    .catch(err => {
        console.log(err);

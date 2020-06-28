@@ -117,7 +117,6 @@ const Add = props => {
     console.log(upload.files);
     const email = auth.getEmail();
     console.log("email", email);
-
     if (email) {
       for (let i = 0; i <= upload.files.length - 1; i++) {
         const result = dropboxUpload(email, upload.files[i], upload.faculty, upload.filetitle)
@@ -143,6 +142,7 @@ const Add = props => {
   }
 
   useEffect(() => {
+
     if (upload.files === null) {
       setUpload({
         ...upload,
@@ -174,11 +174,6 @@ const Add = props => {
 
 
 
-
-
-
-
-
   return (
     <form
       onDragEnter={(e) => dragEnter(e)}
@@ -194,16 +189,6 @@ const Add = props => {
         <p className="text-center"><strong>Upload File</strong></p><img />
         <p>Drag and drop or&nbsp;<strong style={{ color: "#4B9DEA", cursor: "pointer" }} onClick={(e) => clickInput(e)}>Browse</strong> for a file</p>
         <input type="file" name="file" multiple={false} hidden={true} ref={fileInputBtn} onChange={(e) => loadFile(e)} />
-        {upload.files ? <p style={{ fontSize: 13 }}>
-          File title
-          <input className="form-control"
-            defaultValue={upload.files[0].name}
-            type="text"
-            name="filetitle"
-            style={{ backgroundColor: 'rgb(248,248,248)' }}
-            onChange={(e) => handleChange(e)}
-            value={upload.filetitle} />
-        </p> : null}
         <p style={{ fontSize: 13 }} >Faculty<br /> <select className="form-control" name="faculty" onChange={(e) => handleChange(e)} >
           <optgroup label="Choose the faculty you belong to">
             <option value="DI" defaultValue>DI</option>
@@ -220,7 +205,6 @@ const Add = props => {
         {upload.files ? <button className="btn btn-danger" onClick={() => cancelUpload()} style={{ margin: 10, width: "35%" }}>Cancel</button>
           : null}
       </div>
-      {upload.fileList}
     </form>
 
   );

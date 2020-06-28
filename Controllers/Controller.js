@@ -89,6 +89,7 @@ exports.getUserDocuments = (request,response) => {
 }
 exports.updateUserProfile = (request,response) =>{
     const data = request.body;
+    console.log("user data update : ",data);
     const result = Auth.setUserProfile(data);
     response.send({
         code : result
@@ -103,7 +104,7 @@ exports.deleteDocumentById = (request,response) => {
     })
     .catch(err => {
         console.log(err);
-        response.send(1);
+        response.send(-1);
     })
 }
 exports.getUserEmailByMatricule = (request,response) => {
