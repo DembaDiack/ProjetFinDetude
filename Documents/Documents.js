@@ -67,7 +67,8 @@ exports.deleteById = id =>
 exports.getUserDocuments = email =>
 {
     const filter = {
-        "userInfo.email" : email
+        "userInfo.email" : email,
+        "info.name" : {"$ne" : "profile.jpg"}
     }
     return Document.find(filter)
     .then(result => {
@@ -93,5 +94,37 @@ exports.searchRegex = query => {
     })
     .catch(err => {
         return err
+    })
+}
+
+exports.increaseDocViews = id => {
+    const filter = {
+        "info.id" : id
+    }
+    return Document.findOne(filter)
+    .then(result => {
+        if(result)
+        {
+            result.info.views = result.info.views + 1;
+            console.log("increase : ",result.info.views);
+            result.save();
+        }
+        return result;
+    })
+    .catch(err => {
+        return err;
+    })
+}
+exports.getDocInfo = id => {
+    const filter = {
+        "info.id" : id
+    }
+
+    return Document.findOne(filter)
+    .then(result => {
+        return result;
+    })
+    .catch(err => {
+        return err;
     })
 }

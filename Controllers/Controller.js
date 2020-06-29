@@ -152,3 +152,25 @@ exports.customQuery = (request,response) => {
         response.send(err);
     })
 }
+
+exports.increaseDocViews = (request,response) => {
+    const id = request.body.id;
+    Documents.increaseDocViews(id)
+    .then(result => {
+        response.send(result);
+    })
+    .catch(err => {
+        response.send(err);
+    })
+}
+
+exports.getDocInfo = (request,response) => {
+    const id = request.body.id;
+    Documents.getDocInfo(id)
+    .then(result => {
+        response.send(result);
+    })
+    .catch(err => {
+        response.send(err);
+    })
+}

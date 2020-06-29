@@ -22,6 +22,7 @@ const Add = props => {
     faculty: null,
     files: null,
     filetitle: null,
+    year : 1
   }
   const [upload, setUpload] = useState(initialUpload);
   const [uploadBtn,setUploadBtn] = useState({
@@ -119,7 +120,7 @@ const Add = props => {
     console.log("email", email);
     if (email) {
       for (let i = 0; i <= upload.files.length - 1; i++) {
-        const result = dropboxUpload(email, upload.files[i], upload.faculty, upload.filetitle)
+        const result = dropboxUpload(email, upload.files[i], upload.faculty, upload.filetitle,upload.year)
         .then(result => {
           setUploadBtn({
            status : "send" 
@@ -199,6 +200,15 @@ const Add = props => {
             <option value="RT">RT</option>
             <option value="SAE">SAE</option>
             <option value="TCM">TCM</option>
+          </optgroup>
+        </select></p>
+        <p style={{ fontSize: 13 }} >Year<br /> <select className="form-control" name="year" onChange={(e) => handleChange(e)} >
+          <optgroup label="Faculty year">
+            <option value={1} defaultValue>1</option>
+            <option value={2}>2</option>
+            <option value={3}>3</option>
+            <option value={4}>4</option>
+            <option value={5}>5</option>
           </optgroup>
         </select></p>
         <input type="submit" value={uploadBtn.status} className={upload.button} style={{ width: "35%" }} />

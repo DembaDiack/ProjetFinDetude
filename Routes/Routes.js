@@ -38,4 +38,10 @@ Router.post("/user/customQuery",controller.customQuery);
 
 Router.post("/search",controller.regexSearch);
 
+
+Router.post("/docs/views/",controller.increaseDocViews);
+
+
+Router.post("/docs/info",controller.getDocInfo);
+
 exports.routes = Router;

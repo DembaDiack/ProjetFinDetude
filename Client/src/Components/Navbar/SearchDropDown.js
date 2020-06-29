@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./spinner.css";
 import {Link} from "react-router-dom";
-import NavLink from "./NavLink";
+import SearchNavLink from "./SearchNavLink";
 
 const SearchDropdown = props => {
 
@@ -25,14 +25,14 @@ const SearchDropdown = props => {
         if(props.searchResult.data.users !== [])
         {
           users = props.searchResult.data.users.map((user)=>{
-            return <NavLink image={user.avatar} name={`${user.firstName} ${user.lastName}`} matricule={user.matricule} key={user.matricule} style={{marginBottom : 8}}/>
+            return <SearchNavLink image={user.avatar} name={`${user.firstName} ${user.lastName}`} matricule={user.matricule} key={user.matricule} style={{marginBottom : 8}}/>
           })
           setUserState(users);
         }
         if(props.searchResult.data.documents !== [])
         {
           documents = props.searchResult.data.Documents.map((doc)=>{
-            return <NavLink name={`${doc.name} - ${doc.faculty} - ${doc.userInfo.firstName} ${doc.userInfo.firstName}`}/>
+            return <SearchNavLink name={`${doc.name} - ${doc.faculty} - ${doc.userInfo.firstName} ${doc.userInfo.firstName}`}/>
           })
           setDocState(documents)
         }

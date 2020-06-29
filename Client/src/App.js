@@ -21,6 +21,7 @@ import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 import Logout from "./Components/Login/Logout";
 import Preview from "./Components/Documents/Preview/Preview";
 import Profile from "./Components/Profile/Profile";
+import Browse from "./Components/Browse/Browse";
 
 const App = (props) =>
 {
@@ -70,6 +71,7 @@ const App = (props) =>
                 <Route path="/logout" component={Logout}/>
                 <Route path="/preview/:id" component={Preview}/>
                 <Route path="/profile/:id" component={Profile} />
+                <Route path="/Browse" component={Browse}/>
                 <ProtectedRoute path="/add" component={Add} />
                 <ProtectedRoute path="/settings" component={Settings}/>
                 <Route component={Home}/>

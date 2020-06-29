@@ -31,8 +31,9 @@ const Navbar = props =>
         <div className="collapse navbar-collapse" id="navcol-1">
           <ul className="nav navbar-nav">
             {props.connected ? <NavLink name="Add Documents" to="/add" /> : null}
+            <NavLink name="Browse" to="/browse" />
           </ul>
-          <DropDown title="Dropdown" links={[{to : "/" , name : "link1",section : true},{to : "/" , name : "link2"},{to : "/" , name : "link3"}]}/>
+          {/* <DropDown title="Dropdown" links={[{to : "/" , name : "link1",section : true},{to : "/" , name : "link2"},{to : "/" , name : "link3"}]}/> */}
         </div>
         <SearchBar setLoading={props.setLoading} loading={props.loading}/>
         {props.connected ? null :<Link className="mr-4" to="/login" style={{ color: "rgb(255,255,255)" }}>
