@@ -3,7 +3,7 @@ import Auth from "../../Auth/Auth";
 import { downloadFile, temp_link, deleteFile, editProfilePicture } from "../../Dropbox/Dropbox.js";
 import Axios from "axios";
 import { Link, useParams } from "react-router-dom";
-
+import {ReactComponent as Download} from "../../SVG/download.svg"
 
 
 const Profile = (props) => {
@@ -45,8 +45,8 @@ const Profile = (props) => {
                                     .then(result => {
                                         return <li className="list-inline-item d-md-flex" key={elem._id}>
                                             <div><strong>{elem.info.server_modified}</strong></div>
-                                            <div><a href="#" style={{ width: '20%', marginLeft: 12, color: 'rgb(0,178,255)' }}>{elem.info.name}</a></div>
-                                            <div><a href={result.link} style={{ width: '20%', marginLeft: 12, color: 'rgb(0,178,255)' }} onClick={() => downloadFile(elem.info.id)}>Download</a></div>                                </li>
+                                            <div><bold href="#" style={{ width: '20%', marginLeft: 12, color: 'white' }}>{elem.info.name}</bold></div>
+                                            <div><a href={result.link} style={{ width: '20%', marginLeft: 12, color: 'rgb(0,178,255)' }}><Download style={{width :20 , height : 20}}/></a></div>                                </li>
                                     })
                             })
                             Promise.all(temp_docs).then(result => {

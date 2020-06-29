@@ -286,6 +286,7 @@ exports.regexSearch = query => {
         {"firstName" : {"$regex" : query , "$options" : "i"}},
         {"lastName" : {"$regex" : query , "$options" : "i"}},
         {"firstName" : {"$regex" : query.split(" ")[0] , "$options" : "i"}},
+        {"faculty" : {"$regex" : query , "$options" : "i"}}
     ]
     query.split(" ")[1] ? regex.push({"lastName" : {"$regex" : query.split(" ")[1] , "$options" : "i"}})
     : null;
