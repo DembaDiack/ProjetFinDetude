@@ -1,22 +1,30 @@
-import Axios from "axios"
-import {getThumbnail} from "../../Dropbox/Dropbox";
+import React from "react"
+import {getThumbnail , downloadFile} from "../../Dropbox/Dropbox";
+import Card from "./Card"
 
-const getThumbnails = async (indexOfFirst,indexOfLast)=>{
-    const files = await Axios.get("/all");
-    const slicedFiles = files.data.slice(indexOfFirst,indexOfLast); 
-    const thumbnailLinks = await slicedFiles.map(async (file) => {
-        try
-        {
-            const url = await getThumbnail(file.info.path_display);
-            return url;
-        }
-        catch(err)
-        {
-            console.log(err);
-            return err;
-        }
+const getThumbnails = async (docs = []) =>{
+    const thumbnails = [];
+    const cards = [];
+
+    docs.forEach(elem => {
+        thumbnails.push(getThumbnail(elem.info.path_display));
     });
-    console.log("thumbnail links : ",thumbnailLinks);
+    return Promise.all(thumbnails)
+    .then(result => {
+        console.log(result);
+        result.forEach(elem => {
+            if(!elem.error)
+            {
+                const url = URL.createObjectURL(elem.fileBlob);
+                cards.push(<Card src={url} key={elem.id} id={elem.id} title={elem.name} />)
+            }
+        })
+        return cards;
+        console.log(cards);
+    })
+    .catch(err => {
+
+    })
 }
 
 

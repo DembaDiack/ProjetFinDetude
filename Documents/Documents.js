@@ -128,3 +128,30 @@ exports.getDocInfo = id => {
         return err;
     })
 }
+
+exports.loadDocs = (views,age,query = "") => {
+
+    const regex = [
+        {"info.name" : {"$regex" : query , "$options" : "i"}},
+        {"info.faculty" : {"$regex" : query , "$options" : "i"}},
+        {"info.title" : {"$regex" : query , "$options" : "i"}},
+        {"info.id" : {"$regex" : query , "$options" : "i"}},
+        {"userInfo.email" : {"$regex" : query , "$options" : "i"}}
+    ];
+    
+    const views_order = views === "asc" ? 1 : -1;
+    const age_order = age === "asc" ? 1 : -1;
+
+    return Document.find({"$or" : regex}).sort({
+        "info.client_modified" : age_order,
+        "info.views" : views_order
+    })
+    .then(result => {
+        console.log(result);
+        return result;
+    })
+    .catch(err => {
+        console.log(err);
+        return err;
+    })
+}

@@ -174,3 +174,15 @@ exports.getDocInfo = (request,response) => {
         response.send(err);
     })
 }
+
+exports.browse = (request,response) => {
+    const age = request.query.age ? request.query.age === "asc" ? "asc" : "desc" : "asc";
+    const views = request.query.views ? request.query.views === "asc" ? "asc" : "desc" : "asc";
+    Documents.loadDocs(views,age,request.query.q)
+    .then(result => {
+        response.send(result);
+    })
+    .catch(err => {
+        response.send(err);
+    });
+}

@@ -44,4 +44,6 @@ Router.post("/docs/views/",controller.increaseDocViews);
 
 Router.post("/docs/info",controller.getDocInfo);
 
+Router.get("/search",controller.browse);
+
 exports.routes = Router;

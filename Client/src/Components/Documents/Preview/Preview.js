@@ -85,7 +85,7 @@ const Preview = () => {
             </div>
             <div className="container d-sm-flex justify-content-sm-center">
                 <div style={{ width: "100%" }}>
-                    {link ? <iframe src={link} style={{ width: '100%', height: 1000 }} allow={true} >
+                    {link ? <iframe src={link} style={{ width: '100%', height: 1000 }} allow="true" >
                         &lt;p&gt;Your browser does not support iframes.&lt;/p&gt;
             </iframe> : null}
                 </div>
