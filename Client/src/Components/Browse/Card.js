@@ -1,28 +1,34 @@
-import React from "react"
-import {Link} from "react-router-dom"
+import React from "react";
+import { Link } from "react-router-dom";
 
-const Card = props => {
+const Card = (props) => {
     return (
-        <div className="col-md-3">
-            <div className="row">
-                <div className="col s12 m7">
-                    <div className="card card-scale">
-                        <Link to={`/preview/${props.id}`} className="card-image" style={{ width: 252, overflow: "hidden" }}>
-                            <img src={props.src} style={{ width: 255 }} />
-    <span className="card-title" style={{color : "black"}}>{props.title}</span>
-                        </Link>
-                        <div className="card-content">
-                            <p>Title</p>
-                        </div>
-                        <div className="card-action">
-                            <Link to={`/preview/${props.id}`}>Preview</Link>
-                        </div>
+        <div className="supra-container">
+            <div className="card-container">
+                <div className="card">
+                    <div className="image" style={{
+                        backgroundImage: `url(${props.src})`, height: 332, zIndex: 1,
+                        height: 330,
+                        width: "100%",
+                        backgroundSize: "cover",
+                        backgroundPositionX: "20%"
+                    }}></div>
+                    <Link to={`/preview/${props.id}`}>
+                    <div className="content" style={{ textAlign: "center", backgroundColor: "rgba(0, 0, 0, 0.5)" }}>
+                        <h2>this is some text</h2>
+                        <Link to={`/preview/${props.id}`}><button className="button">view</button></Link>
                     </div>
+                    </Link>
                 </div>
             </div>
+            <div className="caption" style={{ marginLeft: 5, fontWeight: "bold" }}>
+                {props.title}
+            </div>
+            <div className="year" style={{ marginLeft: 5, fontSize: 15, color: "whitesmoke", opacity: 0.7 }}>
+                2020
+      </div>
         </div>
-
-    )
-}
+    );
+};
 
 export default Card;

@@ -32,10 +32,12 @@ const Page = ()=>{
             document.body.style = initial;
         }
     })
-    const delete_file = id => {
+    const delete_file = (id,_id) => { 
         deleteFile(id)
             .then(result => {
-                Axios.get(`/docs/delete/${id}`)
+                Axios.post(`/docs/delete/`,{
+                    _id : _id
+                })
                 console.log("delete : ", result);
                 if(result !== -1)
                 {
@@ -67,7 +69,7 @@ const Page = ()=>{
                                     <div><strong>{elem.info.server_modified}</strong></div>
                                     <div><Link to={`/preview/${elem.info.id}`} style={{ width: '20%', marginLeft: 12, color: 'rgb(0,178,255)' }}>{elem.info.name}</Link></div>
                                     <div><a href={result.link} style={{ width: '20%', marginLeft: 12, color: 'rgb(0,178,255)' }}><Download style={{width :20 , height : 20}}/></a></div>
-                                    <div><a href="#" style={{ width: '20%', marginLeft: 12, color: 'rgb(0,178,255)' }} onClick={() => delete_file(elem.info.id)}><Delete style={{width :20 , height : 20}}/></a></div>
+                                    <div><a href="#" style={{ width: '20%', marginLeft: 12, color: 'rgb(0,178,255)' }} onClick={() => delete_file(elem.info.id,elem._id)}><Delete style={{width :20 , height : 20}}/></a></div>
                                     <div><Link to={`/preview/${elem.info.id}`} style={{ width: '20%', marginLeft: 12, color: 'rgb(0,178,255)' }}><Inspection style={{width :20 , height : 20}} alt={"preview"}/></Link></div>
                                 </li>
                             })
@@ -115,7 +117,10 @@ const Page = ()=>{
             setPicture(null);
         }
     })
-   
+
+    useEffect(()=>{
+        console.log(state);
+    },[state])
     return(
         <form>
             <div>
@@ -134,7 +139,7 @@ const Page = ()=>{
                             <li>{state.firstName} {state.lastName}</li>
                             <li>Email : {state.email}</li>
                             <li>Faculty : {state.faculty}</li>
-                            <li>Item 4</li>
+    <li>Matricule : {state.matricule}</li>
                         </ul>
                     </div>
                     <div className="col d-sm-flex justify-content-sm-end justify-content-md-center">

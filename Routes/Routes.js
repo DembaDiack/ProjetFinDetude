@@ -28,7 +28,7 @@ Router.get("/docs/:email",controller.getUserDocuments);
 Router.post("/update",controller.updateUserProfile);
 
 
-Router.get("/docs/delete/:id",controller.deleteDocumentById);
+Router.post("/docs/delete/",controller.deleteDocumentById);
 
 
 Router.get("/user/getByMatricule/:matricule",controller.getUserEmailByMatricule);

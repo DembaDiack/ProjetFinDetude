@@ -51,13 +51,12 @@ exports.list = ()=>
 
 exports.deleteById = id =>
 {
-   const filter = {"info.id" : id};
-   console.log(filter);
-   return Document.findOneAndDelete(filter,(result) => {
-       console.log("callback result : ",result);
+    console.log("receivvvvvvvvvvvvved ",id);
+   Document.deleteOne({
+       "_id" : id
    })
    .then(result => {
-       console.log(result);
+       console.log("delete ", result);
    })
    .catch(err => {
        console.log(err);
@@ -101,19 +100,10 @@ exports.increaseDocViews = id => {
     const filter = {
         "info.id" : id
     }
-    return Document.findOne(filter)
-    .then(result => {
-        if(result)
-        {
-            result.info.views = result.info.views + 1;
-            console.log("increase : ",result.info.views);
-            result.save();
-        }
-        return result;
-    })
-    .catch(err => {
-        return err;
-    })
+    return Document.updateOne(
+        filter,
+        { $inc: { "info.views": 1} }
+     )
 }
 exports.getDocInfo = id => {
     const filter = {
@@ -142,9 +132,9 @@ exports.loadDocs = (views,age,query = "") => {
     const views_order = views === "asc" ? 1 : -1;
     const age_order = age === "asc" ? 1 : -1;
 
-    return Document.find({"$or" : regex}).sort({
+    return Document.find({"$or" : regex , "info.name" : {"$ne" : "profile.jpg"}}).sort({
         "info.client_modified" : age_order,
-        "info.views" : views_order
+        "info.views" : views_order,
     })
     .then(result => {
         console.log(result);

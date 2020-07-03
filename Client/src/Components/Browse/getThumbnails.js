@@ -23,7 +23,7 @@ const getThumbnails = async (docs = []) =>{
         console.log(cards);
     })
     .catch(err => {
-
+        console.log(err);
     })
 }
 

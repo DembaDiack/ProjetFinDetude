@@ -12,6 +12,8 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "dropbox": "^4.0.30",
+    "image-conversion": "^2.1.1",
+    "jimp": "^0.14.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-fontawesome": "^1.7.1",
@@ -43,5 +45,4 @@
     ]
   },
   "proxy": "http://localhost:2000"
-  
 }

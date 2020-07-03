@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Auth from "../../../Auth/Auth";
 import Axios from "axios";
-import { upload as dropboxUpload } from "../../../Dropbox/Dropbox";
+import { upload as dropboxUpload, upload_sessions } from "../../../Dropbox/Dropbox";
 import { connect } from "react-redux";
 import "./Toggle-Switches.css";
 import File from "./File";
@@ -15,6 +15,10 @@ const Add = props => {
   // }
 
   const auth = new Auth();
+  const [percentage, setPercentage] = useState(0);
+  const supportedDocuments = ["application/pdf","image/jpeg","image/png","text/plain","image/bmp","text/css","application/vnd.openxmlformats-officedocument.wordprocessingml.document","application/msword","text/html","application/vnd.ms-powerpoint","application/vnd.openxmlformats-officedocument.presentationml.presentation","image/svg+xml"];
+
+
   const initialUpload = {
     fileList: [],
     user: null,
@@ -22,11 +26,12 @@ const Add = props => {
     faculty: null,
     files: null,
     filetitle: null,
-    year : 1
+    year: 1,
+    tags: ""
   }
   const [upload, setUpload] = useState(initialUpload);
-  const [uploadBtn,setUploadBtn] = useState({
-    status : "send"
+  const [uploadBtn, setUploadBtn] = useState({
+    status: "send"
   })
   // const [type,setType] = useState("public");
 
@@ -88,6 +93,11 @@ const Add = props => {
   }
 
   const loadFile = event => {
+    if(!supportedDocuments.includes(event.target.files[0].type))
+    {
+      window.alert(`file type not supported! => ${event.target.files[0].type}`);
+      return;
+    }
     setUpload({
       ...upload,
       button: "btn btn-success",
@@ -107,7 +117,8 @@ const Add = props => {
       }
       setUpload({
         ...upload,
-        fileList: fileList
+        fileList: fileList,
+        tags: upload.tags
       })
       startUpload();
     }
@@ -120,16 +131,18 @@ const Add = props => {
     console.log("email", email);
     if (email) {
       for (let i = 0; i <= upload.files.length - 1; i++) {
-        const result = dropboxUpload(email, upload.files[i], upload.faculty, upload.filetitle,upload.year)
-        .then(result => {
-          setUploadBtn({
-           status : "send" 
+        const result = upload_sessions(email, upload.files[i], upload.faculty, upload.filetitle, upload.year, upload.tags, setPercentage)
+          .then(result => {
+            setPercentage(100);
+            setUpload(initialUpload);
+            setUploadBtn({
+              status: "send"
+            })
           })
-        })
         setUploadBtn({
-          status : "uploading..."
+          status: "uploading..."
         })
-        
+
       }
     }
 
@@ -172,6 +185,10 @@ const Add = props => {
   }
 
 
+  useEffect(() => {
+    console.log("upload updated", upload);
+  }, [upload])
+
 
 
 
@@ -211,10 +228,15 @@ const Add = props => {
             <option value={5}>5</option>
           </optgroup>
         </select></p>
+        <input onChange={(e) => handleChange(e)} type="text" name="tags" className="form-control mb-3" id="tags" aria-describedby="tagshelp" placeholder="Enter Tags , seperated by commas" />
+        <div className="progress" style={{ height: 30, width: "100%", marginBottom: 10 }}>
+              <div className="progress-bar" role="progressbar" style={{ width: `${Math.floor(percentage)}%` }} aria-valuenow={25} aria-valuemin={0} aria-valuemax={100} />
+        </div>
         <input type="submit" value={uploadBtn.status} className={upload.button} style={{ width: "35%" }} />
         {upload.files ? <button className="btn btn-danger" onClick={() => cancelUpload()} style={{ margin: 10, width: "35%" }}>Cancel</button>
           : null}
       </div>
+
     </form>
 
   );

@@ -96,8 +96,8 @@ exports.updateUserProfile = (request,response) =>{
     });
 }
 exports.deleteDocumentById = (request,response) => {
-    const id = request.params.id;
-    Documents.deleteById(id)
+    const _id = request.body._id;
+    Documents.deleteById(_id)
     .then(result => {
         console.log(result);
         response.send(result);
@@ -178,7 +178,8 @@ exports.getDocInfo = (request,response) => {
 exports.browse = (request,response) => {
     const age = request.query.age ? request.query.age === "asc" ? "asc" : "desc" : "asc";
     const views = request.query.views ? request.query.views === "asc" ? "asc" : "desc" : "asc";
-    Documents.loadDocs(views,age,request.query.q)
+    console.log("category",request.query.c);
+    Documents.loadDocs(views,age,request.query.q,request.query.c)
     .then(result => {
         response.send(result);
     })
