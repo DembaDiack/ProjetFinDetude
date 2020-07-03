@@ -84,7 +84,7 @@ const Preview = () => {
         try {
             let temp = [];
             console.log("tagsssss", tags);
-            temp = tags.map((tag) => {
+            temp = tags.split(",").map((tag) => {
                 return <li><Link to={`/Browse?category=${tag}`}>{tag}</Link>,</li>
             });
             setTagsList(temp);
@@ -110,7 +110,9 @@ const Preview = () => {
                 <p style={{ fontSize: 25 }}>{docInfo ? docInfo.info.name : "File Title"}</p>
                 <ul className="list-inline text-left">
                     <li className="list-inline-item">Uploaded by  : {docInfo ? <Link to={`/profile/${docInfo.userInfo.matricule}`}>{`${docInfo.userInfo.firstName} ${docInfo.userInfo.lastName}`}</Link> : "File Title"} </li>
+                    <ul className="list-inline text-left" style={{display : "inline-flex" , listStyle : "none"}}>
                     {tagsList}
+                    </ul>
                 </ul>
                 <a href={downloadLink}><Download className="btn btn-primary" type="button" style={{ width: 50, height: 50, marginBottom: 10 }} /></a>
             </div>
