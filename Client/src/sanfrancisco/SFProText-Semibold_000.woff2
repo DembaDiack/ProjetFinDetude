@@ -1,0 +1,2215 @@
+APLES)
+        /MediaProcessingBoundary 0
+        /Type 8 >> >> setpagedevice"
+*End
+
+*StapleLocation 6parallel/Six Staples: "
+    << /MediaProcessing (STAPLING)
+        /MediaProcessingDetails<<
+        /MediaProcessingOption (SIX_STAPLES)
+        /MediaProcessingBoundary 0
+        /Type 8 >> >> setpagedevice"
+*End
+
+
+*%----------------
+*% MC8060 types end
+*%----------------
+*StapleLocation 1parallelCM8060/One staple left : "
+        <</MediaProcessing (STAPLING)
+        /MediaProcessingDetails<<
+        /MediaProcessingOption (LEFT_1PT)
+        /MediaProcessingBoundary 0
+        /Type 8 >> >> setpagedevice"
+*End
+*StapleLocation 1rightparallel/One staple right : "
+        <</MediaProcessing (STAPLING)
+        /MediaProcessingDetails<<
+        /MediaProcessingOption (RIGHT_1PT)
+        /MediaProcessingBoundary 0
+        /Type 8 >> >> setpagedevice"
+*End
+*StapleLocation 1diagonalCM8060/One Staple Left Angled: "
+        <</MediaProcessing (STAPLING)
+        /MediaProcessingDetails<<
+        /MediaProcessingOption (LEFT_1PT_ANGLED)
+        /MediaProcessingBoundary 0
+        /Type 8 >> >> setpagedevice"
+*End
+*StapleLocation 1right/One Staple Right Angled: "
+        <</MediaProcessing (STAPLING)
+        /MediaProcessingDetails<<
+        /MediaProcessingOption (RIGHT_1PT_ANGLED)
+        /MediaProcessingBoundary 0
+        /Type 8 >> >> setpagedevice"
+*End
+*StapleLocation 2leftCM8060/Two staples left: "
+        <</MediaProcessing (STAPLING)
+        /MediaProcessingDetails<<
+        /MediaProcessingOption (LEFT_2PT)
+        /MediaProcessingBoundary 0
+        /Type 8 >> >> setpagedevice"
+*End
+*StapleLocation 2right/Two staples right: "
+        <</MediaProcessing (STAPLING)
+        /MediaProcessingDetails<<
+        /MediaProcessingOption (RIGHT_2PT)
+        /MediaProcessingBoundary 0
+        /Type 8 >> >> setpagedevice"
+*End
+*StapleLocation 3parallelCM8060/Three Staples Left: "
+        <</MediaProcessing (STAPLING)
+        /MediaProcessingDetails<<
+        /MediaProcessingOption (LEFT_3PT)
+        /MediaProcessingBoundary 0
+        /Type 8 >> >> setpagedevice"
+*End
+*StapleLocation 3right/Three Staples Right: "
+        <</MediaProcessing (STAPLING)
+        /MediaProcessingDetails<<
+        /MediaProcessingOption (RIGHT_3PT)
+        /MediaProcessingBoundary 0
+        /Type 8 >> >> setpagedevice"
+*End
+*StapleLocation 3topCM8060/Three Staples Top: "
+        <</MediaProcessing (STAPLING)
+        /MediaProcessingDetails<<
+        /MediaProcessingOption (TOP_3PT)
+        /MediaProcessingBoundary 0
+        /Type 8 >> >> setpagedevice"
+*End
+*%----------------
+*% MC8060 types end
+*%----------------
+*StapleLocation 2topCM8060/Two staples top: "
+        <</MediaProcessing (STAPLING)
+        /MediaProcessingDetails<<
+        /MediaProcessingOption (TOP_2PT)
+        /MediaProcessingBoundary 0
+        /Type 8 >> >> setpagedevice"
+*End
+*StapleLocation Stitching/Fold and Stitch: "
+    << /MediaProcessing (BOOKLET_MAKER)
+        /MediaProcessingDetails <<
+        /MediaProcessingOption (BOOKLET_MAKER)
+        /MediaProcessingBoundary 0
+        /ImageOrientation 0
+        /Type 8 >> >> setpagedevice"
+*End
+*StapleLocation StitchingReverse/Fold and Stitch (Max 15 sheets): "
+    << /MediaProcessing (BOOKLET_MAKER)
+        /MediaProcessingDetails <<
+        /MediaProcessingOption (BOOKLET_MAKER)
+        /MediaProcessingBoundary 0
+        /ImageOrientation 0
+        /Type 8 >> >> setpagedevice"
+*End
+*CloseUI: *StapleLocation
+
+*MSPrintSchemaKeywordMap: DocumentStaple *StapleLocation
+
+*%-------------------------------------------------------------------------
+*% PRN_PROP Standard features section
+*%-------------------------------------------------------------------------
+*OpenGroup: InstallableOptions/Installed Options
+
+*%=========================================================================
+*% DuplexUnit
+*%=========================================================================
+*OpenUI *Duplexer/Duplex Unit (for 2-Sided Printing): Boolean
+*DefaultDuplexer: NotInstalled
+*Duplexer NotInstalled/Not Installed: ""
+*Duplexer Installed/Installed: ""
+*CloseUI: *Duplexer
+
+*%=========================================================================
+*% PrinterHardDisk
+*%=========================================================================
+*OpenUI *PrinterHardDisk/Printer Hard Disk: Boolean
+*DefaultPrinterHardDisk: Installed
+*PrinterHardDisk NotInstalled/Not Installed: ""
+*PrinterHardDisk Installed/Installed: ""
+*CloseUI: *PrinterHardDisk
+
+*%=========================================================================
+*%  CombineMediaTypesAndInputBins
+*%  This feature is used for the "Combine Media Types and Sources in the application list" feature
+*%  This feature is currently not shown in the treeview because of Unidrv limitations.
+*%  So in any product, this feature is either always present as installed or always present as Not Installed
+*%=========================================================================
+*OpenUI *CombineMediaTypesAndInputBins/Include Types in Applications Source List:  PickOne
+*DefaultCombineMediaTypesAndInputBins: Installed
+*CombineMediaTypesAndInputBins Installed/Enabled:  ""
+*CloseUI: *CombineMediaTypesAndInputBins
+
+*% -------------------------------------------------
+*% Accessory OutputBins
+*% -------------------------------------------------
+*OpenUI *AccessoryOutputBins/Accessory Output Bin: PickOne
+*DefaultAccessoryOutputBins: None
+*AccessoryOutputBins 3000Stapler/HP 3000-Sheet Stapler/Stacker: ""
+*AccessoryOutputBins 3000Stacker/HP 3000-Sheet Stacker: ""
+*AccessoryOutputBins MultiFunctionFinisher/HP Multifunction Finisher: "
+    userdict /MediaProcessing (HP MULTIFUNCTION FINISHER) put"
+*End
+*AccessoryOutputBins MBM8Mailbox/8-Bin Mailbox - Mailbox Mode: ""
+*AccessoryOutputBins MBM8Stacker/8-Bin Mailbox - Stacker Mode: ""
+*AccessoryOutputBins MBM8Sorter/8-Bin Mailbox - Sorter/Collator Mode: ""
+*AccessoryOutputBins MBM8JobSeparator/8-Bin Mailbox - Job Separator Mode: ""
+*AccessoryOutputBins None/Not Installed: ""
+*AccessoryOutputBins MBM5Mailbox/5-Bin Mailbox - Mailbox Mode - C4787: ""
+*AccessoryOutputBins MBM5Stacker/5-Bin Mailbox - Stacker Mode - C4787: ""
+*AccessoryOutputBins MBM5SorterCollator/5-Bin Mailbox - Sorter/Collator Mode - C4787: ""
+*AccessoryOutputBins MBM5JobSeparator/5-Bin Mailbox - Job Separator Mode - C4787: ""
+*AccessoryOutputBins 750Stapler/HP 750-Sheet Stapler/Stacker: ""
+*AccessoryOutputBins 500StaplerOutput/HP 500-Sheet Stapler/Stacker: ""
+*AccessoryOutputBins 500Stapler/HP 500-Sheet Stapler/Stacker - Q2443: ""
+*AccessoryOutputBins 500Stacker/HP 500-Sheet Stacker: ""
+*AccessoryOutputBins MBM3Mailbox/HP 3-Bin Mailbox - Mailbox Mode: ""
+*AccessoryOutputBins MBM3Stacker/HP 3-Bin Mailbox - Stacker Mode: ""
+*AccessoryOutputBins MBM3FunctionSeparator/HP 3-Bin Mailbox-Function Separator: ""
+*AccessoryOutputBins 3000InternalStapler/HP 3000-Sheet Stapler/Stacker - Q3633: "
+    userdict /MediaProcessing (HP 3000-SHEET STAPLER/STACKER) put"
+*End
+*AccessoryOutputBins MultiFunctionInternalFinisher/HP Multifunction Finisher - Q3634: "
+    userdict /MediaProcessing (HP MULTIFUNCTION FINISHER) put"
+*End
+*AccessoryOutputBins StackStapleJobSep/HP Stacker/Stapler/Job Separator: ""
+*AccessoryOutputBins MBM4JobSeparator/HP 4-Bin Job Separator: ""
+*AccessoryOutputBins SingleOutputBin/Single Output Bin: ""
+*AccessoryOutputBins MBM3StaplerMailbox/HP 3-Bin Stapler/Stacker - Mailbox Mode: ""
+*AccessoryOutputBins MBM3StaplerFunctionSeparator/HP 3-Bin Stapler/Stacker - Function Separator Mode: ""
+*AccessoryOutputBins MBM3StaplerStacker/HP 3-Bin Stapler/Stacker - Stacker Mode: ""
+*AccessoryOutputBins MBMBookletMailboxStapler/HP Booklet Maker - Mailbox Mode: ""
+*AccessoryOutputBins MBMBookletStackerStapler/HP Booklet Maker- Stacker Mode: ""
+*AccessoryOutputBins MBM5xMailbox/HP 5-Bin Mailbox: ""
+*AccessoryOutputBins MBM5Stacker1/HP 5-Bin Stacker: ""
+*AccessoryOutputBins MBM5JobSeparator1/HP 5-Bin Job Separator: ""
+*AccessoryOutputBins MBM5Collator/HP 5-Bin Collator: ""
+*AccessoryOutputBins 500StaplerZT/HP 500-Sheet Stapler/Stacker - CB522: ""
+*AccessoryOutputBins MBM3StaplerMailboxCE736A/HP 3-Bin Mailbox - Mailbox Mode - CE736A: ""
+*AccessoryOutputBins MBM3StaplerFunctionSeparatorCE736A/HP 3-Bin Stapler/Stacker - Function Separator Mode - CE736A: ""
+*AccessoryOutputBins MBM3StaplerStackerCE736A/HP 3-Bin Mailbox - Stacker Mode - CE736A: ""
+*AccessoryOutputBins MBM3StaplerMailboxCC424A/HP 3-Bin Stapler/Stacker - Mailbox Mode - CC424A: ""
+*AccessoryOutputBins MBM3StaplerFunctionSeparatorCC424A/HP 3-Bin Stapler/Stacker - Function Separator Mode - CC424A: ""
+*AccessoryOutputBins MBM3StaplerStackerCC424A/HP 3-Bin Stapler/Stacker - Stacker Mode - CC424A: ""
+*%AccessoryOutputBins HelpIndex/HelpIndex_15242: ""
+*?AccessoryOutputBins: "
+  save
+   currentpagedevice /OutputAttributes get
+   dup 4 known
+   {
+     dup 11 known {pop (3000Stapler)}
+         {pop (3000Stacker)} ifelse
+   }
+   dup 4 known
+   {
+     dup 11 known {pop (3000StaplerInternal)}
+        *%{pop (3000Stacker)} ifelse
+   }
+   dup 4 known
+   {
+     dup 11 known {pop (500Stapler)}
+         {pop (500Stacker)} ifelse
+   }
+   dup 4 known
+   {
+     dup 11 known {pop (500StaplerOutput)}
+          if
+   }
+   { pop (None)} ifelse = flush
+  restore
+"
+*End
+
+*CloseUI: *AccessoryOutputBins
+
+*% -------------------------------------------------
+*% Printer Memory
+*% -------------------------------------------------
+*OpenUI *InstalledMemory/Printer Memory: PickOne
+*DefaultInstalledMemory: 128-159MB
+*InstalledMemory 128-159MB/128 - 159 MB: ""
+*InstalledMemory 384-495MB/384 - 494 MB: ""
+*InstalledMemory 496-624MB/496 - 624 MB: ""
+*%InstalledMemory HelpIndex/HelpIndex_12003: ""
+*?InstalledMemory: "
+   save
+        currentsystemparams /RamSize get
+        524288 div ceiling cvi 2 div
+        /size exch def
+       size 624 gt
+          {(624MB)}
+             {size 496 ge
+                {(496-624MB)}
+                {size 384 ge
+                   {(384-495MB)}
+                      } ifelse
+                   } ifelse
+                } ifelse
+           }ifelse = flush
+  restore
+"
+*End
+*CloseUI: *InstalledMemory
+
+*CloseGroup: InstallableOptions
+
+*%==========================================================
+*% VMOption
+*%==========================================================
+*FreeVM: "6291456"
+*VMOption 128-159MB/128 - 159 MB: "6291456"
+*VMOption 384-495MB/384 - 494 MB: "123731968"
+*VMOption 496-624MB/496 - 624 MB: "182452224"
+
+*%------------------------------------------------------------------
+*% DOC_PROP Custom features section
+*%------------------------------------------------------------------
+
+*%------------------------------------------------------------------------
+*% Feature: PSAlignmentFile : HPCF (HP Custom Feature)
+*%------------------------------------------------------------------------
+*%  Printer Services component custom feature
+*%  PSAlignmentFile
+*%  This feature is used to get the name of the Printer Services component DLL
+*%------------------------------------------------------------------------
+
+*OpenUI *PSAlignmentFile: PickOne
+*DefaultPSAlignmentFile: HPCLS112
+*PSAlignmentFile HPCLS112: ""
+*CloseUI: *PSAlignmentFile
+
+
+*% ------------------------------------------------------------------
+*% Constraints Section
+*% ------------------------------------------------------------------
+*% --------------------------
+*% User Interface Constraints
+*% --------------------------
+
+*%------------------------------------------------------------------
+*% If optional Duplexer is not installed, disable access to Duplex
+*%------------------------------------------------------------------
+*UIConstraints: *Duplexer NotInstalled *Duplex DuplexNoTumble
+*UIConstraints: *Duplexer NotInstalled *Duplex DuplexTumble
+
+
+*%--------------------------------------------------------------------
+*% Custom page size only in tray 1 no duplexing
+*%--------------------------------------------------------------------
+*%NonUIConstraints: *CustomPageSize True *Duplex
+*%NonUIConstraints: *Duplex *CustomPageSize True
+*%NonUIConstraints: *CustomPageSize True *Duplex DuplexNoTumble
+*%NonUIConstraints: *CustomPageSize True *Duplex DuplexTumble
+
+
+*%=========================================================================
+*% Duplex constraints
+*%=========================================================================
+*UIConstraints: *PageSize ENV_10                                        *Duplex DuplexNoTumble
+*UIConstraints: *PageSize ENV_MONARCH                                   *Duplex DuplexNoTumble
+*UIConstraints: *PageSize ENV_DL                                        *Duplex DuplexNoTumble
+*UIConstraints: *PageSize ENV_C5                                        *Duplex DuplexNoTumble
+*UIConstraints: *PageSize ENV_B5                                        *Duplex DuplexNoTumble
+*UIConstraints: *PageRegion ENV_10                                      *Duplex DuplexNoTumble
+*UIConstraints: *PageRegion ENV_MONARCH                                 *Duplex DuplexNoTumble
+*UIConstraints: *PageRegion ENV_DL                                      *Duplex DuplexNoTumble
+*UIConstraints: *PageRegion ENV_C5                                      *Duplex DuplexNoTumble
+*UIConstraints: *PageRegion ENV_B5                                      *Duplex DuplexNoTumble
+*UIConstraints: *Duplex DuplexNoTumble                                  *PageSize ENV_10
+*UIConstraints: *Duplex DuplexNoTumble                                  *PageSize ENV_MONARCH
+*UIConstraints: *Duplex DuplexNoTumble                                  *PageSize ENV_DL
+*UIConstraints: *Duplex DuplexNoTumble                                  *PageSize ENV_C5
+*UIConstraints: *Duplex DuplexNoTumble                                  *PageSize ENV_B5
+*UIConstraints: *Duplex DuplexNoTumble                                  *PageRegion ENV_10
+*UIConstraints: *Duplex DuplexNoTumble                                  *PageRegion ENV_MONARCH
+*UIConstraints: *Duplex DuplexNoTumble                                  *PageRegion ENV_DL
+*UIConstraints: *Duplex DuplexNoTumble                                  *PageRegion ENV_C5
+*UIConstraints: *Duplex DuplexNoTumble                                  *PageRegion ENV_B5
+*UIConstraints: *PageSize ENV_10                                        *Duplex DuplexTumble
+*UIConstraints: *PageSize ENV_MONARCH                                   *Duplex DuplexTumble
+*UIConstraints: *PageSize ENV_DL                                        *Duplex DuplexTumble
+*UIConstraints: *PageSize ENV_C5                                        *Duplex DuplexTumble
+*UIConstraints: *PageSize ENV_B5                                        *Duplex DuplexTumble
+*UIConstraints: *PageRegion ENV_10                                      *Duplex DuplexTumble
+*UIConstraints: *PageRegion ENV_MONARCH                                 *Duplex DuplexTumble
+*UIConstraints: *PageRegion ENV_DL                                      *Duplex DuplexTumble
+*UIConstraints: *PageRegion ENV_C5                                      *Duplex DuplexTumble
+*UIConstraints: *PageRegion ENV_B5                                      *Duplex DuplexTumble
+*UIConstraints: *Duplex DuplexTumble                                    *PageSize ENV_10
+*UIConstraints: *Duplex DuplexTumble                                    *PageSize ENV_MONARCH
+*UIConstraints: *Duplex DuplexTumble                                    *PageSize ENV_DL
+*UIConstraints: *Duplex DuplexTumble                                    *PageSize ENV_C5
+*UIConstraints: *Duplex DuplexTumble                                    *PageSize ENV_B5
+*UIConstraints: *Duplex DuplexTumble                                    *PageRegion ENV_10
+*UIConstraints: *Duplex DuplexTumble                                    *PageRegion ENV_MONARCH
+*UIConstraints: *Duplex DuplexTumble                                    *PageRegion ENV_DL
+*UIConstraints: *Duplex DuplexTumble                                    *PageRegion ENV_C5
+*UIConstraints: *Duplex DuplexTumble                                    *PageRegion ENV_B5
+
+*%UIConstraints: *CustomPageSize True				                    *Duplex DuplexNoTumble
+*%UIConstraints: *CustomPageSize True									*Duplex DuplexTumble
+
+*%=========================================================================
+*% Duplex constraints with MediaType
+*%=========================================================================
+*UIConstraints: *MediaType TRANSPARENCY                                 *Duplex DuplexNoTumble
+*UIConstraints: *MediaType LABELS                                       *Duplex DuplexNoTumble
+*UIConstraints: *MediaType ENVELOPE                                     *Duplex DuplexNoTumble
+*UIConstraints: *MediaType GLOSSY_FILM                                  *Duplex DuplexNoTumble
+*UIConstraints: *MediaType HP_PREM_INKJ_TRANS							*Duplex DuplexNoTumble
+*UIConstraints: *MediaType COLOR_TRANSPARENCY							*Duplex DuplexNoTumble
+*UIConstraints: *MediaType MONO_TRANSPARENCY							*Duplex DuplexNoTumble
+*UIConstraints: *MediaType HEAVY_ENVELOPE								*Duplex DuplexNoTumble
+*UIConstraints: *MediaType OPAQUEFILM									*Duplex DuplexNoTumble
+
+*UIConstraints: *Duplex DuplexNoTumble                                  *MediaType TRANSPARENCY
+*UIConstraints: *Duplex DuplexNoTumble                                  *MediaType LABELS
+*UIConstraints: *Duplex DuplexNoTumble                                  *MediaType ENVELOPE
+*UIConstraints: *Duplex DuplexNoTumble                                  *MediaType GLOSSY_FILM
+*UIConstraints: *Duplex DuplexNoTumble                                  *MediaType HP_PREM_INKJ_TRANS
+*UIConstraints: *Duplex DuplexNoTumble                                  *MediaType COLOR_TRANSPARENCY
+*UIConstraints: *Duplex DuplexNoTumble                                  *MediaType MONO_TRANSPARENCY
+*UIConstraints: *Duplex DuplexNoTumble                                  *MediaType HEAVY_ENVELOPE
+*UIConstraints: *Duplex DuplexNoTumble                                  *MediaType OPAQUEFILM
+
+*UIConstraints: *MediaType TRANSPARENCY                                 *Duplex DuplexTumble
+*UIConstraints: *MediaType LABELS                                       *Duplex DuplexTumble
+*UIConstraints: *MediaType ENVELOPE                                     *Duplex DuplexTumble
+*UIConstraints: *MediaType GLOSSY_FILM                                  *Duplex DuplexTumble
+*UIConstraints: *MediaType HP_PREM_INKJ_TRANS                           *Duplex DuplexTumble
+*UIConstraints: *MediaType COLOR_TRANSPARENCY                           *Duplex DuplexTumble
+*UIConstraints: *MediaType MONO_TRANSPARENCY                           *Duplex DuplexTumble
+*UIConstraints: *MediaType HEAVY_ENVELOPE	                           *Duplex DuplexTumble
+*UIConstraints: *MediaType OPAQUEFILM		                           *Duplex DuplexTumble
+
+*UIConstraints: *Duplex DuplexTumble                                    *MediaType TRANSPARENCY
+*UIConstraints: *Duplex DuplexTumble                                    *MediaType LABELS
+*UIConstraints: *Duplex DuplexTumble                                    *MediaType ENVELOPE
+*UIConstraints: *Duplex DuplexTumble                                    *MediaType GLOSSY_FILM
+*UIConstraints: *Duplex DuplexTumble                                    *MediaType HP_PREM_INKJ_TRANS
+*UIConstraints: *Duplex DuplexTumble                                    *MediaType COLOR_TRANSPARENCY
+*UIConstraints: *Duplex DuplexTumble                                    *MediaType MONO_TRANSPARENCY
+*UIConstraints: *Duplex DuplexTumble                                    *MediaType HEAVY_ENVELOPE
+*UIConstraints: *Duplex DuplexTumble                                    *MediaType OPAQUEFILM
+
+
+*%--------------------------------------------------------------------------
+*% Include the following UI constraints for 3000-sheet Stacker/Stapler
+*% Disable the Stapler if the 3000-sheet Stacker/Stapler is not installed.
+*%--------------------------------------------------------------------------
+*UIConstraints: *AccessoryOutputBins 3000Stacker *StapleLocation 1diagonal
+*UIConstraints: *AccessoryOutputBins 3000Stacker *StapleLocation 1parallel
+*UIConstraints: *AccessoryOutputBins 3000Stacker *StapleLocation 2parallel
+*UIConstraints: *AccessoryOutputBins 3000Stacker *StapleLocation 3parallel
+*UIConstraints: *AccessoryOutputBins 3000Stacker *StapleLocation 6parallel
+*UIConstraints: *AccessoryOutputBins 3000Stacker *StapleLocation Stitching
+*UIConstraints: *AccessoryOutputBins 3000Stacker *StapleLocation 1parallelCM8060
+*UIConstraints: *AccessoryOutputBins 3000Stacker *StapleLocation 1diagonalCM8060
+*UIConstraints: *AccessoryOutputBins 3000Stacker *StapleLocation 2leftCM8060
+*UIConstraints: *AccessoryOutputBins 3000Stacker *StapleLocation 3parallelCM8060
+*UIConstraints: *AccessoryOutputBins 3000Stacker *StapleLocation 2topCM8060
+*UIConstraints: *AccessoryOutputBins 3000Stacker *StapleLocation 3topCM8060
+*UIConstraints: *AccessoryOutputBins 3000Stacker *StapleLocation 2right
+*UIConstraints: *AccessoryOutputBins 3000Stacker *StapleLocation 1right
+*UIConstraints: *AccessoryOutputBins 3000Stacker *StapleLocation 1diagonalZT
+*UIConstraints: *AccessoryOutputBins 3000Stacker *StapleLocation StitchingReverse
+*UIConstraints: *AccessoryOutputBins 3000Stacker *StapleLocation 1diagonalmax15
+
+*UIConstraints: *AccessoryOutputBins StackStapleJobSep *StapleLocation 1diagonal
+*UIConstraints: *AccessoryOutputBins StackStapleJobSep *StapleLocation 1parallel
+*UIConstraints: *AccessoryOutputBins StackStapleJobSep *StapleLocation 2parallel
+*UIConstraints: *AccessoryOutputBins StackStapleJobSep *StapleLocation 3parallel
+*UIConstraints: *AccessoryOutputBins StackStapleJobSep *StapleLocation 6parallel
+*UIConstraints: *AccessoryOutputBins StackStapleJobSep *StapleLocation Stitching
+*UIConstraints: *AccessoryOutputBins StackStapleJobSep *StapleLocation 1diagonalZT
+*UIConstraints: *AccessoryOutputBins StackStapleJobSep *StapleLocation StitchingReverse
+*UIConstraints: *AccessoryOutputBins StackStapleJobSep *StapleLocation 1diagonalmax15
+*UIConstraints: *AccessoryOutputBins StackStapleJobSep *StapleLocation 1rightparallel
+*UIConstraints: *AccessoryOutputBins StackStapleJobSep *StapleLocation 1right
+*UIConstraints: *AccessoryOutputBins StackStapleJobSep *StapleLocation 2right
+*UIConstraints: *AccessoryOutputBins StackStapleJobSep *StapleLocation 3right
+
+
+*UIConstraints: *AccessoryOutputBins MBM5Mailbox *StapleLocation 1diagonal
+*UIConstraints: *AccessoryOutputBins MBM5Mailbox *StapleLocation 1parallel
+*UIConstraints: *AccessoryOutputBins MBM5Mailbox *StapleLocation 2parallel
+*UIConstraints: *AccessoryOutputBins MBM5Mailbox *StapleLocation 3parallel
+*UIConstraints: *AccessoryOutputBins MBM5Mailbox *StapleLocation 6parallel
+*UIConstraints: *AccessoryOutputBins MBM5Mailbox *StapleLocation Stitching
+*UIConstraints: *AccessoryOutputBins MBM5Mailbox *StapleLocation 1parallelCM8060
+*UIConstraints: *AccessoryOutputBins MBM5Mailbox *StapleLocation 1diagonalCM8060
+*UIConstraints: *AccessoryOutputBins MBM5Mailbox *StapleLocation 2leftCM8060
+*UIConstraints: *AccessoryOutputBins MBM5Mailbox *StapleLocation 3parallelCM8060
+*UIConstraints: *AccessoryOutputBins MBM5Mailbox *StapleLocation 2topCM8060
+*UIConstraints: *AccessoryOutputBins MBM5Mailbox *StapleLocation 3topCM8060
+*UIConstraints: *AccessoryOutputBins MBM5Mailbox *StapleLocation 2right
+*UIConstraints: *AccessoryOutputBins MBM5Mailbox *StapleLocation 1right
+*UIConstraints: *AccessoryOutputBins MBM5Mailbox *StapleLocation StitchingReverse
+*UIConstraints: *AccessoryOutputBins MBM5Mailbox *StapleLocation 1diagonalmax15
+*UIConstraints: *AccessoryOutputBins MBM5Mailbox *StapleLocation 1rightparallel
+*UIConstraints: *AccessoryOutputBins MBM5Mailbox *StapleLocation 3right
+
+*UIConstraints: *AccessoryOutputBins MBM5xMailbox *StapleLocation 1diagonal
+*UIConstraints: *AccessoryOutputBins MBM5xMailbox *StapleLocation 1parallel
+*UIConstraints: *AccessoryOutputBins MBM5xMailbox *StapleLocation 2parallel
+*UIConstraints: *AccessoryOutputBins MBM5xMailbox *StapleLocation 3parallel
+*UIConstraints: *AccessoryOutputBins MBM5xMailbox *StapleLocation 6parallel
+*UIConstraints: *AccessoryOutputBins MBM5xMailbox *StapleLocation Stitching
+*UIConstraints: *AccessoryOutputBins MBM5xMailbox *StapleLocation 1parallelCM8060
+*UIConstraints: *AccessoryOutputBins MBM5xMailbox *StapleLocation 1diagonalCM8060
+*UIConstraints: *AccessoryOutputBins MBM5xMailbox *StapleLocation 2leftCM8060
+*UIConstraints: *AccessoryOutputBins MBM5xMailbox *StapleLocation 3parallelCM8060
+*UIConstraints: *AccessoryOutputBins MBM5xMailbox *StapleLocation 2topCM8060
+*UIConstraints: *AccessoryOutputBins MBM5xMailbox *StapleLocation 3topCM8060
+*UIConstraints: *AccessoryOutputBins MBM5xMailbox *StapleLocation 2right
+*UIConstraints: *AccessoryOutputBins MBM5xMailbox *StapleLocation 1right
+*UIConstraints: *AccessoryOutputBins MBM5xMailbox *StapleLocation 1diagonalZT
+*UIConstraints: *AccessoryOutputBins MBM5xMailbox *StapleLocation StitchingReverse
+*UIConstraints: *AccessoryOutputBins MBM5xMailbox *StapleLocation 1diagonalmax15
+
+*UIConstraints: *AccessoryOutputBins MBM5Stacker *StapleLocation 1diagonal
+*UIConstraints: *AccessoryOutputBins MBM5Stacker *StapleLocation 1parallel
+*UIConstraints: *AccessoryOutputBins MBM5Stacker *StapleLocation 2parallel
+*UIConstraints: *AccessoryOutputBins MBM5Stacker *StapleLocation 3parallel
+*UIConstraints: *AccessoryOutputBins MBM5Stacker *StapleLocation 6parallel
+*UIConstraints: *AccessoryOutputBins MBM5Stacker *StapleLocation Stitching
+*UIConstraints: *AccessoryOutputBins MBM5Stacker *StapleLocation 1parallelCM8060
+*UIConstraints: *AccessoryOutputBins MBM5Stacker *StapleLocation 1diagonalCM8060
+*UIConstraints: *AccessoryOutputBins MBM5Stacker *StapleLocation 2leftCM8060
+*UIConstraints: *AccessoryOutputBins MBM5Stacker *StapleLocation 3parallelCM8060
+*UIConstraints: *AccessoryOutputBins MBM5Stacker *StapleLocation 2topCM8060
+*UIConstraints: *AccessoryOutputBins MBM5Stacker *StapleLocation 3topCM8060
+*UIConstraints: *AccessoryOutputBins MBM5Stacker *StapleLocation 2right
+*UIConstraints: *AccessoryOutputBins MBM5Stacker *StapleLocation 1right
+*UIConstraints: *AccessoryOutputBins MBM5Stacker *StapleLocation 1diagonalZT
+*UIConstraints: *AccessoryOutputBins MBM5Stacker *StapleLocation StitchingReverse
+*UIConstraints: *AccessoryOutputBins MBM5Stacker *StapleLocation 1diagonalmax15
+
+*UIConstraints: *AccessoryOutputBins 750Stapler *StapleLocation 1diagonal
+*UIConstraints: *AccessoryOutputBins 750Stapler *StapleLocation 2parallel
+*UIConstraints: *AccessoryOutputBins 750Stapler *StapleLocation 3parallel
+*UIConstraints: *AccessoryOutputBins 750Stapler *StapleLocation 6parallel
+*UIConstraints: *AccessoryOutputBins 750Stapler *StapleLocation Stitching
+*UIConstraints: *AccessoryOutputBins 750Stapler *StapleLocation 1parallelCM8060
+*UIConstraints: *AccessoryOutputBins 750Stapler *StapleLocation 1diagonalCM8060
+*UIConstraints: *AccessoryOutputBins 750Stapler *StapleLocation 2leftCM8060
+*UIConstraints: *AccessoryOutputBins 750Stapler *StapleLocation 3parallelCM8060
+*UIConstraints: *AccessoryOutputBins 750Stapler *StapleLocation 2topCM8060
+*UIConstraints: *AccessoryOutputBins 750Stapler *StapleLocation 3topCM8060
+*UIConstraints: *AccessoryOutputBins 750Stapler *StapleLocation 2right
+*UIConstraints: *AccessoryOutputBins 750Stapler *StapleLocation 1right
+*UIConstraints: *AccessoryOutputBins 750Stapler *StapleLocation 1diagonalZT
+*UIConstraints: *AccessoryOutputBins 750Stapler *StapleLocation StitchingReverse
+*UIConstraints: *AccessoryOutputBins 750Stapler *StapleLocation 1diagonalmax15
+
+*UIConstraints: *AccessoryOutputBins 500Stapler *StapleLocation 1parallel
+*UIConstraints: *AccessoryOutputBins 500Stapler *StapleLocation 2parallel
+*UIConstraints: *AccessoryOutputBins 500Stapler *StapleLocation 3parallel
+*UIConstraints: *AccessoryOutputBins 500Stapler *StapleLocation 6parallel
+*UIConstraints: *AccessoryOutputBins 500Stapler *StapleLocation Stitching
+*UIConstraints: *AccessoryOutputBins 500Stapler *StapleLocation 1parallelCM8060
+*UIConstraints: *AccessoryOutputBins 500Stapler *StapleLocation 1diagonalCM8060
+*UIConstraints: *AccessoryOutputBins 500Stapler *StapleLocation 2leftCM8060
+*UIConstraints: *AccessoryOutputBins 500Stapler *StapleLocation 3parallelCM8060
+*UIConstraints: *AccessoryOutputBins 500Stapler *StapleLocation 2topCM8060
+*UIConstraints: *AccessoryOutputBins 500Stapler *StapleLocation 3topCM8060
+*UIConstraints: *AccessoryOutputBins 500Stapler *StapleLocation 2right
+*UIConstraints: *AccessoryOutputBins 500Stapler *StapleLocation 1right
+*UIConstraints: *AccessoryOutputBins 500Stapler *StapleLocation 1diagonalZT
+*UIConstraints: *AccessoryOutputBins 500Stapler *StapleLocation StitchingReverse
+*UIConstraints: *AccessoryOutputBins 500Stapler *StapleLocation 1diagonal
+*UIConstraints: *AccessoryOutputBins 500Stapler *StapleLocation 1rightparallel
+*UIConstraints: *AccessoryOutputBins 500Stapler *StapleLocation 3right
+
+*UIConstraints: *AccessoryOutputBins 500StaplerZT *StapleLocation 1parallel
+*UIConstraints: *AccessoryOutputBins 500StaplerZT *StapleLocation 1diagonal
+*UIConstraints: *AccessoryOutputBins 500StaplerZT *StapleLocation 2parallel
+*UIConstraints: *AccessoryOutputBins 500StaplerZT *StapleLocation 3parallel
+*UIConstraints: *AccessoryOutputBins 500StaplerZT *StapleLocation 6parallel
+*UIConstraints: *AccessoryOutputBins 500StaplerZT *StapleLocation 1parallelCM8060
+*UIConstraints: *AccessoryOutputBins 500StaplerZT *StapleLocation 1diagonalCM8060
+*UIConstraints: *AccessoryOutputBins 500StaplerZT *StapleLocation 2leftCM8060
+*UIConstraints: *AccessoryOutputBins 500StaplerZT *StapleLocation 3parallelCM8060
+*UIConstraints: *AccessoryOutputBins 500StaplerZT *StapleLocation 2topCM8060
+*UIConstraints: *AccessoryOutputBins 500StaplerZT *StapleLocation 3topCM8060
+*UIConstraints: *AccessoryOutputBins 500StaplerZT *StapleLocation 1right
+*UIConstraints: *AccessoryOutputBins 500StaplerZT *StapleLocation 2right
+*UIConstraints: *AccessoryOutputBins 500StaplerZT *StapleLocation Stitching
+*UIConstraints: *AccessoryOutputBins 500StaplerZT *StapleLocation StitchingReverse
+*UIConstraints: *AccessoryOutputBins 500StaplerZT *StapleLocation 1diagonalmax15
+
+
+*UIConstraints: *AccessoryOutputBins 3000InternalStapler *StapleLocation 1diagonal
+*UIConstraints: *AccessoryOutputBins 3000InternalStapler *StapleLocation 2parallel
+*UIConstraints: *AccessoryOutputBins 3000InternalStapler *StapleLocation 3parallel
+*UIConstraints: *AccessoryOutputBins 3000InternalStapler *StapleLocation 6parallel
+*UIConstraints: *AccessoryOutputBins 3000InternalStapler *StapleLocation Stitching
+*UIConstraints: *AccessoryOutputBins 3000InternalStapler *StapleLocation 1parallelCM8060
+*UIConstraints: *AccessoryOutputBins 3000InternalStapler *StapleLocation 1diagonalCM8060
+*UIConstraints: *AccessoryOutputBins 3000InternalStapler *StapleLocation 2leftCM8060
+*UIConstraints: *AccessoryOutputBins 3000InternalStapler *StapleLocation 3parallelCM8060
+*UIConstraints: *AccessoryOutputBins 3000InternalStapler *StapleLocation 2topCM8060
+*UIConstraints: *AccessoryOutputBins 3000InternalStapler *StapleLocation 3topCM8060
+*UIConstraints: *AccessoryOutputBins 3000InternalStapler *StapleLocation 2right
+*UIConstraints: *AccessoryOutputBins 3000InternalStapler *StapleLocation 1right
+*UIConstraints: *AccessoryOutputBins 3000InternalStapler *StapleLocation 1diagonalZT
+*UIConstraints: *AccessoryOutputBins 3000InternalStapler *StapleLocation StitchingReverse
+*UIConstraints: *AccessoryOutputBins 3000InternalStapler *StapleLocation 1diagonalmax15
+
+*UIConstraints: *AccessoryOutputBins 3000Stapler *StapleLocation 1parallelCM8060
+*UIConstraints: *AccessoryOutputBins 3000Stapler *StapleLocation 1diagonalCM8060
+*UIConstraints: *AccessoryOutputBins 3000Stapler *StapleLocation 2leftCM8060
+*UIConstraints: *AccessoryOutputBins 3000Stapler *StapleLocation 3parallelCM8060
+*UIConstraints: *AccessoryOutputBins 3000Stapler *StapleLocation 2topCM8060
+*UIConstraints: *AccessoryOutputBins 3000Stapler *StapleLocation 3topCM8060
+*UIConstraints: *AccessoryOutputBins 3000Stapler *StapleLocation Stitching
+*UIConstraints: *AccessoryOutputBins 3000Stapler *StapleLocation 2right
+*UIConstraints: *AccessoryOutputBins 3000Stapler *StapleLocation 1right
+*UIConstraints: *AccessoryOutputBins 3000Stapler *StapleLocation 1diagonalZT
+*UIConstraints: *AccessoryOutputBins 3000Stapler *StapleLocation StitchingReverse
+*UIConstraints: *AccessoryOutputBins 3000Stapler *StapleLocation 1diagonalmax15
+*UIConstraints: *AccessoryOutputBins 3000Stapler *StapleLocation 1rightparallel
+*UIConstraints: *AccessoryOutputBins 3000Stapler *StapleLocation 3right
+
+
+*UIConstraints: *AccessoryOutputBins 500StaplerOutput *StapleLocation 1parallel
+*UIConstraints: *AccessoryOutputBins 500StaplerOutput *StapleLocation 2parallel
+*UIConstraints: *AccessoryOutputBins 500StaplerOutput *StapleLocation 3parallel
+*UIConstraints: *AccessoryOutputBins 500StaplerOutput *StapleLocation 6parallel
+*UIConstraints: *AccessoryOutputBins 500StaplerOutput *StapleLocation Stitching
+*UIConstraints: *AccessoryOutputBins 500StaplerOutput *StapleLocation 1parallelCM8060
+*UIConstraints: *AccessoryOutputBins 500StaplerOutput *StapleLocation 1diagonalCM8060
+*UIConstraints: *AccessoryOutputBins 500StaplerOutput *StapleLocation 2leftCM8060
+*UIConstraints: *AccessoryOutputBins 500StaplerOutput *StapleLocation 3parallelCM8060
+*UIConstraints: *AccessoryOutputBins 500StaplerOutput *StapleLocation 2topCM8060
+*UIConstraints: *AccessoryOutputBins 500StaplerOutput *StapleLocation 3topCM8060
+*UIConstraints: *AccessoryOutputBins 500StaplerOutput *StapleLocation 3right
+*UIConstraints: *AccessoryOutputBins 500StaplerOutput *StapleLocation 2right
+*UIConstraints: *AccessoryOutputBins 500StaplerOutput *StapleLocation 1right
+*UIConstraints: *AccessoryOutputBins 500StaplerOutput *StapleLocation 1diagonalZT
+*UIConstraints: *AccessoryOutputBins 500StaplerOutput *StapleLocation StitchingReverse
+*UIConstraints: *AccessoryOutputBins 500StaplerOutput *StapleLocation 1diagonalmax15
+*UIConstraints: *AccessoryOutputBins 500StaplerOutput *StapleLocation 1rightparallel
+
+*%%------------------------------------------------------------------------------------
+*%% constraints for HP multifunction finisher
+*%%------------------------------------------------------------------------------------
+*UIConstraints: *AccessoryOutputBins MultiFunctionFinisher *StapleLocation 1diagonal
+*UIConstraints: *AccessoryOutputBins MultiFunctionFinisher *StapleLocation 3parallel
+*UIConstraints: *AccessoryOutputBins MultiFunctionFinisher *StapleLocation 6parallel
+*UIConstraints: *AccessoryOutputBins MultiFunctionFinisher *StapleLocation 1parallelCM8060
+*UIConstraints: *AccessoryOutputBins MultiFunctionFinisher *StapleLocation 1diagonalCM8060
+*UIConstraints: *AccessoryOutputBins MultiFunctionFinisher *StapleLocation 2leftCM8060
+*UIConstraints: *AccessoryOutputBins MultiFunctionFinisher *StapleLocation 3parallelCM8060
+*UIConstraints: *AccessoryOutputBins MultiFunctionFinisher *StapleLocation 2topCM8060
+*UIConstraints: *AccessoryOutputBins MultiFunctionFinisher *StapleLocation 3topCM8060
+*UIConstraints: *AccessoryOutputBins MultiFunctionFinisher *StapleLocation 2right
+*UIConstraints: *AccessoryOutputBins MultiFunctionFinisher *StapleLocation 1right
+*UIConstraints: *AccessoryOutputBins MultiFunctionFinisher *StapleLocation 1diagonalZT
+*UIConstraints: *AccessoryOutputBins MultiFunctionFinisher *StapleLocation StitchingReverse
+*UIConstraints: *AccessoryOutputBins MultiFunctionFinisher *StapleLocation 1diagonalmax15
+*UIConstraints: *AccessoryOutputBins MultiFunctionFinisher *StapleLocation 1rightparallel
+*UIConstraints: *AccessoryOutputBins MultiFunctionFinisher *StapleLocation 3right
+
+
+*UIConstraints: *AccessoryOutputBins MBM3StaplerMailbox *StapleLocation 1diagonal
+*UIConstraints: *AccessoryOutputBins MBM3StaplerMailbox *StapleLocation 3parallel
+*UIConstraints: *AccessoryOutputBins MBM3StaplerMailbox *StapleLocation 6parallel
+*UIConstraints: *AccessoryOutputBins MBM3StaplerMailbox *StapleLocation 1diagonalCM8060
+*UIConstraints: *AccessoryOutputBins MBM3StaplerMailbox *StapleLocation 3parallelCM8060
+*UIConstraints: *AccessoryOutputBins MBM3StaplerMailbox *StapleLocation 3topCM8060
+*UIConstraints: *AccessoryOutputBins MBM3StaplerMailbox *StapleLocation 1parallel
+*UIConstraints: *AccessoryOutputBins MBM3StaplerMailbox *StapleLocation 2parallel
+*UIConstraints: *AccessoryOutputBins MBM3StaplerMailbox *StapleLocation 1diagonalZT
+*UIConstraints: *AccessoryOutputBins MBM3StaplerMailbox *StapleLocation 1right
+*UIConstraints: *AccessoryOutputBins MBM3StaplerMailbox *StapleLocation 3right
+*UIConstraints: *AccessoryOutputBins MBM3StaplerMailbox *StapleLocation StitchingReverse
+*UIConstraints: *AccessoryOutputBins MBM3StaplerMailbox *StapleLocation 1diagonalmax15
+*UIConstraints: *AccessoryOutputBins MBM3StaplerMailbox *StapleLocation Stitching
+
+*UIConstraints: *AccessoryOutputBins MBM3StaplerFunctionSeparator *StapleLocation 1diagonal
+*UIConstraints: *AccessoryOutputBins MBM3StaplerFunctionSeparator *StapleLocation 1parallel
+*UIConstraints: *AccessoryOutputBins MBM3StaplerFunctionSeparator *StapleLocation 2parallel
+*UIConstraints: *AccessoryOutputBins MBM3StaplerFunctionSeparator *StapleLocation 3parallel
+*UIConstraints: *AccessoryOutputBins MBM3StaplerFunctionSeparator *StapleLocation 6parallel
+*UIConstraints: *AccessoryOutputBins MBM3StaplerFunctionSeparator *StapleLocation 1diagonalCM8060
+*UIConstraints: *AccessoryOutputBins MBM3StaplerFunctionSeparator *StapleLocation 3parallelCM8060
+*UIConstraints: *AccessoryOutputBins MBM3StaplerFunctionSeparator *StapleLocation 3topCM8060
+*UIConstraints: *AccessoryOutputBins MBM3StaplerFunctionSeparator *StapleLocation 1diagonalZT
+*UIConstraints: *AccessoryOutputBins MBM3StaplerFunctionSeparator *StapleLocation StitchingReverse
+*UIConstraints: *AccessoryOutputBins MBM3StaplerFunctionSeparator *StapleLocation 1diagonalmax15
+*UIConstraints: *AccessoryOutputBins MBM3StaplerFunctionSeparator *StapleLocation Stitching
+*UIConstraints: *AccessoryOutputBins MBM3StaplerFunctionSeparator *StapleLocation 3right
+*UIConstraints: *AccessoryOutputBins MBM3StaplerFunctionSeparator *StapleLocation 1right
+
+*UIConstraints: *AccessoryOutputBins MBM3StaplerStacker *StapleLocation 1diagonal
+*UIConstraints: *AccessoryOutputBins MBM3StaplerStacker *StapleLocation 3parallel
+*UIConstraints: *AccessoryOutputBins MBM3StaplerStacker *StapleLocation 6parallel
+*UIConstraints: *AccessoryOutputBins MBM3StaplerStacker *StapleLocation 1diagonalCM8060
+*UIConstraints: *AccessoryOutputBins MBM3StaplerStacker *StapleLocation 3parallelCM8060
+*UIConstraints: *AccessoryOutputBins MBM3StaplerStacker *StapleLocation 3topCM8060
+*UIConstraints: *AccessoryOutputBins MBM3StaplerStacker *StapleLocation 1parallel
+*UIConstraints: *AccessoryOutputBins MBM3StaplerStacker *StapleLocation 2parallel
+*UIConstraints: *AccessoryOutputBins MBM3StaplerStacker *StapleLocation 1diagonalZT
+*UIConstraints: *AccessoryOutputBins MBM3StaplerStacker *StapleLocation 1right
+*UIConstraints: *AccessoryOutputBins MBM3StaplerStacker *StapleLocation 3right
+*UIConstraints: *AccessoryOutputBins MBM3StaplerStacker *StapleLocation StitchingReverse
+*UIConstraints: *AccessoryOutputBins MBM3StaplerStacker *StapleLocation 1diagonalmax15
+*UIConstraints: *AccessoryOutputBins MBM3StaplerStacker *StapleLocation Stitching
+
+*UIConstraints: *AccessoryOutputBins MBMBookletStackerStapler *StapleLocation 1diagonal
+*UIConstraints: *AccessoryOutputBins MBMBookletStackerStapler *StapleLocation 3parallel
+*UIConstraints: *AccessoryOutputBins MBMBookletStackerStapler *StapleLocation 6parallel
+*UIConstraints: *AccessoryOutputBins MBMBookletStackerStapler *StapleLocation 1diagonalCM8060
+*UIConstraints: *AccessoryOutputBins MBMBookletStackerStapler *StapleLocation 3parallelCM8060
+*UIConstraints: *AccessoryOutputBins MBMBookletStackerStapler *StapleLocation 3topCM8060
+*UIConstraints: *AccessoryOutputBins MBMBookletStackerStapler *StapleLocation 1parallel
+*UIConstraints: *AccessoryOutputBins MBMBookletStackerStapler *StapleLocation 2parallel
+*UIConstraints: *AccessoryOutputBins MBMBookletStackerStapler *StapleLocation 1diagonalZT
+*UIConstraints: *AccessoryOutputBins MBMBookletStackerStapler *StapleLocation 1right
+*UIConstraints: *AccessoryOutputBins MBMBookletStackerStapler *StapleLocation 3right
+*UIConstraints: *AccessoryOutputBins MBMBookletStackerStapler *StapleLocation Stitching
+*UIConstraints: *AccessoryOutputBins MBMBookletStackerStapler *StapleLocation 1diagonalmax15
+
+*UIConstraints: *AccessoryOutputBins MBMBookletMailboxStapler *StapleLocation 1diagonal
+*UIConstraints: *AccessoryOutputBins MBMBookletMailboxStapler *StapleLocation 3parallel
+*UIConstraints: *AccessoryOutputBins MBMBookletMailboxStapler *StapleLocation 6parallel
+*UIConstraints: *AccessoryOutputBins MBMBookletMailboxStapler *StapleLocation 1diagonalCM8060
+*UIConstraints: *AccessoryOutputBins MBMBookletMailboxStapler *StapleLocation 3parallelCM8060
+*UIConstraints: *AccessoryOutputBins MBMBookletMailboxStapler *StapleLocation 3topCM8060
+*UIConstraints: *AccessoryOutputBins MBMBookletMailboxStapler *StapleLocation 1parallel
+*UIConstraints: *AccessoryOutputBins MBMBookletMailboxStapler *StapleLocation 2parallel
+*UIConstraints: *AccessoryOutputBins MBMBookletMailboxStapler *StapleLocation 1diagonalZT
+*UIConstraints: *AccessoryOutputBins MBMBookletMailboxStapler *StapleLocation 1right
+*UIConstraints: *AccessoryOutputBins MBMBookletMailboxStapler *StapleLocation 3right
+*UIConstraints: *AccessoryOutputBins MBMBookletMailboxStapler *StapleLocation Stitching
+*UIConstraints: *AccessoryOutputBins MBMBookletMailboxStapler *StapleLocation 1diagonalmax15
+
+*%------------------------------------------------------------------------------------
+*% constraints Accessory output bin None
+*%------------------------------------------------------------------------------------
+*UIConstraints: *AccessoryOutputBins None *StapleLocation 1diagonal
+*UIConstraints: *AccessoryOutputBins None *StapleLocation 1parallel
+*UIConstraints: *AccessoryOutputBins None *StapleLocation 2parallel
+*UIConstraints: *AccessoryOutputBins None *StapleLocation 3parallel
+*UIConstraints: *AccessoryOutputBins None *StapleLocation 6parallel
+*UIConstraints: *AccessoryOutputBins None *StapleLocation Stitching
+*UIConstraints: *AccessoryOutputBins None *StapleLocation StitchingReverse
+*UIConstraints: *AccessoryOutputBins None *StapleLocation 2right
+*UIConstraints: *AccessoryOutputBins None *StapleLocation 1right
+*UIConstraints: *AccessoryOutputBins None *StapleLocation 1diagonalZT
+*UIConstraints: *StapleLocation 1diagonal *AccessoryOutputBins None
+*UIConstraints: *StapleLocation 1parallel *AccessoryOutputBins None
+*UIConstraints: *StapleLocation 2parallel *AccessoryOutputBins None
+*UIConstraints: *StapleLocation 3parallel *AccessoryOutputBins None
+*UIConstraints: *StapleLocation 6parallel *AccessoryOutputBins None
+*UIConstraints: *StapleLocation Stitching *AccessoryOutputBins None
+*UIConstraints: *StapleLocation 2right *AccessoryOutputBins None
+*UIConstraints: *StapleLocation 1right *AccessoryOutputBins None
+*UIConstraints: *StapleLocation 1diagonalZT *AccessoryOutputBins None
+
+*UIConstraints: *AccessoryOutputBins None *StapleLocation
+*UIConstraints: *StapleLocation *AccessoryOutputBins None
+
+*%--------------------------------------------------------------------
+*% Stapling stitching and Paper constraints
+*%--------------------------------------------------------------------
+*UIConstraints: *StapleLocation Stitching *PageRegion EXECUTIVE
+*UIConstraints: *StapleLocation Stitching *PageRegion 12X18
+*UIConstraints: *StapleLocation Stitching *PageRegion A5
+*UIConstraints: *StapleLocation Stitching *PageRegion B5
+*UIConstraints: *StapleLocation Stitching *PageRegion DBL_JAPANESE_POSTCARD_ROTATED
+*UIConstraints: *StapleLocation Stitching *PageRegion 8K
+*UIConstraints: *StapleLocation Stitching *PageRegion ENV_10
+*UIConstraints: *StapleLocation Stitching *PageRegion ENV_MONARCH
+*UIConstraints: *StapleLocation Stitching *PageRegion ENV_C5
+*UIConstraints: *StapleLocation Stitching *PageRegion ENV_DL
+*UIConstraints: *StapleLocation Stitching *PageRegion ENV_B5
+*UIConstraints: *StapleLocation Stitching *PageSize EXECUTIVE
+*UIConstraints: *StapleLocation Stitching *PageSize 12X18
+*UIConstraints: *StapleLocation Stitching *PageSize A5
+*UIConstraints: *StapleLocation Stitching *PageSize B5
+*UIConstraints: *StapleLocation Stitching *PageSize DBL_JAPANESE_POSTCARD_ROTATED
+*UIConstraints: *StapleLocation Stitching *PageSize 8K
+*UIConstraints: *StapleLocation Stitching *PageSize ENV_10
+*UIConstraints: *StapleLocation Stitching *PageSize ENV_MONARCH
+*UIConstraints: *StapleLocation Stitching *PageSize ENV_C5
+*UIConstraints: *StapleLocation Stitching *PageSize ENV_DL
+*UIConstraints: *StapleLocation Stitching *PageSize ENV_B5
+
+
+*%-------------------------------------------------------------------------
+*% Render standard keywords section
+*%-------------------------------------------------------------------------
+
+*%--------------------------------------------------------------------------
+*% Gray Levels and Halftoning
+*%--------------------------------------------------------------------------
+*ScreenFreq: "150.0"
+*ScreenAngle: "45.0"
+*DefaultScreenProc: Dot
+*ScreenProc Dot: "
+{abs exch abs 2 copy add 1 gt {1 sub dup mul exch 1 sub dup mul add 1
+sub }{dup mul exch dup mul add 1 exch sub }ifelse }
+"
+*End
+*ScreenProc Line: "{ pop }"
+*ScreenProc Ellipse: "{ dup 5 mul 8 div mul exch dup mul exch add sqrt 1 exch sub }"
+*DefaultTransfer: Null
+*Transfer Null: "{ }"
+*Transfer Null.Inverse: "{ 1 exch sub }"
+*% ---------------------------------
+*% Color Separation Information
+*% ---------------------------------
+*DefaultColorSep: ProcessBlack.60lpi.300dpi
+*InkName: ProcessBlack/Process Black
+*InkName: ProcessCyan/Process Cyan
+*InkName: ProcessMagenta/Process Magenta
+*InkName: ProcessYellow/Process Yellow
+*%-------------------------------------------------------------------------
+*%  For 60 lpi / 300 dpi
+*%-------------------------------------------------------------------------
+*ColorSepScreenAngle ProcessBlack.60lpi.300dpi/60 lpi / 300 dpi: "45"
+*ColorSepScreenAngle ProcessCyan.60lpi.300dpi/60 lpi / 300 dpi: "15"
+*ColorSepScreenAngle ProcessMagenta.60lpi.300dpi/60 lpi / 300 dpi: "75"
+*ColorSepScreenAngle ProcessYellow.60lpi.300dpi/60 lpi / 300 dpi: "0"
+*ColorSepScreenFreq ProcessBlack.60lpi.300dpi/60 lpi / 300 dpi: "60"
+*ColorSepScreenFreq ProcessCyan.60lpi.300dpi/60 lpi / 300 dpi: "60"
+*ColorSepScreenFreq ProcessMagenta.60lpi.300dpi/60 lpi / 300 dpi: "60"
+*ColorSepScreenFreq ProcessYellow.60lpi.300dpi/60 lpi / 300 dpi: "60"
+*%-------------------------------------------------------------------------
+*%  For 53 lpi / 300 dpi
+*%-------------------------------------------------------------------------
+*ColorSepScreenAngle ProcessBlack.53lpi.300dpi/53 lpi / 300 dpi: "45.0"
+*ColorSepScreenAngle ProcessCyan.53lpi.300dpi/53 lpi / 300 dpi: "71.5651"
+*ColorSepScreenAngle ProcessMagenta.53lpi.300dpi/53 lpi / 300 dpi: "18.4349"
+*ColorSepScreenAngle ProcessYellow.53lpi.300dpi/53 lpi / 300 dpi: "0.0"
+*ColorSepScreenFreq ProcessBlack.53lpi.300dpi/53 lpi / 300 dpi: "53.033"
+*ColorSepScreenFreq ProcessCyan.53lpi.300dpi/53 lpi / 300 dpi: "47.4342"
+*ColorSepScreenFreq ProcessMagenta.53lpi.300dpi/53 lpi / 300 dpi: "47.4342"
+*ColorSepScreenFreq ProcessYellow.53lpi.300dpi/53 lpi / 300 dpi: "50.0"
+
+*%=====================================================================
+*% Font Information
+*%=====================================================================
+*DefaultFont: Courier
+*Font Courier: Standard "(002.004S)" Standard ROM
+*Font Courier-Bold: Standard "(002.004S)" Standard ROM
+*Font Courier-BoldOblique: Standard "(002.004S)" Standard ROM
+*Font Courier-Oblique: Standard "(002.004S)" Standard ROM
+*?FontQuery: "
+   save
+   { count 1 gt
+      { exch dup 127 string cvs (/) print print (:) print
+      /Font resourcestatus {pop pop (Yes)} {(No)} ifelse =
+      } { exit } ifelse
+   } bind loop
+   (*) = flush
+   restore
+"
+*End
+*?FontList: "
+   save
+     (*) {cvn ==} 128 string /Font resourceforall
+     (*) = flush
+   restore
+"
+*End
+
+
+                                                                                                                       *% Copyright (c) 2011  Hewlett-Packard
+*% MACRO names for PCL6 v4 class driver
+
+*BlockMacro: DuplexConstraints
+{
+    *Constraints: Duplex.HORIZONTAL
+    *Constraints: Duplex.VERTICAL
+}
+*Macros: HPStrings
+{
+    IDS_AUTO_SELECT:                        10
+    IDS_REAL_LIFE_TECHNOLOGIES:             11
+    IDS_OFF:                                12
+    IDS_ON:                                 13
+    IDS_LETTER:                             100
+    IDS_MSIZE_4X6_IN_TAB:                   101
+    IDS_MSIZE_4X6_IN:                       102
+    IDS_HP_5X7:                             103 *% required by K1 otherwise whenever overwritten by K2 it will break
+    IDS_MSIZE_A4_210x297_MM:                104
+    IDS_MSIZE_A5_148X210_MM:                105
+    IDS_MSIZE_B5_ISO_176X250_MM:            106
+    IDS_MSIZE_B5_JIS_182X257_MM:            107
+    IDS_MSIZE_8X10_IN:                      108
+    IDS_MSIZE_MUTSUGIRI_IN:                 109
+    IDS_MSIZE_HAGAKI_100X148_MM:            110
+    IDS_MSIZE_EXECUTIVE_7X10_IN:            111
+    IDS_MSIZE_10X15_CM:                     112
+    IDS_MSIZE_A6_105X148_MM:                113
+    IDS_MSIZE_CABINET_MM:                   114
+    IDS_MSIZE_2L_MM:                        115
+    IDS_MSIZE_13X18_CM:                     116
+    IDS_MSIZE_OFUKU_HAGAKI_200X148_MM:      117
+    IDS_MSIZE_ENVELOPE10_4X9_IN:            118
+    IDS_MSIZE_ENVELOPE_DL_110X220_MM:       119
+    IDS_MSIZE_ENV_CARD_4X6_IN:              120
+    IDS_MSIZE_ENVELOPE_C5_162X229_MM:       121
+    IDS_MSIZE_ENVELOPE_C6_114X162_MM:       122
+    IDS_MSIZE_JIS_CHOU3_120X235_MM:         123
+    IDS_MSIZE_INDEX_CARD_4X6_IN:            124
+    IDS_MSIZE_INDEX_CARD_5X8_IN:            125
+    IDS_MSIZE_10X15_CM_TAB:                 126
+    IDS_MSIZE_STATEMENT_5_5X8_5_IN:         127
+    IDS_MSIZE_6_X_8_IN:                     128
+    IDS_MSIZE_JIS_CHOU2_119x277_MM:         129
+    IDS_MSIZE_8_5X13_IN:                    130
+    IDS_MSIZE_LETTER:                       131
+    IDS_MSIZE_INDEX_CARD_3X5_IN:            132
+    IDS_MSIZE_L:                            133
+    IDS_MSIZE_3_5X5_IN:                     134
+    IDS_MSIZE_HV:                           135
+    IDS_MSIZE_5X7:                          136
+    IDS_MSIZE_LEGAL:                        137
+    IDS_MSIZE_11X14:                        138
+    IDS_MSIZE_12X12:                        139
+    IDS_MSIZE_B4_JIS:                       140
+    IDS_MSIZE_TABLOID:                      141
+    IDS_MSIZE_SUPER_B:                      142
+    IDS_MSIZE_A3:                           143
+    IDS_MSIZE_A3_PLUS:                      144
+    IDS_MSIZE_SMMARG_11X14:                 145
+    IDS_MSIZE_SMMARG_12X12:                 146
+    IDS_MSIZE_SMMARG_B4_JIS:                147
+    IDS_MSIZE_SMMARG_TABLOID:               148
+    IDS_MSIZE_SMMARG_SUPER_B:               149
+    IDS_MSIZE_SMMARG_A3:                    150
+    IDS_MSIZE_SMMARG_A3_PLUS:               151
+    IDS_MSIZE_ENV_NO_6_3_4:                 152
+    IDS_MSIZE_ENV_MONARCH:                  153
+    IDS_MSIZE_ENV_NO_10:                    154
+    IDS_MSIZE_ENV_C6:                       155
+    IDS_MSIZE_ENV_A2:                       156
+    IDS_MSIZE_JIS_CHOU3:                    157
+    IDS_MSIZE_JIS_CHOU4:                    158
+    IDS_MSIZE_ENV_KAKU_2:                   159
+    IDS_MSIZE_3X5_IN:                       160
+    IDS_MSIZE_INDEX_CARD_LETTER:            161
+    IDS_MSIZE_INDEX_CARD_A4:                162
+    IDS_MSIZE_EDGETOEDGE_LETTER:            163
+    IDS_MSIZE_EDGETOEDGE_A4:                164
+    IDS_MSIZE_ARCH_A_9x12_IN:               165
+    IDS_MSIZE_ARCH_B_12x18_IN:              166
+    IDS_MSIZE_SMMARG_ARCH_A:                167
+    IDS_MSIZE_SMMARG_ARCH_B:                168
+    IDS_MAX_DPI:                            201
+    IDS_ENABLE:                             202
+    IDS_DISABLE:                            203
+    IDS_PRINT_IN_GRAYSCALE_WITHOUT_HK:      204
+    IDS_BLACK_INK_ONLY_WITHOUT_HK:          205
+    IDS_HIGH_QUALITY_NO_HK:                 206
+    IDS_PAGES_TO_PRINT:                     210
+    IDS_PRINT_ALL_PAGES:                    211
+    IDS_PRINT_ODD_PAGES_ONLY:               212
+    IDS_PRINT_EVEN_PAGES_ONLY:              213
+    IDS_PLAIN_PAPER_NORMAL_QUALITY:         214
+    IDS_PLAIN_PAPER_FASTDRASFT_QUALITY:     215
+    IDS_PLAIN_PAPER_BEST_QUALITY:           216
+    IDS_SPECIALTY_PAPER_BEST_QUALITY:       217
+    IDS_PHOTO_PAPER_BEST_QUALITY:           218
+    IDS_YES:                                219
+    IDS_NO:                                 220
+    IDS_INPUTBIN_MAINTRAY:                  221
+    IDS_PRESERVE_LAYOUT:                    222
+    IDS_BW_SETTINGS:                        223
+    IDS_BW_AUTOMATIC:                       224
+    IDS_BW_HIGH_QUALITY_GRAY:               225
+    IDS_DPI_MODE_LABEL:                     226
+    IDS_LABEL_CONTINUATION:                 227
+    IDS_DISCLAIMER_1:                       228
+    IDS_DISCLAIMER_2:                       229
+    IDS_DRAFT_MODE:                         230
+    IDS_NORMAL_MODE:                        231
+    IDS_PLAIN_BEST_MODE:                    232
+    IDS_PHOTO_BEST_MODE:                    233
+    IDS_MAX_DPI_MODE:                       234
+    IDS_INPUT_3X3_DPI:                      235
+    IDS_INPUT_6X3_DPI:                      236
+    IDS_INPUT_6X6_DPI:                      237
+    IDS_INPUT_12X12_DPI:                    238
+    IDS_OUTPUT_AUTOMATIC_ALL:               239
+    IDS_OUTPUT_AUTOB_48X12C_DPI:            240
+    IDS_OUTPUT_6X12B_AUTOC_DPI:             241
+    IDS_DPIDISP_NORMAL_MODE:                242
+    IDS_DPIDISP_BLANK_ENTRY:                243
+    IDS_COLLATE_SETTINGS:					245
+	IDS_COLLATED:							246
+	IDS_UNCOLLATED:							247
+	IDS_NUP:								248
+	IDS_1UP:								249
+	IDS_2UP:								250
+	IDS_4UP:								251
+	IDS_6UP:								252
+	IDS_9UP:								253
+	IDS_16UP:								254
+	IDS_16MB:								255
+	IDS_32MB:								256
+    IDS_INPUTBIN:                           400
+    IDS_INPUTBIN_TRAY_1:                    401
+    IDS_INPUTBIN_PHOTO_TRAY:                402
+    IDS_INPUTBIN_PRINTERAUTOSELECT:         403
+    IDS_INPUTBIN_TRAY_2:                    404
+    IDS_MTYPE_AUTOMATIC:                    500
+    IDS_MTYPE_PLAIN_PAPER:                  501
+    IDS_MTYPE_HP_BRIGHT_WHITE_PAPER:        502
+    IDS_MTYPE_HP_PREMIUM_PAPER:             503
+    IDS_MTYPE_HP_COLOR_INKJET_PAPER:        504
+    IDS_MTYPE_HP_PREMIUM_PRESENTATION:      505
+    IDS_MTYPE_OTHER_INKJET_PAPERS:          506
+    IDS_MTYPE_HP_PREMIUM_PLUS_PHOTO:        507
+    IDS_MTYPE_HP_PREMIUM_PHOTO_PAPERS:      508
+    IDS_MTYPE_HP_ADVANCED_PHOTO_PAPERS:     509
+    IDS_MTYPE_HP_EVERYDAY_PHOTO_SEMIGLOSS:  510
+    IDS_MTYPE_HP_EVERYDAY_PHOTO_MATTE:      511
+    IDS_MTYPE_OTHER_PHOTO_PAPERS:           512
+    IDS_MTYPE_HP_PREM_INKJET_TRANSP_FILM:   513
+    IDS_MTYPE_OTHER_TRANSPARENCY_FILMS:     514
+    IDS_MTYPE_HP_IRON_ON_TRANS:             515
+    IDS_MTYPE_HP_IRON_ON_TRANS_WHITE:       516
+    IDS_MTYPE_HP_IRON_ON_TRANS_DARK:        517
+    IDS_MTYPE_OTHER_SPECIALTY_PAPERS:       518
+    IDS_MTYPE_MATTE_GREETING_CARD:          519
+    IDS_MTYPE_GLOSSY_GREETING_CARD:         520
+    IDS_MTYPE_HP_PHOTO_GREETING_CARD:       521
+    IDS_MTYPE_HP_BROCHURE_FLYER_GLOSSY:     522
+    IDS_MTYPE_HP_BROCHURE_FLYER_MATTE:      523
+    IDS_MTYPE_HP_PREMIUM_PRES_120G_GLOSSY:  524
+    IDS_MTYPE_HP_BROCHURE_180G_GLOSSY:      525
+    IDS_MTYPE_HP_TRIFOLD_BROCHURE_GLOSSY:   526
+    IDS_MTYPE_HP_TRIFOLD_BROCHURE_MATTE:    527
+    IDS_MTYPE_OTHER_GLOSSY_BROCHURE:        528
+    IDS_MTYPE_OTHER_MATTE_BROCHURE:         529
+    IDS_MTYPE_HAGAKI_PLAIN:                 530
+    IDS_MTYPE_HAGAKI_INKJET:                531
+    IDS_MTYPE_HAGAKI_PHOTO:                 532
+    IDS_MTYPE_INKJET_SCRAPBOOK_PHOTO:       533
+    IDS_MTYPE_INKJET_SCRAPBOOK_MATTE:       534
+    IDS_MTYPE_THICK_PLAIN_PAPER:            535
+    IDS_MTYPE_HP_PREMIUM_INKJET_PAPER:      536
+    IDS_MTYPE_OTHER_GREETING_CARDS:         537
+    IDS_MTYPE_HP_BROCHURE_GLOSSY:           538
+    IDS_MTYPE_OTHER_BROCHURE_PAPERS:        539
+    IDS_MTYPE_CARD_STOCK:                   540
+    IDS_MTYPE_HP_PREMIUM_PRES_MATTE:        541
+	IDS_MTYPE_TRANSPARENCY_FILM:            542
+    IDS_MTYPE_HP_EVERYDAY_PHOTO_GLOSSY:     543
+    IDS_OUTPUTQUALITY:                      600
+    IDS_OUTPUTQUALITY_AUTOMATIC:            601
+    IDS_OUTPUTQUALITY_FASTDRAFT:            602
+    IDS_OUTPUTQUALITY_NORMAL:               603
+    IDS_OUTPUTQUALITY_BEST:                 604
+    IDS_OUTPUTQUALITY_MAXDPI:               605
+    IDS_OUTPUTQUALITY_WITHRES_DRAFT:        606
+    IDS_OUTPUTQUALITY_WITHRES_NORMAL:       607
+    IDS_OUTPUTQUALITY_WITHRES_BEST:         608
+    IDS_OUTPUTQUALITY_WITHRES_MAXDPI:       609
+	IDS_OUTPUTQUALITY_DRAFT:                610
+    IDS_HPRLT:                              700
+    IDS_HPRLT_OFF:                          701
+    IDS_HPRLT_ON:                           702
+    IDS_BORDERLESSPRINTING:                 703
+    IDS_BORDERLESSPRINTING_WITH_BORDER:     704
+    IDS_BORDERLESSPRINTING_BORDERLESS:      705
+    IDS_PRINTTEXTBLACK:                     706
+    IDS_PRINTTEXTBLACK_DISABLE:             707
+    IDS_PRINTTEXTBLACK_ENABLE:              708
+    IDS_GRAYSCALE:                          709
+    IDS_GRAYSCALE_OFF:                      710
+    IDS_GRAYSCALE_HIGH_QUALITY:             711
+    IDS_GRAYSCALE_BLACK_INK_ONLY:           712
+    IDS_AUTODUPLEXUNIT:                     713
+    IDS_AUTODUPLEXUNIT_NOT_INSTALLED:       714
+    IDS_AUTODUPLEXUNIT_INSTALLED:           715
+    IDS_PRESERVELAYOUT:                     716
+    IDS_PRESERVELAYOUT_NO:                  717
+    IDS_PRESERVELAYOUT_YES:                 718
+    IDS_COLOR_MANAGEMENT:                   719
+    IDS_CSPACE_sRGB:                        720
+    IDS_CSPACE_ADOBE_RGB:                   721
+    IDS_PRINTTEXTASBLACK:                   722
+		
+	IDS_UNSPECIFIED:								723
+	IDS_MTYPE_LJ_HP_LASERJET_90_G:					724
+	IDS_MTYPE_LJ_HP_COLORLASERMATTE_105:			725
+	IDS_MTYPE_LJ_HP_COLORLASER_BROCHURE_MATTE_160:	726
+	IDS_MTYPE_HP_PREM_PRES_MATTE_120:		        727 
+	IDS_MTYPE_HP_PROFESSIONAL_LASER_GLOSS_130:		728
+	IDS_MTYPE_HP_PRESENTATION_GLOSSY_130:		    729 
+	IDS_MTYPE_LJ_INTERMEDIATE_85_95:		        730
+	IDS_MTYPE_LJ_HP_PREMIUM_CHOICE_MATTE_120:		731
+	IDS_MTYPE_HP_MATTE_160:			                732
+	IDS_MTYPE_HP_COVER_MATTE_200:		            733
+	IDS_MTYPE_HP_MATTE_PHOTO_200G:		            734
+	IDS_MTYPE_LJ_HP_COLORLASER_BROUCHUREGLOSSY_160: 735
+	IDS_MTYPE_LJ_HP_SUPERIOR_LASER_GLOSSY_160:		736
+	IDS_MTYPE_HP_TRIFOLD_COLOR_LASER_160:		    737 
+	IDS_MTYPE_LJ_HP_COLOR_LASER_PHOTO_GLOSSY220:	738
+	IDS_MTYPE_LJ_HP_MID_WEIGHT_96_110:		        739 
+	IDS_MTYPE_HEAVY_111_130:	                    740
+	IDS_MTYPE_EXTRAHEAVY_131_175:		            741 
+	IDS_MTYPE_HEAVYGLOSSY_111_130:		            742  
+	IDS_MTYPE_OPAQUE_FILM:		                    743
+	IDS_MTYPE_EXTRAHEAVY_GLOOSY_131_175:	        744
+	IDS_MTYPE_LJ_CARD_GLOSSY_176_220:		        745
+	IDS_MTYPE_LJ_COLORLASER_TRANSPARENCY:		    746 
+	ENVELOPE_DISPLAY:		                        749
+	IDS_MTYPE_LJ_HEAVY_ENVELOPE:	                750
+	IDS_MTYPE_COLORED:		                        753
+	IDS_ROUGH_TYPE:									756
+	IDS_MTYPE_HEAVY_ROUGH:							757
+	IDS_MTYPE_LJ_HP_TOUGH_PAPER:					758
+	IDS_HP_ECOSMART_LITE_CSL:						759
+	IDS_TYPE_IS_CARD_STOCK:							760
+	IDS_TRANSPARENCY_DISPLAY:						761
+
+	IDS_MSIZE_8K_270X390_MM:						762
+	IDS_MSIZE_16k_195_X_270:						763
+	IDS_MSIZE_16k_184_X_206:						765
+	IDS_MSIZE_16K_197X273:							767
+        IDS_EXECUTIVE_JIS:							768
+
+    IDS_PREPRINTED_TYPE:                     801
+    IDS_LETTERHEAD_TYPE:                     802
+    IDS_PREPUNCHED_TYPE:                     803
+    IDS_BOND_TYPE:                           805
+    IDS_RECYCLED_TYPE:                       806
+    IDS_LABELS_TYPE:                         804
+
+    IDS_COLOR_TYPE:                          807
+    IDS_LIGHT2:                              808
+    IDS_HEAVY1:                              809
+    IDS_CARDSTOCK_164:                       810
+    IDS_HEAVY_GLOSSY:                        811
+    IDS_TOUGH_PAPER:                         812
+    IDS_ENVELOPE_TYPE:                       813
+    IDS_PAGES_PER_SHEET_DISPLAY:             814
+
+    IDS_STAPLER:                             821
+    IDS_NONE:                                822
+    IDS_ONE_STAPLE_RIGHT:                    823
+    IDS_ONE_STAPLE_LEFT:                     824
+    IDS_TWO_STAPLE_RIGHT:                    825
+    IDS_TWO_STAPLE_LEFT:                     826
+    IDS_TWO_STAPLE_TOP:                      827
+    IDS_FOLD_AND_STITCH:                     828
+    IDS_ONE_STAPLE:                          829
+    IDS_TWO_STAPLE:                          830
+    IDS_THREE_STAPLE:                        831
+
+    IDS_ONE_STAPLE_ANGLED:                               841
+    IDS_SIX_STAPLES:                                     842
+    IDS_ONE_STAPLE_ANGLE_MAX_15:                         843
+    IDS_ONE_STAPLE_LEFT_ANGLED:                          844
+    IDS_THREE_STAPLES_LEFT:                              845
+    IDS_THREE_STAPLES_TOP:                               846
+    IDS_ONE_STAPLE_RIGHT_ANGLED:                         847
+    IDS_THREE_STAPLES_RIGHT:                             848
+    IDS_FOLD_N_STITCH_MAX15:                             849
+    IDS_NOTINSTALLED:                                    850
+    IDS_HP_3_BIN_STAPLER_STACKER_MAILBOX_CC424A_CSL:     851
+    IDS_HP_3_BIN_STAPLER_STACKER_STACKER_CC424A_CSL:     852
+    IDS_ONE_STAPLE_RIGHT_PARALLEL:                       853
+
+    IDS_MTYPE_HP_MATTE_90G:                                        861
+    IDS_MTYPE_HP_MATTE_105G:                                       862
+    IDS_MTYPE_HP_MATTE_120G:                                       863
+    IDS_MTYPE_HP_PRESENTATION_SOFT_GLOS120:                        864
+    IDS_MTYPE_LJ_HP_PROFESSIONAL_SOFT_GLOSS_120:                   865
+    IDS_MTYPE_HP_SOFT_GLOSS_120G:                                  866
+    IDS_MTYPE_HP_GLOSSY_130G:                                      867
+    IDS_MTYPE_MATTE:                                               868
+    IDS_MTYPE_HP_MATTE_160G:                                       869
+    IDS_MTYPE_HP_GLOSSY_160G:                                      870
+    IDS_NON_HP_MATTE_BROCHURE:                                     871
+    IDS_MTYPE_HP_BROCHURE_AND_FLYER:                               872
+    IDS_MTYPE_HP_MATTE_200G:                                       873
+    IDS_MTYPE_EDGELINE_GLOS_180G:                                  874
+    IDS_MTYPE_LJ_CARDSTOCK_176_220:                                875
+    IDS_MTYPE_HP_COLOR_LASER_PHOTO_GLOSSY220_FASTER_PRINTING:      876
+    IDS_MTYPE_HP_COLOR_LASER_PHOTO_GLOSSY220_HIGHER_GLOSS:         877
+    IDS_MTYPE_HP_GLOSSY_220G:                                      878
+    IDS_NON_HP_MATTE_COVER:                                        879
+    IDS_HP_PREM_INKJ_TRANS:                                        880
+    IDS_MTYPE_MONO_LASER_TRANSPARENCY:                             881
+    IDS_VELLUM:                                                    882
+    IDS_HP_THICK_PLAIN_PAPER:                                      883
+    IDS_MTYPE_IJ_HP_PREMIUM_INKJET_PAPER:                          884
+    IDS_MTYPE_IJ_HP_ADVANCED_PHOTO_PAPER:                          885
+    IDS_MTYPE_EVERYDAY_PHOTO_MATT:                                 886
+    IDS_OTHER_PHOTO_PAPER_NOS:                                     887
+    IDS_HP_BROCHURE_MATTE_180G:                                    888
+
+    IDS_MULTIFN_FINISHER:                            1001
+
+    IDS_500_STACKER:                                 1086
+    IDS_500_STAPLER_STACKER:                         1087
+
+    IDS_HP_3000_SHEET_STAPLERSTACKER:                3034
+    IDS_HP_3000_SHEET_STACKER:                       3035
+    IDS_ACCESSORY_OUTPUT_BIN:                        3036
+
+    IDS_8_BIN_MAILBOX_MAILBOX_MODE:                  4309
+    IDS_8_BIN_MAILBOX_STACKER_MODE:                  4310
+    IDS_8_BIN_MAILBOX_COLLATOR_MODE:                 4311
+    IDS_8_BIN_MAILBOX_JOBSEPARATOR_MODE:             4312
+
+    IDS_3_BIN_MAILBOX_MAILBOX_MODE:                  4649
+    IDS_3_BIN_MAILBOX_STACKER_MODE:                  4650
+    IDS_3_BIN_MAILBOX_SEPARATOR_MODE:                4651
+
+    IDS_HP_750_STAPLER_STACKER:                      4686
+
+    IDS_HP_3_BIN_STAPLER_MAILBOX:                    5609
+    IDS_HP_3_BIN_STAPLER_STACKER:                    5610
+    IDS_HP_MULTI_FUNCTION_FINISHER:                  5611
+    IDS_HP_BOOKLET_MARKER:                           5612
+
+    IDS_HP_BOOKLET_MAK_STAK:                         6198
+    IDS_HP_BOOKLET_MAK_MAIL:                         6199
+
+    IDS_HP_STAK_STAPL_JOBSEP:                        6207
+    IDS_HP_4BIN_JOB_SEP:                             6208
+
+    IDS_SINGLE_OUTPUT_BIN:                           6259
+
+    IDS_HP_3BIN_FUNCTION_STAPLER:                    6566
+
+    IDS_HP_5BIN_STACKER:                             6595
+    IDS_HP_5BIN_MAILBOX:                             6596
+    IDS_HP_5BIN_JOB_SEPARATOR:                       6597
+    IDS_HP_5BIN_COLLATOR:                            6598
+
+    IDS_STACKER_MODE_CSL:                            7052
+    IDS_SORTER_MODE_CSL:                             7053
+    IDS_JOB_SEPARATOR_MODE_CSL:                      7054
+    IDS_HP_500_SHEET_STAPLER_CSL:                    7055
+    IDS_HP_3000_SHEET_STAPLER_CSL:                   7056
+    IDS_HP_MULTIFUNCTION_FINISHER_CSL:               7057
+    IDS_HP_500_SHEET_STACKER_CSL:                    7058
+    IDS_5BIN_MAILBOX_MODE_CSL:                       7059
+
+    IDS_HP_3_BIN_STAPLER_MAILBOX_CC424A:             7079
+    IDS_HP_3_BIN_STAPLER_STACKER_CC424A:             7080
+    IDS_HP_3_BIN_FUNCTION_STAPLER_CC424A:            7081
+    IDS_HP_3_BIN_STAPLER_MAILBOX_CE736A:             7082
+    IDS_HP_3_BIN_STAPLER_STACKER_CE736A:             7083
+    IDS_HP_3_BIN_FUNCTION_STAPLER_CE736A:            7084
+
+    IDS_B6_JIS:                                      7090
+
+    IDS_PRINTER_PAPER_SIZE:                          7091
+    IDS_A3_11X17_SIZE_PRINTER:                       7092
+    IDS_A4_LETTER_SIZE_PRINTER:                      7093
+
+    IDS_12x18:                                       7094
+    IDS_MSIZE_8K_273X394:                            7095
+    IDS_3_X_5:                                       7096
+    IDS_PSIZE_4_X_6:                                 7097
+    IDS_PSIZE_5_X_7:                                 7098
+    IDS_PSIZE_5_X_8:                                 7099
+
+}
+
+*Macros: AttributeEnum
+{
+    *%  Media Types
+
+    eMediaLight:                        "Light"
+    eHeavy:                             "Heavy"
+    eGloss:                             "Gloss"
+    eHeavyGloss:                        "Heavy Gloss"
+    eEnvelope:                          "Envelope"
+    eGlossFilm:                         "Gloss Film"
+    ePremIJ:                            "PremIJPaper"
+    ePremIJH:                           "PremIJHeavy"
+    ePhotoQualitySemiGloss:             "PhotoSemiGloss"
+    ePhotoQualityMatte:                 "PhotoMatte"
+    eEverydayPSG:                       "EDPhotoSemiGloss"
+    eEverydayPM:                        "EDPhotoMatte"
+    ePremTransparency:                  "PremIJTrans"
+    ePremPlusTransparency:              "PremPLTrans"
+    ePhotoGloss:                        "PhotoGloss"
+    ePremPhotoGloss:                    "PremPhotoGloss"
+    ePremPlusPhotoGloss:                "PPLPhotGlos"
+    ePremPlusPhotoMatte:                "PPLPhotMatte"
+    eColorFastPhotoGlossy:              "ClrFastPhotoGloss"
+    eBrochureFlyGloss:                  "BrochGloss"
+    eBrochureFlyMatte:                  "BrochMatte"
+    eTab:                               "Tab"
+    eCustom:                            "Custom"
+    eLetterhead:                        "Letterhead"    
+    eThickPlain:                        "ThickPlain"
+    ePremPrePaper:                      "PremPrePaper"
+    ePhotoProjPaper:                    "PhotoProjPaper"
+    eThickPhoto:                        "ThickPhoto"
+    eLabelsMatte:                       "LabelsMatte"
+    eLabelsGlossy:                      "LabelsGlossy"
+    eTransparency:                      "Transparency"
+    eInkjetPaper:                       "InkjetPaper"
+    ePhotoPaper:                        "PhotoPaper"
+    eBrochPaper:                        "BrochPaper"
+    eIntermediate:                      "Intermediate"
+    eExtraHeavy:                        "Extra Heavy"
+    eExtraHeavyGloss:                   "Extra Heavy Gloss"
+
+    eRecycled:                          "Recycled"
+    eColor:                             "Color"
+
+    *%  AllObjectTypes
+
+    eDisable:                           "<00>"
+    eEnable:                            "<01>"
+
+    *% ColorSmart NeutralAxis Enums
+
+    eTonerBlack:                        "<00>"
+    eProcessBlack:                      "<01>"
+
+    *%  ColorSmart ColorTrapping Enums
+
+    eMax:                               "<01>"
+    eNormal:                            "<02>" 
+    eLight:                             "<03>" 
+
+    *%  ColorSmart ColorTreatment Enums
+
+    eNoTreatment:                       "<00>"
+    eScreenMatch:                       "<01>"
+    eVivid:                             "<02>"
+
+    *% ColorSmart RGB Enums
+
+    HP_ColorSmartRGB:                    "<1752174596>"
+    HP_VUAttr1:                         "<93>"
+    HP_VUAttr2:                         "<94>"
+    HP_VUAttr3:                         "<95>"
+
+    *%  PrintQuality Enums
+
+    eHighLPI:                           "<00>"
+    eMediumLPI:                         "<01>"
+    eLowLPI:                            "<02>"
+
+    HP_SelectTrayBinByString:           "<05207068>" 
+    VUExtension:                        "<91>"
+    VendorUnique:                       "<46>"
+}
+
+*Macros: PCLXLCommand
+{
+   PCLXL_Protocol2Comment:       ") HP-PCL XL;2;0;Comment Copyright(c) 1999-2011 Hewlett-Packard Corporation<0A>"
+   PCLXL_Protocol3Comment:       ") HP-PCL XL;3;0;Comment Copyright(c) 1999-2011 Hewlett-Packard Corporation<0A>"
+   PCLXL_OpenDataSource:         =ubyte "<00>" =attr_ubyte =SourceType =ubyte "<01>" =attr_ubyte =DataOrg =OpenDataSource
+   PCLXL_BeginSession600:        =uint16_xy "<58025802>" =attr_ubyte =UnitsPerMeasure =ubyte
++    =eInch =attr_ubyte =Measure =ubyte =eBackChAndErrPage =attr_ubyte =ErrorReport =BeginSession
+   Width:                        %m{ RasterDataWidthInBytes }
+   Height:                       %m{ RasterDataHeightInPixels }
+   DataSize:                     %l{ NumOfDataBytes }
+   FntHeight:                    %l{ FontHeight*600/TextYRes }
+   FntNextGlyph:                 %l{ NextGlyph }
+   PCLXL_CmdBeginRaster:         =ubyte =e1Bit =attr_ubyte =ColorDepth
++    =ubyte =eDirectPixel =attr_ubyte =ColorMapping
++    =uint16 =Width =attr_ubyte =SourceWidth
++    =uint16 =Height =attr_ubyte =SourceHeight
++    =uint16_xy =Width =Height =attr_ubyte =DestinationSize
++    =BeginImage
++    =ubyte =eNoCompression =attr_ubyte =CompressMode
++    =ubyte "<00>" =attr_ubyte =StartLine
++    =uint16 =Height =attr_ubyte =BlockHeight
++    =ReadImage
+   PCLXL_CmdSendBlockData:       =dataLength =DataSize "<0000>"
+   DestinationX:                 %l{DestX}
+   DestinationY:                 %l{DestY}
+   DestinationXRel:              %l{DestXRel}
+   DestinationYRel:              %l{DestYRel}
+   NumOfCopy:                    %l{NumOfCopies}
+   PrintDir:                     %l{PrintDirInCCDegrees}
+   FntName:                      =ubyte_array =uint16 "<1000>" "MS PCLXLFont " %3d{CurrentFontID}
+}
+
+*Macros: PJLCommand
+{
+   PJL_COLLATE_ON:               "@PJL SET LCOLLATION=ON<0A>"
+   PJL_COLLATE_OFF:              "@PJL SET LCOLLATION=OFF<0A>"
+   PJL_FOR_PAGE_COUNTER:         "@PJL SET JOBATTR <22>OS =Windows<22><0A>@PJL SET JOBATTR <22>OS Version = Windows 8.1 6.3.9600.1<22><0A>@PJL SET JOBATTR <22>Render Type = InOS<22><0A>@PJL SET JOBATTR <22>Render Name = HP PCL6 Class Driver<22><0A>@PJL SET JOBATTR <22>Render Version=6.3.4.1<22><0A>"
+}
+
+*Macros: MediaSizeStrings
+{
+    s8KPaper:                           =ubyte "<05>" "ROC8K"
+    s8K260X368Paper:                    =ubyte "<0C>" "8K 260X368MM" 
+    s8K273X394Paper:                    =ubyte "<0C>" "8K 273X394MM" 
+    s8K270X390Paper:                    =ubyte "<0C>" "8K 270X390MM" 
+    s16kPaper:                          =ubyte "<06>" "ROC16K"
+    s16k184X260Paper:                   =ubyte "<0D>" "16K 184X260MM"
+    s16k195X270Paper:                   =ubyte "<0D>" "16K 195X270MM"
+    sJisExecPaper:                      =ubyte "<07>" "JISEXEC"
+    sB5ISOPaper:                        =ubyte "<05>" "ISOB5"
+    sB5JISPaper:                        =ubyte "<05>" "JISB5"
+    s8_5x13Paper:                       =ubyte "<08>" "FOOLSCAP"
+    sB5ISOPaperRuby:                    =ubyte "<06>" "ISO B5"
+    sExecPaperRuby:                     =ubyte "<09>" "EXECUTIVE"
+    sB5EnvelopRuby:                     =ubyte "<02>" "B5"
+    sStatePaper:                        =ubyte "<09>" "STATEMENT" 
+    sA2Envelope:                        =ubyte "<02>" "A2"
+    sC5Envelope:                        =ubyte "<02>" "C5"
+    sC6Envelope:                        =ubyte "<02>" "C6"
+    sGreetCard:                         =ubyte "<0B>" "HPGREETCARD"
+    sJ3Env:                             =ubyte "<02>" "J3"
+    sJ4Env:                             =ubyte "<02>" "J4"
+    sIndex3X5:                          =ubyte "<03>" "3x5"
+    sIndex4X6:                          =ubyte "<03>" "4x6"
+    sIndex5X8:                          =ubyte "<03>" "5x8"
+    sHagakiCard:                        =ubyte "<05>" "JPOST"
+    sOfuguHagaki:                       =ubyte "<06>" "JPOSTD"
+    sA6Card:                            =ubyte "<06>" "A6CARD"
+    sPhoto4x6:                          =ubyte "<09>" "PHOTO_4X6"
+    s8_5X13:                            =ubyte "<06>" "8.5X13"
+    sCustom:                            =ubyte "<06>" "CUSTOM"
+    sLetterWide:                        =ubyte "<07>" "LETTER+" 
+    sHalfLetter:                        =ubyte "<07>" "HALFLTR"
+    sHalfLetterWide:                    =ubyte "<0A>" "STATEMENT+"
+    s11x17Wide:                         =ubyte "<07>" "LEDGER+"
+    sLedgerPaper:                       =ubyte "<06>" "LEDGER"
+    sA3Wide:                            =ubyte "<03>" "A3+"
+    sA4Wide:                            =ubyte "<03>" "A4+"
+    sA5Wide:                            =ubyte "<03>" "A5+"
+    sJB4Wide:                           =ubyte "<07>" "JIS B4+"
+    sJB5Wide:                           =ubyte "<07>" "JIS B5+"
+    sJB5Paper:                          =ubyte "<06>" "JIS B5"
+    sStatement:                         =ubyte "<09>" "STATEMENT"
+    sB6JISPaper:                        =ubyte "<06>" "JIS B6"
+    sRA3:                               =ubyte "<03>" "RA3"
+    s12X18:                             =ubyte "<05>" "12X18"
+    sSuperB:                            =ubyte "<06>" "SUPERB"
+    sA3Nobi:                            =ubyte "<06>" "A3NOBI"
+    sJK2Env:                            =ubyte "<05>" "KAKU2"
+    sLedgerPaper:                       =ubyte "<06>" "LEDGER"
+    sB4JISPaper:                        =ubyte "<05>" "JISB4"
+    sSRA3:                              =ubyte "<04>" "SRA3"
+    sRA4:                               =ubyte "<03>" "RA4"
+    sSRA4:                              =ubyte "<04>" "SRA4"
+    s10x15cm:                           =ubyte "<08>" "10x15 cm"
+
+}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                       INDX( 	 ¯±^            (     Ë       –                    ¨     h R     4     Œ/9Ñˇ∫–Œ/9Ñˇ∫–mLAº⁄‘Œ/9Ñˇ∫– Ä      `s               u s b d . s y s i n f ¨     h X     4     Œ/9Ñˇ∫–Œ/9Ñˇ∫–∑ßêAº⁄‘Œ/9Ñˇ∫– Ä     `u              u s b e h c i . s y s 1¨     h V     4     Œ/9Ñˇ∫–Œ/9Ñˇ∫–è »Aº⁄‘Œ/9Ñˇ∫– †     `ù             
+ u s b h u b . s y s s ¨     h X     4     Œ/9Ñˇ∫–Œ/9Ñˇ∫–
+ìAº⁄‘Œ/9Ñˇ∫– Ä       r               u s b o h c i . s y s √y     h X     4     Œ/9Ñˇ∫ Œ/9Ñˇ∫–â}√ª⁄‘Œ/9Ñˇ∫– 0     ú/              u s b p o r t . i n f 9¨     h X     4     Œ/9Ñˇ∫–Œ/9Ñˇ∫–‰ÒœAº⁄‘Œ/9Ñˇ∫–       `˘              u s b p o r t . s y s ¨     h X     4     Œ/9Ñˇ∫–Œ/9Ñˇ∫–êﬁºAº⁄‘Œ/9Ñˇ∫– ê       à               u s b u h c i . s y s                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                INDX( 	 -¨^            (   ®	  Ë           E   ‘            Ω∞     p Z     "8     ’˚@Üˇ∫–’˚@Üˇ∫–Eã’Oº⁄‘’˚@Üˇ∫– †     Uî             H P 1 B E 7 ~ 1 . G P D       ¥∞     p Z     "8     7<Üˇ∫–7<Üˇ∫–n∆–Oº⁄‘7<Üˇ∫–                     H P 2 7 A C ~ 1 . I N I       µ∞     p Z     "8     iô>Üˇ∫–’˚@Üˇ∫–n∆–Oº⁄‘iô>Üˇ∫–                     H P 3 4 E 1 ~ 1 . I N I       Ø∞     p Z     "8     ’˚@Üˇ∫–’˚@Üˇ∫–dŒOº⁄‘’˚@Üˇ∫–                     H P 5 A 3 6 ~ 1 . I N I      ±∞     p Z     "8     7<Üˇ∫–7<Üˇ∫–dŒOº⁄‘7<Üˇ∫– †     ≈ñ             H P 8 E 8 E ~ 1 . G P D       Æ∞     p Z     "8     ’˚@Üˇ∫–’˚@Üˇ∫–dŒOº⁄‘’˚@Üˇ∫– –      ÌÕ              H P C 5 B 3 ~ 1 . G P D       ¢∞     p Z     "8     7<Üˇ∫–7<Üˇ∫–€<«Oº⁄‘7<Üˇ∫– p      9n              h p c 6 m w 8 1 . g p d       ú∞     p Z     "8     ’˚@Üˇ∫–’˚@Üˇ∫–p⁄ƒOº⁄‘’˚@Üˇ∫–       n              h p c C F G P 6 . G D L       û∞     p Z     "8     ’˚@Üˇ∫–’˚@Üˇ∫–p⁄ƒOº⁄‘’˚@Üˇ∫– P      H              h p c f l t w 8 . d l l       †∞     p Z     "8     ’˚@Üˇ∫–’˚@Üˇ∫–p⁄ƒOº⁄‘’˚@Üˇ∫– ‡       ﬁ              h p c f l t w b . d l l       §∞     p `     "8     ’˚@Üˇ∫–’˚@Üˇ∫– ü…Oº⁄‘’˚@Üˇ∫– –      Õ              h p c P 6 w n 8 _ C A . G P D ´∞     Ä j     "8     ’˚@Üˇ∫–’˚@Üˇ∫–•ÃOº⁄‘’˚@Üˇ∫– Ä     íu             h p c P 6 w n 8 _ C A _ H W C P . G P D v     •∞     Ä j     "8     ’˚@Üˇ∫–’˚@Üˇ∫– ü…Oº⁄‘’˚@Üˇ∫– –      “Œ              h p c P 6 w n 8 _ C A _ O J  F . G P D v     ®∞     p `     "8     ’˚@Üˇ∫–’˚@Üˇ∫– ü…Oº⁄‘’˚@Üˇ∫–       |Ó              h p c P 6 w n 8 _ C B . G P D ±∞     Ä j     "8     7<Üˇ∫–7<Üˇ∫–dŒOº⁄‘7<Üˇ∫– †     ≈ñ             h p c P 6 w n 8 _ C B _ H W C P . G P D j     Æ∞     p `     "8     ’˚@Üˇ∫–’˚@Üˇ∫–dŒOº⁄‘’˚@Üˇ∫– –      ÌÕ              h p c P 6 w n 8 _ M A . G P D ∞∞     Ä j     "8     ’˚@Üˇ∫–’˚@Üˇ∫–dŒOº⁄‘’˚@Üˇ∫– Ä     éu             h p c P 6 w n 8 _ M A _ H W C P . G P D Z     Ω∞     p `    "8     ’˚@Üˇ∫–’˚@Üˇ∫–Eã’Oº⁄‘’˚@Üˇ∫– †     Uî             h p c P 6 w n 8 _ M B . G P D §∞     p Z     "8     ’˚@Üˇ∫–’˚@Üˇ∫– ü…Oº⁄‘’˚@Üˇ∫– –      Õ              H P C P 6 W ~ 1 . G P D l i n •∞     p Z     "8     ’˚@Üˇ∫–’˚@Üˇ∫– ü…Oº⁄‘’˚@Üˇ∫– –      “Œ              H P C P 6 W ~ 2 . G P D l i n ®∞     p Z     "8     ’˚@Üˇ∫–’˚@Üˇ∫– ü…Oº⁄‘’˚@Üˇ∫–       |Ó              H P C P 6 W ~ 3 . G P D l i n               D . x m ¶∞     x b     "8     ÃƒAº⁄‘ÃƒAº⁄‘ÃƒAº⁄‘ÃƒAº⁄        H              h p p c l 6 u s b e x t . x m l       ß∞     x b     "8     ÃƒAº⁄‘ÃƒAº⁄‘ÃƒAº⁄‘ÃƒAº⁄‘       ‡              h p p c l 6 w s d e x t . x m l       ©∞     Ä n     "8     ÃƒAº⁄‘ÃƒAº⁄‘ÃƒAº⁄‘ÃƒAº⁄‘                    h p p c l 6 _ C A - m a n i f e s t . i n i   ™∞     à x     "8     ÃƒAº⁄‘ÃƒAº⁄‘ÃƒAº⁄‘ÃƒAº⁄‘                    h p p c l 6 _ C A _ H W C P - m a n i f e s t . i n i ¨∞     à x     "8     ÃƒAº⁄‘ÃƒAº⁄‘ÃƒAº⁄‘ÃƒAº⁄‘      S              h p p c l 6 _ C A _ O J E F - m a n i f e s t . i n i ≠∞     Ä n     "8     ÃƒAº⁄‘ÃƒAº⁄‘ÃƒAº⁄‘ÃƒAº⁄‘                    h p p c l 6 _ C B - m a n i f e s t . i n i   Ø∞     à x     "8     ÃƒAº⁄‘7h∆Aº⁄‘7h∆Aº⁄‘ÃƒAº⁄‘                    h p p c l 6 _ C B _ H W C P - m a n i f e s t . i n i ©∞     p Z     "8     ÃƒAº⁄‘ÃƒAº⁄‘ÃƒAº⁄‘ÃƒAº⁄‘                    H P P C L 6 ~ 1 . I N I       ¶∞     p Z     "8     ÃƒAº⁄‘ÃƒAº⁄‘ÃƒAº⁄‘ÃƒAº⁄‘      H              H P P C L 6 ~ 1 . X M L       ™∞     p Z     "8     ÃƒAº⁄‘ÃƒAº⁄‘ÃƒAº⁄‘ÃƒAº⁄‘                    H P P C L 6 ~ 2 . I N I       ß∞     p Z     "8     ÃƒAº⁄‘ÃƒAº⁄‘ÃƒAº⁄‘ÃƒAº⁄‘       ‡              H P P C L 6 ~ 2 . X M L       ¨∞     p Z     "8     ÃƒAº⁄‘ÃƒAº⁄‘ÃƒAº⁄‘ÃƒAº⁄‘       S              H P P C L 6 ~ 3 . I N I       ≠∞     p Z     "8     ÃƒAº⁄‘ÃƒAº⁄‘ÃƒAº⁄‘ÃƒAº⁄‘                    H P P C L 6 ~ 4 . I N I                    <Filters>
+  <Filter dll            = "hpcfltw8.dll"
+          clsid          = "{02B8D79B-858A-435b-B416-03A5E6414CEE}"
+          name           = "HP filter">
+          <Input   guid  = "{b8cf8530-5562-47c4-ab67-b1f69ecf961e}" comment="IID_IXpsDocumentProvider"/>
+          <Output  guid  = "{4368d8a2-4181-4a9f-b295-3d9a38bb9ba0}" comment="IID_IXpsDocumentConsumer"/>
+  </Filter>
+  <Filter dll    ="MSxpsPCL6.dll"
+          clsid  ="{3821E518-33AF-4d17-92B3-28EB410D46B6}"
+          name   ="Microsoft XPS to PCL6">
+          <Input  guid ="{4d47a67c-66cc-4430-850e-daf466fe5bc4}" comment="IID_IPrintReadStream" />
+          <Output guid ="{65bb7f1b-371e-4571-8ac7-912f510c1a38}" comment="IID_IPrintWriteStream" />
+  </Filter>
+  <Filter dll            = "hpcfltwb.dll"
+          clsid          = "{802ACC87-86AB-4744-93A4-E473CD0D65AC}"
+          name           = "HP PIN printing filter">
+          <Input  guid ="{4d47a67c-66cc-4430-850e-daf466fe5bc4}" comment="IID_IPrintReadStream" />
+          <Output guid ="{65bb7f1b-371e-4571-8ac7-912f510c1a38}" comment="IID_IPrintWriteStream" />
+  </Filter>
+</Filters>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  *GPDFileVersion: "1.0"
+*% 
+*% 
+*% 
+*GPDFileVersion: "1.0"
+*GPDSpecVersion: "1.0"
+*GPDFileName: "hpcP6wn8_CA.gpd"
+
+*Include: "StdNames.gpd"
+*Ifdef: WINNT_60
+*PrintSchemaPrivateNamespaceURI:"http://www.hp.com/printschema/2005"
+*Endif: WINNT_60
+*Include: "PJL.GPD"
+*Include: "P6DISP.GPD"
+*Include: "P6FONT.GPD"
+*Include: "PCLXL.GPD"
+*Include: "HPC6mW81.GPD"
+*Include: "MSXPSINC.GPD"
+
+*%Ifdef: GDL_ENABLED
+*%Include: "hpcCFGP6.GDL"
+*%Endif: GDL_ENABLED
+*Ifdef: WINNT_60
+*BidiQueryFile: "hpcCFGP6.GDL"
+*Endif: WINNT_60
+
+*ModelName: "HP Laserjet v4 Class Driver"
+*MasterUnits:    PAIR(1200, 1200)
+*ResourceDLL:    "hpcstw81.dll"
+*PrintRate: 22
+*PrintRateUnit: PPM
+*PrintRatePPM: 22
+*PrinterType:    PAGE
+*Personality: "PCLXL"                   *%=PERSONALITY_PCLXL
+*MaxCopies:      9999
+*IsXPSDriver?:   TRUE
+
+*HardwareCopies: Off
+
+*MasterUnits: PAIR(1200, 1200)
+*%------------------------------------------------------------------------
+*% Feature: PaperSize : TVSF (TV Managed Standard Feature)
+*%------------------------------------------------------------------------
+*Feature: PaperSize
+{
+   *rcNameID: =PAPER_SIZE_DISPLAY
+*%Ifdef: WINNT_60
+   *%PrintSchemaKeywordMap: "PageMediaSize"
+*%Endif: WINNT_60
+   *DefaultOption: LETTER
+   *Option: LETTER
+   {
+      *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+*Ifdef: WINNT_60
+      *PrintSchemaKeywordMap: "NorthAmericaLetter"
+*Endif: WINNT_60
+      *switch: Orientation
+      {
+         *case: PORTRAIT
+         {
+                *PrintableArea: PAIR(9632, 12800)
+                *PrintableOrigin: PAIR(284, 200)
+                *CursorOrigin: PAIR(284, 200)
+            *Command: CmdSelect
+            {
+               *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =ePortraitOrientation =attr_ubyte =Orientation
++                    =ubyte_array =sLetterPaper =attr_ubyte =MediaSize =BeginPage
+            }
+         }
+         *case: LANDSCAPE_CC90
+         {
+                *PrintableArea: PAIR(9632, 12800)
+                *PrintableOrigin: PAIR(284, 200)
+                *CursorOrigin: PAIR(284, 13000)
+            *Command: CmdSelect
+            {
+               *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =eLandscapeOrientation =attr_ubyte =Orientation
++                    =ubyte_array =sLetterPaper =attr_ubyte =MediaSize =BeginPage
+            }
+         }
+      }
+   }
+   *Option: LEGAL
+   {
+      *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+*Ifdef: WINNT_60
+      *PrintSchemaKeywordMap: "NorthAmericaLegal"
+*Endif: WINNT_60
+      *switch: Orientation
+      {
+         *case: PORTRAIT
+         {
+            *PrintableArea: PAIR(9800, 16400)
+            *PrintableOrigin: PAIR(200, 200)
+            *CursorOrigin: PAIR(200, 200)
+            *Command: CmdSelect
+            {
+               *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =ePortraitOrientation =attr_ubyte =Orientation
++                    =ubyte_array =sLegalPaper =attr_ubyte =MediaSize =BeginPage
+            }
+         }
+         *case: LANDSCAPE_CC90
+         {
+            *PrintableArea: PAIR(9800, 16400)
+            *PrintableOrigin: PAIR(200, 200)
+            *CursorOrigin: PAIR(200, 16600)
+            *Command: CmdSelect
+            {
+               *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =eLandscapeOrientation =attr_ubyte =Orientation
++                    =ubyte_array =sLegalPaper =attr_ubyte =MediaSize =BeginPage
+            }
+         }
+      }
+   }
+   *Option: EXECUTIVE
+   {
+      *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+*Ifdef: WINNT_60
+      *PrintSchemaKeywordMap: "NorthAmericaExecutive"
+*Endif: WINNT_60
+      *switch: Orientation
+      {
+         *case: PORTRAIT
+         {
+            *PrintableArea: PAIR(8300, 12200)
+            *PrintableOrigin: PAIR(200, 200)
+            *CursorOrigin: PAIR(200, 200)
+            *Command: CmdSelect
+            {
+               *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =ePortraitOrientation =attr_ubyte =Orientation
++                    =ubyte_array =sExecPaper =attr_ubyte =MediaSize =BeginPage
+            }
+         }
+         *case: LANDSCAPE_CC90
+         {
+            *PrintableArea: PAIR(8300, 12200)
+            *PrintableOrigin: PAIR(200, 200)
+            *CursorOrigin: PAIR(200, 12400)
+            *Command: CmdSelect
+            {
+               *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =eLandscapeOrientation =attr_ubyte =Orientation
++                 =ubyte_array =sExecPaper =attr_ubyte =MediaSize =BeginPage
+            }
+         }
+      }
+   }
+   *Option: A4
+   {
+      *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+*Ifdef: WINNT_60
+      *PrintSchemaKeywordMap: "ISOA4"
+*Endif: WINNT_60
+      *switch: Orientation
+      {
+         *case: PORTRAIT
+         {
+                *PrintableArea: PAIR(9520, 13558)
+                *PrintableOrigin: PAIR(200, 236)
+                *CursorOrigin: PAIR(200, 236)
+            *Command: CmdSelect
+            {
+               *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =ePortraitOrientation =attr_ubyte =Orientation
++                    =ubyte_array =sA4Paper =attr_ubyte =MediaSize =BeginPage
+            }
+         }
+         *case: LANDSCAPE_CC90
+         {
+                *PrintableArea: PAIR(9520, 13558)
+                *PrintableOrigin: PAIR(200, 236)
+                *CursorOrigin: PAIR(200, 13794)
+            *Command: CmdSelect
+            {
+               *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =eLandscapeOrientation =attr_ubyte =Orientation
++                    =ubyte_array =sA4Paper =attr_ubyte =MediaSize =BeginPage
+            }
+         }
+      }
+   }
+   *Option: ENV_10
+   {
+      *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+      *InsertBlock: =DuplexConstraints
+*Ifdef: WINNT_60
+      *PrintSchemaKeywordMap: "NorthAmericaNumber10Envelope"
+*Endif: WINNT_60
+      *switch: Orientation
+      {
+         *case: PORTRAIT
+         {
+            *PrintableArea: PAIR(4548, 11000)
+            *PrintableOrigin: PAIR(200, 200)
+            *CursorOrigin: PAIR(200, 200)
+            *Command: CmdSelect
+            {
+               *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =ePortraitOrientation =attr_ubyte =Orientation
++                    =ubyte_array =sCOM10Envelope =attr_ubyte =MediaSize =BeginPage
+            }
+         }
+         *case: LANDSCAPE_CC90
+         {
+            *PrintableArea: PAIR(4548, 11000)
+            *PrintableOrigin: PAIR(200, 200)
+            *CursorOrigin: PAIR(200, 11200)
+            *Command: CmdSelect
+            {
+               *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =eLandscapeOrientation =attr_ubyte =Orientation
++                    =ubyte_array =sCOM10Envelope =attr_ubyte =MediaSize =BeginPage
+            }
+         }
+      }
+   }
+   *Option: ENV_DL
+   {
+      *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+      *InsertBlock: =DuplexConstraints
+*Ifdef: WINNT_60
+      *PrintSchemaKeywordMap: "ISODLEnvelope"
+*Endif: WINNT_60
+      *switch: Orientation
+      {
+         *case: PORTRAIT
+         {
+            *PrintableArea: PAIR(4796, 9992)
+            *PrintableOrigin: PAIR(200, 200)
+            *CursorOrigin: PAIR(200, 200)
+            *Command: CmdSelect
+            {
+               *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =ePortraitOrientation =attr_ubyte =Orientation
++                    =ubyte_array =sDLEnvelope =attr_ubyte =MediaSize =BeginPage
+            }
+         }
+         *case: LANDSCAPE_CC90
+         {
+            *PrintableArea: PAIR(4796, 9992)
+            *PrintableOrigin: PAIR(200, 200)
+            *CursorOrigin: PAIR(200, 10192)
+            *Command: CmdSelect
+            {
+               *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =eLandscapeOrientation =attr_ubyte =Orientation
++                    =ubyte_array =sDLEnvelope =attr_ubyte =MediaSize =BeginPage
+            }
+         }
+      }
+   }
+   *Option: ENV_MONARCH
+   {
+      *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+      *InsertBlock: =DuplexConstraints
+*Ifdef: WINNT_60
+      *PrintSchemaKeywordMap: "NorthAmericaMonarchEnvelope"
+*Endif: WINNT_60
+      *switch: Orientation
+      {
+         *case: PORTRAIT
+         {
+                *PrintableArea: PAIR(4248, 8600)
+            *PrintableOrigin: PAIR(200, 200)
+            *CursorOrigin: PAIR(200, 200)
+            *Command: CmdSelect
+            {
+               *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =ePortraitOrientation =attr_ubyte =Orientation
++                    =ubyte_array =sMonarchEnvelope =attr_ubyte =MediaSize =BeginPage
+            }
+         }
+         *case: LANDSCAPE_CC90
+         {
+                *PrintableArea: PAIR(4248, 8600)
+            *PrintableOrigin: PAIR(200, 200)
+            *CursorOrigin: PAIR(200, 8800)
+            *Command: CmdSelect
+            {
+               *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =eLandscapeOrientation =attr_ubyte =Orientation
++                    =ubyte_array =sMonarchEnvelope =attr_ubyte =MediaSize =BeginPage
+            }
+         }
+      }
+   }
+    *Option: ENV_B5                                 *% physical page (8314, 11810 - 6.9291" x 9.8425"))
+    {
+        *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+        *InsertBlock: =DuplexConstraints
+        *switch: Orientation
+        {
+            *case: PORTRAIT
+            {
+                *PrintableArea: PAIR(7914, 11338)
+                *PrintableOrigin: PAIR(200, 236)
+                *CursorOrigin: PAIR(200, 236)
+                *Command: CmdSelect
+                {
+                    *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =ePortraitOrientation =attr_ubyte =Orientation
++                    =ubyte_array =sB5Envelope =attr_ubyte =MediaSize =BeginPage
+                }
+            }
+            *case: LANDSCAPE_CC90
+            {
+                *PrintableArea: PAIR(7914, 11338)
+                *PrintableOrigin: PAIR(200, 236)
+                *CursorOrigin: PAIR(200, 11574)
+                *Command: CmdSelect
+                {
+                    *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =eLandscapeOrientation =attr_ubyte =Orientation
++                    =ubyte_array =sB5Envelope =attr_ubyte =MediaSize =BeginPage
+                }
+            }
+        }
+    }
+   *Option: A5
+   {
+      *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+*Ifdef: WINNT_60
+      *PrintSchemaKeywordMap: "ISOA5"
+*Endif: WINNT_60
+      *switch: Orientation
+      {
+         *case: PORTRAIT
+         {
+            *PrintableArea: PAIR(6592, 9520)
+            *PrintableOrigin: PAIR(200, 200)
+            *CursorOrigin: PAIR(200, 200)
+            *Command: CmdSelect
+            {
+               *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =ePortraitOrientation =attr_ubyte =Orientation
++                    =ubyte_array =sA5Paper =attr_ubyte =MediaSize =BeginPage
+            }
+         }
+         *case: LANDSCAPE_CC90
+         {
+            *PrintableArea: PAIR(6592, 9520)
+            *PrintableOrigin: PAIR(200, 200)
+            *CursorOrigin: PAIR(200, 9720)
+            *Command: CmdSelect
+            {
+               *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =eLandscapeOrientation =attr_ubyte =Orientation
++                    =ubyte_array =sA5Paper =attr_ubyte =MediaSize =BeginPage
+            }
+         }
+      }
+   }
+   *Option: B5
+   {
+      *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+*Ifdef: WINNT_60
+      *PrintSchemaKeywordMap: "JISB5"
+*Endif: WINNT_60
+      *switch: Orientation
+      {
+         *case: PORTRAIT
+         {
+                *PrintableArea: PAIR(8126, 11740)
+                *PrintableOrigin: PAIR(236, 200)
+                *CursorOrigin: PAIR(236, 200)
+            *Command: CmdSelect
+            {
+               *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =ePortraitOrientation =attr_ubyte =Orientation
++                    =ubyte_array =sJB5Paper =attr_ubyte =MediaSize =BeginPage
+            }
+         }
+         *case: LANDSCAPE_CC90
+         {
+                *PrintableArea: PAIR(8126, 11740)
+                *PrintableOrigin: PAIR(236, 200)
+                *CursorOrigin: PAIR(236, 11940)
+            *Command: CmdSelect
+            {
+               *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =eLandscapeOrientation =attr_ubyte =Orientation
++                    =ubyte_array =sJB5Paper =attr_ubyte =MediaSize =BeginPage
+            }
+         }
+      }
+   }
+   *Option: ENV_C5
+   {
+      *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+      *InsertBlock: =DuplexConstraints
+*Ifdef: WINNT_60
+      *PrintSchemaKeywordMap: "ISOC5Envelope"
+*Endif: WINNT_60
+      *switch: Orientation
+      {
+         *case: PORTRAIT
+         {
+                *PrintableArea: PAIR(7252, 10346)
+                *PrintableOrigin: PAIR(200, 236)
+                *CursorOrigin: PAIR(200, 236)
+            *Command: CmdSelect
+            {
+               *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =ePortraitOrientation =attr_ubyte =Orientation
++                    =ubyte_array =sC5Envelope =attr_ubyte =MediaSize =BeginPage
+            }
+         }
+         *case: LANDSCAPE_CC90
+         {
+                *PrintableArea: PAIR(7252, 10346)
+                *PrintableOrigin: PAIR(200, 236)
+                *CursorOrigin: PAIR(200, 10582)
+            *Command: CmdSelect
+            {
+               *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =eLandscapeOrientation =attr_ubyte =Orientation
++                    =ubyte_array =sC5Envelope =attr_ubyte =MediaSize =BeginPage
+            }
+         }
+      }
+   }
+
+    *Option: 16K                                     *% physical page (9300, 12900 - 7.75" x 10.75")
+    {
+       *rcNameID: =IDS_MSIZE_16K_197X273
+       *%Name: "16K"
+       *PageDimensions: PAIR(9300,12900)
+       *switch: Orientation
+       {
+           *case: PORTRAIT
+           {
+               *PrintableArea: PAIR(8900,12500)
+               *PrintableOrigin: PAIR(200, 200)
+               *CursorOrigin: PAIR(200, 200)
+               *Command: CmdSelect
+                {
+                    *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =ePortraitOrientation =attr_ubyte =Orientation
++                    =ubyte_array =s16kPaper =attr_ubyte =MediaSize =BeginPage
+                }
+           }
+           *case: LANDSCAPE_CC90
+           {
+               *PrintableArea: PAIR(8900, 12500)
+               *PrintableOrigin: PAIR(200, 200)
+               *CursorOrigin: PAIR(200, 12700)
+               *Command: CmdSelect
+                {
+                    *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =eLandscapeOrientation =attr_ubyte =Orientation
++                    =ubyte_array =s16kPaper =attr_ubyte =MediaSize =BeginPage
+                }
+           }
+       }
+    }
+
+    *Option: DBL_JAPANESE_POSTCARD_ROTATED          *% physical page (6992, 9448 - 5.8268" x 7.874")
+    {
+        *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+        *switch: Orientation
+        {
+            *case: PORTRAIT
+            {
+                *PrintableArea: PAIR(6592,9048)
+                *PrintableOrigin: PAIR(200, 200)
+                
+                *CursorOrigin: PAIR(200, 200)  
+                *Command: CmdSelect
+                {
+                    *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =ePortraitOrientation =attr_ubyte =Orientation
++                    =ubyte_array =sJDoublePostcard =attr_ubyte =MediaSize =BeginPage
+                }
+            }
+            *case: LANDSCAPE_CC90
+            {
+                *PrintableArea: PAIR(6592,9048)
+                *PrintableOrigin: PAIR(200, 200)
+                *CursorOrigin: PAIR(200, 9248)
+                *Command: CmdSelect
+                {
+                    *Order: PAGE_SETUP.6
+               *Cmd: =ubyte =eLandscapeOrientation =attr_ubyte =Orientation
++                    =ubyte_array =sJDoublePostcard =attr_ubyte =MediaSize =BeginPage
+                }
+            }
+        }
+    }
+
+    *%  Addition of Wide Paper Sizes ends here
+
+    *Option: CUSTOMSIZE
+    {
+        *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+        *MinSize: PAIR(3600, 6000)                      *% min page (3" x 5")
+        *MaxSize: PAIR(20400, 28068)                    *% max page (17"x 23.39")
+        *MaxPrintableWidth: 14040
+        *MinLeftMargin: 100
+        *CenterPrintable?: FALSE
+        *switch: Orientation
+        {
+            *case: PORTRAIT
+            {
+                *CustCursorOriginX: %d{200}
+                *CustCursorOriginY: %d{200 }
+                *CustPrintableOriginX: %d{200}
+                *CustPrintableOriginY: %d{200}
+                *CustPrintableSizeX: %d{PhysPaperWidth - 400}
+                *CustPrintableSizeY: %d{PhysPaperLength - 400}
+
+                *Command: CmdSelect
+                {
+                    *Order: PAGE_SETUP.6
+                    *Cmd: =uint16_xy %l{(PhysPaperWidth*254)/1200}%l{(PhysPaperLength*254)/1200} =attr_ubyte =CustomMediaSize
++                         =ubyte =ePortraitOrientation =attr_ubyte =Orientation
++                         =ubyte =eTenthsOfAMillimeter =attr_ubyte =CustomMediaSizeUnits =BeginPage
+                }
+            }
+            *case: LANDSCAPE_CC90
+            {
+
+                *CustCursorOriginX: %d{200}
+                *CustCursorOriginY: %d{PhysPaperLength + 200}
+                *CustPrintableOriginX: %d{200}
+                *CustPrintableOriginY: %d{200}
+                *CustPrintableSizeX: %d{PhysPaperWidth - 400}
+                *CustPrintableSizeY: %d{PhysPaperLength - 400}
+
+                *Command: CmdSelect
+                {
+                    *Order: PAGE_SETUP.6
+                    *Cmd: =uint16_xy %l{(PhysPaperWidth*254)/1200}%l{(PhysPaperLength*254)/1200} =attr_ubyte =CustomMediaSize
++                         =ubyte =eLandscapeOrientation =attr_ubyte =Orientation
++                         =ubyte =eTenthsOfAMillimeter =attr_ubyte =CustomMediaSizeUnits =BeginPage
+                }
+            }
+        }
+    }
+}
+
+*%------------------------------------------------------------------------
+*% Feature: MediaType: TVSF (TV Managed Standard Feature)
+*%------------------------------------------------------------------------
+*Feature: MediaType
+{
+    *rcNameID: =MEDIA_TYPE_DISPLAY
+*%Ifdef: WINNT_60
+    *%PrintSchemaKeywordMap: "PageMediaType"
+*%Endif: WINNT_60
+    *ConflictPriority: 2
+    *DefaultOption: Auto
+
+    
+    *Option: Auto
+    {
+        *rcNameID: =AUTO_SELECT_DISPLAY
+        *%rcNameID: =IDS_UNSPECIFIED
+    }
+
+    *Option: PLAIN
+    {
+        *rcNameID: =PLAIN_PAPER_DISPLAY
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.4
+            *Cmd: =ubyte_array =uint16 "<0500>" =ePlain =attr_ubyte =MediaType
+        }
+    }
+
+    *Option: CARDSTOCK          *%"Cardstock 164-220 g/m2"
+    {
+        *rcNameID: =IDS_CARDSTOCK_164       *%  "Cardstock >164 g/m2
+        *%Name: "Card Stock"
+
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.4
+            *Cmd: =ubyte_array =uint16 "<0a00>" =eCardstock =attr_ubyte =MediaType
+        }
+    }
+
+    *Option: GLOSS            *%"Glossy 75-120 g/m2"
+    {
+        *rcNameID: =GLOSSY_PAPER_DISPLAY
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.4
+            *Cmd: =ubyte_array =uint16 "<0500>" =eGloss =attr_ubyte =MediaType
+        }
+    }
+
+    *Option: HEAVY_GLOSSY        *%"Heavy Glossy 120-160 g/m2"
+    {
+        *rcNameID: =IDS_HEAVY_GLOSSY        *%  "Heavy Glossy"
+        *%Name: "Heavy Glossy"
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.4
+            *Cmd: =ubyte_array =uint16 "<0b00>" =eHeavyGloss =attr_ubyte =MediaType
+        }
+    }
+
+    *Option: TOUGHPAPER
+    {
+        *rcNameID: =IDS_TOUGH_PAPER
+        *%Name: "HP Tough Paper"
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.4
+            *Cmd: =ubyte_array =uint16 "<0b00>""Tough Paper" =attr_ubyte =MediaType
+        }
+    }
+
+    *Option: ENVELOPE
+    {
+        *rcNameID: =IDS_ENVELOPE_TYPE
+        *%Name: "Envelope"
+        *InsertBlock: =DuplexConstraints
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.4
+            *Cmd: =ubyte_array =uint16 "<0800>" =eEnvelope =attr_ubyte =MediaType
+        }
+    }
+
+    *Option: HP_LASERJ_90G
+    {
+        *rcNameID: =IDS_MTYPE_LJ_HP_LASERJET_90_G
+        *OptionID: 513 
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.4
+            *Cmd: =ubyte_array =uint16 "<0b00>" "HP Matte 90" =attr_ubyte =MediaType
+        }
+    }
+
+    *Option: HP_MATTE_90G
+    {
+        *rcNameID: =IDS_MTYPE_HP_MATTE_90G
+        *%Name: "HP Matte 90g"
+        *OptionID: 265
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.4
+            *Cmd: =ubyte_array =uint16 "<0b00>" "HP Matte 90" =attr_ubyte =MediaType
+        }
+    }
+    
+    *Option: INTERMEDIATE         
+    {
+        *rcNameID: =IDS_MTYPE_LJ_INTERMEDIATE_85_95
+        *OptionID: 514 
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.4
+            *Cmd: =ubyte_array =uint16 "<0c00>" "Intermediate" =attr_ubyte =MediaType
+        }
+    }
+
+    *Option: PREPRINTED
+    {
+        *rcNameID: =IDS_PREPRINTED_TYPE
+        *%Name: "Preprinted"
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.4
+            *Cmd: =ubyte_array =uint16 "<0a00>" =ePreprinted =attr_ubyte =MediaType
+        }
+    }
+
+    *Option: LETTERHEAD
+    {
+        *rcNameID: =IDS_LETTERHEAD_TYPE
+        *%Name: "Letterhead"
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.4
+            *Cmd: =ubyte_array =uint16 "<0a00>" =eLetterhead =attr_ubyte =MediaType
+        }
+    }
+
+    *Option: TRANSPARENCY
+    {
+        *rcNameID: =TRANSPARENCY_DISPLAY
+        *InsertBlock: =DuplexConstraints
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.4
+            *Cmd: =ubyte_array =uint16 "<0c00>" =eTransparency =attr_ubyte =MediaType
+        }
+    }
+
+    *Option: PREPUNCHED
+    {
+        *rcNameID: =IDS_PREPUNCHED_TYPE
+        *%Name: "Prepunched"
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.4
+            *Cmd: =ubyte_array =uint16 "<0a00>" =ePrepunched =attr_ubyte =MediaType
+        }
+    }
+
+    *Option: LABELS
+    {
+        *rcNameID: =IDS_LABELS_TYPE
+        *%Name: "Labels"
+        *InsertBlock: =DuplexConstraints
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.4
+            *Cmd: =ubyte_array =uint16 "<0600>" =eLabels =attr_ubyte =MediaType
+        }
+    }
+
+    *Option: BOND
+    {
+        *rcNameID: =IDS_BOND_TYPE
+        *%Name: "Bond"
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.4
+            *Cmd: =ubyte_array =uint16 "<0400>" =eBond =attr_ubyte =MediaType
+        }
+    }
+
+    *Option: RECYCLED
+    {
+        *rcNameID: =IDS_RECYCLED_TYPE
+        *%Name: "Recycle"
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.4
+            *Cmd: =ubyte_array =uint16 "<0800>" =eRecycled =attr_ubyte =MediaType
+        }
+    }
+
+    *Option: COLOR
+    {
+        *rcNameID: =IDS_COLOR_TYPE
+        *%Name: "Colored"
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.4
+            *Cmd: =ubyte_array =uint16 "<0500>" =eColor =attr_ubyte =MediaType
+        }
+    }
+
+    *Option: LIGHT                    *%  Light 60-75 g/m2
+    { 
+        *rcNameID: =IDS_LIGHT2
+        *%Name: "Light"
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.4
+            *Cmd: =ubyte_array =uint16 "<0500>" =eMediaLight =attr_ubyte =MediaType
+        }
+    }
+
+
+    *Option: HEAVY
+    {
+        *rcNameID: =IDS_HEAVY1              *%  "Heavy 106-163 g/m2"
+        *%Name: "Heavy"
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.4
+            *Cmd: =ubyte_array =uint16 "<0500>" =eHeavy =attr_ubyte =MediaType
+        }
+    }
+
+
+    *Option: HP_COLOR_LASER_MATTE_105G
+    {
+        *rcNameID: =IDS_MTYPE_LJ_HP_COLORLASERMATTE_105
+        *OptionID: 515 
+        *Command: CmdSelect
+        {
+          *Order: PAGE_SETUP.4
+          *Cmd: =ubyte_array =uint16 "<0c00>" "HP Matte 105" =attr_ubyte =MediaType
+        }
+    }
+
+	*Option:
