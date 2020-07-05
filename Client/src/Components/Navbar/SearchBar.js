@@ -81,6 +81,7 @@ const SearchBar = props => {
                     color: state.color,
                     width: state.width,
                     height: state.height,
+                    outline : "none",
                     paddingTop : 0
                 }} placeholder="Search here" />
             <SearchDropdown height={state.dropdownHeight} border={state.dropdownBorder} searchResult={searchResult}/>

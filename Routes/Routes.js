@@ -46,4 +46,6 @@ Router.post("/docs/info",controller.getDocInfo);
 
 Router.get("/search",controller.browse);
 
+Router.get("/loadFeatured",controller.loadFeatured);
+
 exports.routes = Router;

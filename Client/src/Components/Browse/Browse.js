@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useRef } from "react"
 import Axios from "axios";
-import { getThumbnails } from "./getThumbnails";
 import "../Style/global.css";
 import "./Browse.css";
-import { useParams } from "react-router-dom";
+import Card from "./Card";
+import {getThumbnail} from "../../Dropbox/Dropbox";
+import nopreview from "./nopreview.png"
 
 const Browse = (props) => {
   const [documents, setDocuments] = useState([]);
@@ -29,7 +30,7 @@ const Browse = (props) => {
     Axios.get(`/search?age=${state.age}&views=${state.views}&q=${state.query}&c=${category}`)
       .then(result => {
         console.log(result);
-        setDocuments(result);
+        setDocuments(result.data);
       })
       .catch(err => {
         loadDocuments();
@@ -50,12 +51,44 @@ const Browse = (props) => {
   });
 
   useEffect(() => {
-    getThumbnails(documents.data)
-      .then(result => {
-        console.log(result);
-        setCards(result);
-      })
+    console.log(documents);
+    if(documents.length === 0)
+    {
+      return;
+    }
+    getThumbnail(documents[0].info.path_display)
+    .then(result => {
+      const url = URL.createObjectURL(result.fileBlob);
+      const temp = cards;
+      console.log("rrr",result);
+      temp.push(<Card src={url} key={result.rev} id={result.id} title={result.name} />);
+      setCards(temp);
+      const temp_docs = documents.slice(1);
+      setDocuments(temp_docs);
+    })
+    .catch(err => {
+      try
+      {
+        const parsed = JSON.parse(err.error);
+        console.log(parsed);
+        if(parsed.error_summary === "unsupported_extension/.." || parsed.error_summary === "unsupported_extension/..." || parsed.error_summary === "unsupported_extension/." || parsed.error_summary === "unsupported_extension/")
+        {
+          console.log("herererer");
+          const temp = cards;
+          temp.push(<Card src={nopreview} key={documents[0].info.rev} id={documents[0].info.id} title={documents[0].info.name} />);
+          setCards(temp);
+        }
+      }
+      catch(err)
+      {
+
+      }
+      const temp_docs = documents.slice(1);
+      setDocuments(temp_docs);
+    })
+    
   }, [documents]);
+
 
 
 

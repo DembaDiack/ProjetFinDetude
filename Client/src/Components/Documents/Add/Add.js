@@ -66,24 +66,42 @@ const Add = props => {
 
   }
   const dragEnd = event => {
-
+    console.log("left");
+    setDragAreaState(dragAreaInitState);
   }
   const dragExit = event => {
+    event.preventDefault();
     console.log("left");
     setDragAreaState(dragAreaInitState);
   }
   const dragEnter = event => {
+    event.preventDefault();
     console.log(event);
     setDragAreaState({
       ...dragAreaState,
       border: "dashed 2px red"
     })
   }
+  const dragOver = event => {
+    event.preventDefault();
+  }
   const drop = event => {
     event.preventDefault();
     event.stopPropagation();
-    event.stopImmediatePropagation();
-    setUpload(event.dataTransfer.files);
+    console.log(event.dataTransfer.files);
+    if(!supportedDocuments.includes(event.dataTransfer.files[0].type))
+    {
+      window.alert(`file type not supported! => ${event.dataTransfer.files[0].type}`);
+      setDragAreaState(dragAreaInitState);
+      return;
+    }
+    // setUpload(event.dataTransfer.files);
+    setUpload({
+      ...upload,
+      button: "btn btn-success",
+      files: event.dataTransfer.files
+    });
+    setDragAreaState(dragAreaInitState);
   }
 
   const fileInputBtn = useRef();
@@ -194,20 +212,23 @@ const Add = props => {
 
   return (
     <form
-      onDragEnter={(e) => dragEnter(e)}
-      onDragExit={(e) => dragExit(e)}
-      onDrop={(e) => drop(e)}
       className="drop-area"
       method="post"
       enctype="multipart/form-data"
       onSubmit={(e) => handleSubmit(e)}
     >
       <div className="container d-sm-flex flex-column justify-content-sm-center align-items-sm-center"
-        style={dragAreaState}>
+        style={dragAreaState}
+        onDragEnter={(e) => dragEnter(e)}
+      onDragLeave={(e) => dragExit(e)}
+      onDrop={(e) => drop(e)}
+      onDragOver={(e) => dragOver(e)}
+        >
         <p className="text-center"><strong>Upload File</strong></p><img />
         <p>Drag and drop or&nbsp;<strong style={{ color: "#4B9DEA", cursor: "pointer" }} onClick={(e) => clickInput(e)}>Browse</strong> for a file</p>
         <input type="file" name="file" multiple={false} hidden={true} ref={fileInputBtn} onChange={(e) => loadFile(e)} />
-        <p style={{ fontSize: 13 }} >Faculty<br /> <select className="form-control" name="faculty" onChange={(e) => handleChange(e)} >
+        <div className="options" style={{display : "flex"}}>
+        <p style={{ fontSize: 13 , marginLeft : 5 }} >Faculty<br /> <select className="form-control" name="faculty" onChange={(e) => handleChange(e)} >
           <optgroup label="Choose the faculty you belong to">
             <option value="DI" defaultValue>DI</option>
             <option value="BA">BA</option>
@@ -219,7 +240,7 @@ const Add = props => {
             <option value="TCM">TCM</option>
           </optgroup>
         </select></p>
-        <p style={{ fontSize: 13 }} >Year<br /> <select className="form-control" name="year" onChange={(e) => handleChange(e)} >
+        <p style={{ fontSize: 13 , marginLeft : 5 }} >Year<br /> <select className="form-control" name="year" onChange={(e) => handleChange(e)} >
           <optgroup label="Faculty year">
             <option value={1} defaultValue>1</option>
             <option value={2}>2</option>
@@ -228,6 +249,7 @@ const Add = props => {
             <option value={5}>5</option>
           </optgroup>
         </select></p>
+        </div>
         <input onChange={(e) => handleChange(e)} type="text" name="tags" className="form-control mb-3" id="tags" aria-describedby="tagshelp" placeholder="Enter Tags , seperated by commas" />
         <div className="progress" style={{ height: 30, width: "100%", marginBottom: 10 }}>
               <div className="progress-bar" role="progressbar" style={{ width: `${Math.floor(percentage)}%` }} aria-valuenow={25} aria-valuemin={0} aria-valuemax={100} />

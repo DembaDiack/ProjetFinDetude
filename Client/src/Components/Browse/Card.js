@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Card = (props) => {
     return (
-        <div className="supra-container">
+        <div className="supra-container" style={{minWidth : 230}}>
             <div className="card-container">
                 <div className="card">
                     <div className="image" style={{

@@ -145,3 +145,18 @@ exports.loadDocs = (views,age,query = "") => {
         return err;
     })
 }
+exports.loadFeatured = () => {
+    return Document.find()
+    .sort({
+        "info.views" : 1
+    })
+    .limit(4)
+    .then(result => {
+        console.log(result);
+        return result
+    })
+    .catch(err => {
+        console.log(err);
+        return err;
+    })
+}

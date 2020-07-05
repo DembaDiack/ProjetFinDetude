@@ -187,3 +187,15 @@ exports.browse = (request,response) => {
         response.send(err);
     });
 }
+
+exports.loadFeatured = (request,response) => {
+    Documents.loadFeatured()
+    .then(result => {
+        console.log("here mate : ",result);
+        response.send(result);
+    })
+    .catch(err => {
+        console.log("error here",err);
+        response.send(err);
+    });
+}
