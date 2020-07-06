@@ -16,8 +16,8 @@ const Browse = (props) => {
     query: ""
   }
 
+  /* search has been disabled by me, theres a terrible glitch where everything gets doubled since i started to push docs instead of loading them allover again */
   
-
   const [state, setState] = useState(initialState);
   const handleChange = event => {
     setState({
@@ -26,8 +26,9 @@ const Browse = (props) => {
     });
   }
   console.log(category);
+
   const loadDocuments = () => {
-    Axios.get(`/search?age=${state.age}&views=${state.views}&q=${state.query}&c=${category}`)
+    Axios.get(`/search`)
       .then(result => {
         console.log(result);
         setDocuments(result.data);
@@ -40,7 +41,8 @@ const Browse = (props) => {
 
   useEffect(() => {
     loadDocuments();
-  }, [state]);
+  }, []);
+
 
   useEffect(() => {
     document.body.style.backgroundColor = "rgb(36, 41, 46)";
@@ -128,7 +130,10 @@ const Browse = (props) => {
           wqueryth: 350
         }}
           name={"query"}
-          onInput={(e) => handleChange(e)}
+          onInput={(e) => {
+            handleChange(e);
+          }}
+          value={state.query}
         />
       </div>
 
