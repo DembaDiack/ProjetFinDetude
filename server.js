@@ -24,26 +24,26 @@ app.use(routes.routes);
 
 console.log("Make sure you have internet,or server wont start");
 
-if(process.env.NODE_ENV === "production")
-{
-    app.use(express.static("client/build"));
+if (process.env.NODE_ENV === "production") {
 
-    app.get("*", (request,response)=> {
-        response.sendFile(path.resolve(__dirname,"Client","build","index.html"));
+    app.use(express.static(path.join(__dirname, 'Client/build')));
+
+    app.get("*", (request, response) => {
+        response.sendFile(path.resolve(__dirname, "Client", "build", "index.html"));
     })
 }
 
-const connectServer = ()=> {
+const connectServer = () => {
     db.connect()
-    .then(()=>{
-        app.listen(port,()=>{
-            console.log(`app started on port ${port}`);
+        .then(() => {
+            app.listen(port, () => {
+                console.log(`app started on port ${port}`);
+            })
         })
-    })
-    .catch(err => {
-        console.log(err);
-        connectServer();
-    })
+        .catch(err => {
+            console.log(err);
+            connectServer();
+        })
 }
 
 
