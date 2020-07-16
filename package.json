@@ -2,7 +2,7 @@
   "name": "project",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://intense-mountain-22680.herokuapp.com",,
+  "homepage": "https://intense-mountain-22680.herokuapp.com",
   "main": "server.js",
   "scripts": {
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix Client && npm run build --prefix Client",
