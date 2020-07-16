@@ -16,7 +16,11 @@ const Navbar = props =>
     auth.disconnect();
     props.disconnect();
   }
-  console.log(props);
+  
+
+  useEffect(()=>{
+    console.log("user props.user from redux : ",props.user);
+  },[props.user])
 
   return (
     <nav className="navbar navbar-light navbar-expand-md" style={{color: "rgb(255,255,255)",backgroundColor: "#24292e",padding: 14}}>

@@ -18,7 +18,7 @@ const upload = (email, file, faculty, title, year, tags) => {
       tags = tags.split(",");
       return Axios.post("/add", {
         documentInfo: { ...result, faculty: faculty, title: title, views: 0, year: year, lastSeen: Date.now(), downloads: 0, tags: tags },
-        email: email
+        email: email //email envoyer avec le post
       })
         .then(result => {
           console.log(result);
