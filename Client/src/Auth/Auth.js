@@ -38,7 +38,7 @@ class Auth{
     }
     getUserInfo()
     {
-        return Axios.get(`http://localhost:2000/user/${this.email}`)
+        return Axios.get(`/user/${this.email}`)
         .then(result => {
             return result.data;
         })
