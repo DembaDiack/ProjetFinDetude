@@ -8,7 +8,7 @@ const Card = (props) => {
                 <div className="card" style={{height : "inherit" , border : "none" , background : "none"}}>
                     <div className="image" style={{
                         backgroundImage: `url(${props.src})`, height: 332, zIndex: 1,
-                        height: 315,
+                        height: 316,
                         width: "100%",
                         backgroundSize: "cover",
                         backgroundPositionX: "20%",
