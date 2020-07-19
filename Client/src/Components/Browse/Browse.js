@@ -137,11 +137,10 @@ const Browse = (props) => {
         />
       </div>
 
-      <div className="container">
-        <div className="grid-view mt-5">
+      <div className={"container"} style={{paddingTop : 25}}>
+      <div className="Mycontainer">
           {cards}
-        </div>
-
+      </div>
       </div>
     </div>
   );

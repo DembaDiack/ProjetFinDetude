@@ -31,8 +31,6 @@
 }
 .card-container
 {
-    width: 230px;
-    height: 346px;
     background: whitesmoke;
     padding: 6px 6px 0px 6px;
     border-radius: 5px;
@@ -69,3 +67,14 @@
 {
     color: white;
 }
+
+.Mycontainer > div 
+    {
+        display: block;
+    }
+    .Mycontainer{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-gap: 15px;
+        justify-items: center;
+    }

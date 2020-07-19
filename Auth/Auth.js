@@ -41,7 +41,16 @@ exports.signUp = ({
                             message: "signed up succesfully"
                         }
                     })
-                    .catch(err => console.log(err));
+                    .catch(err => {
+                        console.log(err);
+                        if(err.code === 11000)
+                        {
+                            return {
+                                code: -1,
+                                message: `check fields ${JSON.stringify(err.keyValue)} they may already be taken `
+                            }
+                        }
+                    });
             }
             else {
                 return {
@@ -51,7 +60,7 @@ exports.signUp = ({
             }
         })
         .catch(err => {
-
+            return err;
         })
 
 }

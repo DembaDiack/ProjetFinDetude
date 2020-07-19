@@ -3,15 +3,16 @@ import { Link } from "react-router-dom";
 
 const Card = (props) => {
     return (
-        <div className="supra-container" style={{minWidth : 230 , maxWidth : 230}}>
-            <div className="card-container">
-                <div className="card">
+        <div className="supra-container">
+            <div className="card-container" style={{width : 200 , height : 330}}>
+                <div className="card" style={{height : "inherit" , border : "none" , background : "none"}}>
                     <div className="image" style={{
                         backgroundImage: `url(${props.src})`, height: 332, zIndex: 1,
-                        height: 330,
+                        height: 315,
                         width: "100%",
                         backgroundSize: "cover",
-                        backgroundPositionX: "20%"
+                        backgroundPositionX: "20%",
+                        paddingBottom : 15
                     }}></div>
                     <Link to={`/preview/${props.id}`}>
                     <div className="content" style={{ textAlign: "center", backgroundColor: "rgba(0, 0, 0, 0.5)" }}>

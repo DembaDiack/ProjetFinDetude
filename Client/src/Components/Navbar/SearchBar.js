@@ -59,10 +59,20 @@ const SearchBar = props => {
                 setState({ ...state, ...intialState });
             }
         }
+        
+        const escapeEvent = event => {
+            if(active && event.key === "Escape")
+            {
+                setState({ ...state, ...intialState });
+            }
+        }
+
         document.body.addEventListener("click", event);
+        document.body.addEventListener("keydown",escapeEvent);
 
         return () => {
             document.body.removeEventListener("click", event);
+            document.body.removeEventListener("keydown",escapeEvent);
         }
     }, [active]);
 
