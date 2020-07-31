@@ -1,5 +1,7 @@
 const Auth = require("../Auth/Auth");
 const Documents = require("../Documents/Documents");
+const Post = require("../Posts/Posts");
+const { request } = require("http");
 
 exports.loginController = (request,response) => {
     console.log(request.body);
@@ -199,3 +201,72 @@ exports.loadFeatured = (request,response) => {
         response.send(err);
     });
 }
+
+exports.addPost = (request,response ) => {
+    const postInfo = request.body.postInfo;
+    const email = request.body.email;
+
+    Post.add(postInfo,email)
+    .then(result => {
+        response.send(result);
+    })
+    .catch(err => {
+        response.send(err);
+    })
+}
+
+exports.deletePost = (request,response) => {
+    const post_id = request.body._id;
+    Post.deleteById(post_id).
+    then(result => {
+        response.send(result);
+    })
+    .catch(err => {
+        response.send(err);
+    })
+}
+
+exports.listAllPosts = (request,response) => {
+    Post.list()
+    .then(result => {
+        response.send(result);
+    })
+    .catch(err => {
+        response.send(err);
+    })
+}
+
+exports.getUserPosts = (request,response) => {
+    const email = request.params.email;
+    Post.getUserPosts(email)
+    .then(result => {
+        response.send(result);
+    })
+    .catch(err => {
+        response.status(500).send(err);
+    })
+}
+
+exports.getSinglePost = (request,response) => {
+    const post_id = request.body._id;
+    Post.getSinglePost(post_id)
+    .then(result => {
+        response.send(result);
+    })
+    .catch(err => {
+        response.send(err);
+    })
+}
+
+exports.searchPost = (request,response) => {
+    const query = request.body.query;
+
+    Post.searchRegex(query)
+    .then(result => {
+        response.send(result);
+    })
+    .catch(err => {
+        response.send(err);
+    })
+}
+

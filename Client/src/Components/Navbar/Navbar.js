@@ -1,83 +1,131 @@
-import React, { useEffect } from "react";
-import NavLink from "./NavLink";
-import {Link} from "react-router-dom";
-import SearchBar from "./SearchBar";
-import DropDown from "./DropDown";
+import React, { useEffect, useState } from "react";
 import Auth from "../../Auth/Auth";
-import {connect} from "react-redux";
-import {ReactComponent as Account} from "../../SVG/account.svg";
+import { connect } from "react-redux";
+import "./Navbar.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch, faSignInAlt,faTimes } from '@fortawesome/free-solid-svg-icons'
+import { Link, useLocation } from "react-router-dom";
 
-const Navbar = props =>
-{
+const Navbar = props => {
+
+  const location = useLocation();
   
+  const [modal, setModal] = useState({
+    display: "none"
+  })
+  const initialNav = {
+    position: "initial"
+  }
+  const stickyNav = {
+    position: "fixed",
+    top: 0,
+    width: "100%"
+  }
+  const [navStyle, setNavStyle] = useState(initialNav);
   const auth = new Auth();
-  const logout = ()=>
-  {
+  const logout = () => {
     auth.disconnect();
     props.disconnect();
   }
-  
+  const [avatar, setAvatar] = useState(null);
 
-  useEffect(()=>{
-    console.log("user props.user from redux : ",props.user);
-  },[props.user])
+  useEffect(() => {
+    if (props.user) {
+      setAvatar(props.user.avatar);
+    }
+  }, [props.user])
 
+
+  useEffect(() => {
+    console.log("user props.user from redux : ", props.user);
+  }, [props.user])
+
+  useEffect(() => {
+    document.addEventListener("scroll", (event) => {
+      console.log(window.scrollY);
+      if (window.scrollY !== 0) {
+        setNavStyle(stickyNav)
+      }
+      else {
+        setNavStyle(initialNav)
+      }
+    })
+  }, []);
+
+
+  const handleModal = event => {
+    if (modal.display === "none") {
+      setModal({
+        ...modal,
+        display: "block"
+      })
+      document.body.style.overflowY = "hidden";
+    }
+    if (modal.display === "block") {
+      setModal({
+        ...modal,
+        display: "none"
+      })
+      document.body.style.overflowY = "initial";
+    }
+  }
   return (
-    <nav className="navbar navbar-light navbar-expand-md" style={{color: "rgb(255,255,255)",backgroundColor: "#24292e",padding: 14}}>
-      <div className="container-fluid">
-        <Link className="navbar-brand" to="/" style={{color : "white"}}>
-          Revise
-        </Link>
-        <button data-toggle="collapse" className="navbar-toggler" data-target="#navcol-1">
-          <span className="sr-only">Toggle navigation</span>
-          <span className="navbar-toggler-icon" />
-        </button>
-        <div className="collapse navbar-collapse" id="navcol-1">
-          <ul className="nav navbar-nav">
-            {props.connected ? <NavLink name="Add Documents" to="/add" /> : null}
-            <NavLink name="Browse" to="/browse" />
+    <div>
+      <nav style={{ alignItems: "center", ...navStyle }}>
+        <div className="left">
+          <ul className="desktop" style={{ padding: 0, margin: 0 }}>
+            <li style={{ marginLeft: 25 }}><Link to="/">revise</Link></li>
+            <li><Link to="/add">add documents</Link></li>
+            <li><Link to="/browse">Browse</Link></li>
+            <li><Link to="/list">my list</Link></li>
           </ul>
-          {/* <DropDown title="Dropdown" links={[{to : "/" , name : "link1",section : true},{to : "/" , name : "link2"},{to : "/" , name : "link3"}]}/> */}
         </div>
-        <SearchBar setLoading={props.setLoading} loading={props.loading}/>
-        {props.connected ? null :<Link className="mr-4" to="/login" style={{ color: "rgb(255,255,255)" }}>
-          Log in
-        </Link>}
-        {props.connected ? <Link className="mr-2" to="/login" style={{ color: "rgb(255,255,255)" }} onClick={(e)=>logout(e)}>
-          Log out
-        </Link> : null}
-        {props.connected ? null :<Link to="/signup"><button className="btn btn-primary" type="button" style={{ backgroundColor: "rgba(0,123,255,0)", border: "white solid 1px"}}>Sign up</button></Link>}
-        
-        {props.connected ? <DropDown 
-        css={{top : "119%",left : "-55px"}} 
-        title={props.user ? <img src={props.user.avatar} style={{height: "auto", width: 27,marginRight: 27,fill : "white"}}/> :
-        <Account style={{height: "auto", width: 27,marginRight: 27,fill : "white"}}/>
-        } 
-        links={[
-        {to : "/" , name : "link1",section : true},
-        {to : "/settings" , name : "settings"},
-        {to : "/logout" , name : "logout"}
-         ]}
-        /> : null}
+        <div className="right" style={{ justifySelf: "end", paddingRight: 55 }}>
+          <ul style={{ padding: 0, margin: 0 }}>
+            <li style={{ lineHeight: 3 }}><FontAwesomeIcon icon={faSearch} onClick={(e) => handleModal(e)} /></li>
+            <li className="profile" style={{ lineHeight: 3 }}>
+              {props.user ? <div style={{
+                height: 40, width: 40, background: "white", marginTop: 5, borderRadius: "50%",
+                backgroundImage: `url(${avatar})`
+              }}>
+              </div> : "profile"}
+              <div className="profile-dropdown-container">
+                <div className="profile-dropdown-content">
+                </div>
+              </div>
+            </li>
+            <li style={{ lineHeight: 3 }}><Link to="/login">sign in <FontAwesomeIcon icon={faSignInAlt} /></Link></li>
+            <li style={{ lineHeight: 3 }}><Link to="/signup"><button type="button" className="btn btn-light">
+              Sign up</button></Link></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div className="search-modal" style={{ ...modal }}>
+        <div className="form" style={{padding : 25}}>
+        <FontAwesomeIcon icon={faTimes} style={{position : "absolute" , top : 0, left : 0, margin : 10,cursor : "pointer"}} onClick={(e)=>handleModal(e)}/>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores aperiam voluptates id ex. Maiores, dolor.
+        </div>
       </div>
-    </nav>
+
+    </div>
+
+
   );
 }
 
-const mapStateToProps = state => 
-{
+const mapStateToProps = state => {
   return {
-    connected : state.connected,
-    user : state.user
+    connected: state.connected,
+    user: state.user
   }
 }
-const mapDispatchToProps = dispatch => 
-{
-  return{
-    connect : () => dispatch({type : "CONNECT"}),
-    disconnect : () => dispatch({type : "DISCONNECT"})
+const mapDispatchToProps = dispatch => {
+  return {
+    connect: () => dispatch({ type: "CONNECT" }),
+    disconnect: () => dispatch({ type: "DISCONNECT" })
   }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
 
 // will add media queries later for mobile friendly view

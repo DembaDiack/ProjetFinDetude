@@ -48,4 +48,21 @@ Router.get("/search",controller.browse);
 
 Router.get("/loadFeatured",controller.loadFeatured);
 
+
+Router.post("/post/add",controller.addPost);
+
+Router.post("/post/delete",controller.deletePost);
+
+Router.post("/post/search",controller.searchPost);
+
+Router.get("/post/list",controller.listAllPosts);
+
+Router.post("/post/user/",controller.getUserPosts);
+
+Router.post("/post",controller.getSinglePost);
+
+
+Router.post("/post/search",controller.searchPost);
+
+
 exports.routes = Router;
