@@ -118,7 +118,7 @@ const Browse = props => {
       </SkeletonTheme>
         </div>
        : 
-      <div className="browse" style={{backgroundColor : "#292e33",padding : 50,width : "100%",minHeight : 50,marginTop : 40,borderRadius : 45}}>
+      <div className="browse" style={{overflow : "hidden",backgroundColor : "#292e33",padding : 50,width : "100%",minHeight : 50,marginTop : 40,borderRadius : 45}}>
       {cards}
       </div>}
 

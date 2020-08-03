@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 const Card = (props) => {
     return (
-        <Link to={`/preview/${props.id}`} style={{width : "inherit"}}>
+        <div>
+            <Link to={`/preview/${props.id}`} style={{width : "inherit"}}>
             <div className="card">
                 <div className="image" style={{backgroundImage : `url(${props.image})`}}>
 
@@ -19,6 +20,7 @@ const Card = (props) => {
                 </div>
     </div>
         </Link>
+        </div>
     );
 };
 
