@@ -15,7 +15,7 @@ const Navbar = props => {
   const [mobileState,setMobileState] = useState(false);
 
   useEffect(()=>{
-    const backevent = document.addEventListener("backbutton",event => {
+    const backevent = document.addEventListener("hashchange",event => {
       console.log(event);
       if(mobileState)
       {
@@ -34,7 +34,7 @@ const Navbar = props => {
 
     return ()=>{
       document.removeEventListener("backbutton",backevent);
-      
+
     }
   },[mobileState])
 
