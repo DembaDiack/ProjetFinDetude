@@ -6,11 +6,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faSignInAlt,faTimes,faBell, faBars } from '@fortawesome/free-solid-svg-icons'
 import { Link, useLocation } from "react-router-dom";
 import Search from "./Search/Search";
+import Mobile from "./mobile/Mobile";
 
 const Navbar = props => {
 
   const location = useLocation();
-  
+
+  const [mobileState,setMobileState] = useState(false);
+
+  useEffect(()=>{
+    if(mobileState)
+    {
+      document.body.style.overflow = "hidden";
+    }
+    else{
+      document.body.style.overflow = "initial";
+    }
+  },[mobileState])
+
   const [modal, setModal] = useState({
     className: "default"
   })
@@ -84,7 +97,7 @@ const Navbar = props => {
             <li><Link to="/list">my list</Link></li>
           </ul>
           <ul className="mobile">
-          <li><FontAwesomeIcon icon={faBars} style={{marginLeft : 30}}/></li>
+          <li><FontAwesomeIcon icon={faBars} style={{marginLeft : 30}} onClick={(e)=>setMobileState(true)}/></li>
           </ul>
         </div>
         <div className="right" style={{ justifySelf: "end", paddingRight: 55 }}>
@@ -109,6 +122,8 @@ const Navbar = props => {
         </div>
       </nav>
       <Search modal={modal} handleModal={handleModal}/>
+
+      <Mobile mobileState={mobileState} setMobileState={setMobileState}/>
     </div>
 
 

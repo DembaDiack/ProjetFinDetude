@@ -1,0 +1,14 @@
+.mobileClose{
+    transition: 0.3s;
+    color: grey;
+}
+.mobileClose:hover{
+    color: white;
+}
+
+@media (min-width : 800px)
+{
+    .mobile-dropdown{
+        display: none ;
+    }
+}
