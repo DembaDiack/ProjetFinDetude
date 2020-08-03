@@ -3,32 +3,22 @@ import { Link } from "react-router-dom";
 
 const Card = (props) => {
     return (
-        <div className="supra-container">
-            <div className="card-container" style={{width : 200 , height : 330}}>
-                <div className="card" style={{height : "inherit" , border : "none" , background : "none"}}>
-                    <div className="image" style={{
-                        backgroundImage: `url(${props.src})`, height: 332, zIndex: 1,
-                        height: 316,
-                        width: "100%",
-                        backgroundSize: "cover",
-                        backgroundPositionX: "20%",
-                        paddingBottom : 15
-                    }}></div>
-                    <Link to={`/preview/${props.id}`}>
-                    <div className="content" style={{ textAlign: "center", backgroundColor: "rgba(0, 0, 0, 0.5)" }}>
-                        <h2>this is some text</h2>
-                        <Link to={`/preview/${props.id}`}><button className="button">view</button></Link>
-                    </div>
-                    </Link>
+        <Link to={`/preview/${props.id}`} style={{width : "inherit"}}>
+            <div className="card">
+                <div className="image" style={{backgroundImage : `url(${props.image})`}}>
+
                 </div>
-            </div>
-            <div className="caption" style={{ marginLeft: 5, fontWeight: "bold" }}>
-                {props.title}
-            </div>
-            <div className="year" style={{ marginLeft: 5, fontSize: 15, color: "whitesmoke", opacity: 0.7 }}>
-                2020
-      </div>
-        </div>
+                <div className="title">
+                    {props.title}
+                </div>
+                <div className="author">
+                    Demba Diack
+                </div>
+                <div className="icons">
+
+                </div>
+    </div>
+        </Link>
     );
 };
 

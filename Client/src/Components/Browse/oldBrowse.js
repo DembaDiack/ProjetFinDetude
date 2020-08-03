@@ -3,8 +3,8 @@ import Axios from "axios";
 import "../Style/global.css";
 import "./Browse.css";
 import Card from "./Card";
-import {getThumbnail} from "../../Dropbox/Dropbox";
-import nopreview from "./nopreview.png"
+
+
 
 const Browse = (props) => {
   const [documents, setDocuments] = useState([]);

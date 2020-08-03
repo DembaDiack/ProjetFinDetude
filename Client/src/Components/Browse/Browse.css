@@ -1,78 +1,48 @@
-.button {
-  height: 40px;
-  width: 150px;
-  background-color: rgb(255, 230, 0);
-  cursor: pointer;
-  font-size: 15px;
-  border: none;
-  border-radius: 5px;
+.card>.icons{
+  display: inline-flex;
+}
+.card>.author{
   color: white;
+  padding-left: 5px;
+}
+.card>.title{
   font-weight: bold;
-  transition: 0.1s;
+  color: white;
+  padding-left: 5px;
 }
-.button:hover {
-  background: white;
-  border: solid 2px rgb(255, 230, 0);
-  color: rgb(255, 230, 0);
-  transform: scale(1.1);
+.card:hover{
+  transform: scale(1.05);
 }
-.content {
-  display: grid;
-  justify-content: center;
-  align-content: center;
-}
-.grid-view {
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  row-gap: 25px;
-}
-.card-container {
-  background: whitesmoke;
-  padding: 6px 6px 0px 6px;
-  border-radius: 5px;
-  position: relative;
+.card>.image{
   cursor: pointer;
-  transition: 0.3s;
-  overflow: hidden;
-}
-.content {
-  z-index: 2;
-  height: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  opacity: 0;
+  transition: 0.2s;
+  background-size: cover;
+  height: 80%;
   width: 100%;
-  transition: 0.3s;
 }
-.content:hover {
-  opacity: 1;
-}
-.content:hover ~ .image {
-  opacity: 0.3;
-}
-.card-container:hover {
-  background-color: rgb(255, 230, 0);
-}
-.supra-container {
-  color: white;
-}
-
-.Mycontainer > div {
-  display: block;
-}
-.Mycontainer {
+.browse{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
   grid-gap: 15px;
   justify-items: center;
 }
-
-.skeleton {
-  display: "grid";
-  grid-template-columns: "1fr 1fr 1fr 1fr";
+@media (max-width: 600px) {
+  .browse{
+      grid-template-columns: 1fr 1fr;
+  }
+}
+.card{
+  transition: 0.1s;
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  min-width: 80px;
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  background: rgb(61 63 66);
+  border: none;
 }
 
 

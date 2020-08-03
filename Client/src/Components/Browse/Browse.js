@@ -4,12 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch,faBars } from '@fortawesome/free-solid-svg-icons'
 import "./Browse.css"
 import Axios from "axios"
+import Card from "./Card";
+import nopreview from "./nopreview.png"
+import {getThumbnail} from "../../Dropbox/Dropbox";
 
 const Browse = props => {
   const [query, setQuery] = useState("");
   const [filter,setFilter] = useState(false);
   const [rawDocs,setRawDocs] = useState([]);
   const [loading,setLoading] = useState(true);
+  const [cards,setCards] = useState([]);
+
 
   useEffect(() => {
     document.body.style.backgroundColor = "rgb(36, 41, 46)";
@@ -40,7 +45,34 @@ const Browse = props => {
 
 
   useEffect(()=>{
-    console.log(rawDocs);
+    const temp = rawDocs.map(doc => {
+      return getThumbnail(doc.info.path_display)
+    .then(result => {
+      console.log(doc.info);
+      const url = URL.createObjectURL(result.fileBlob);
+      return <Card image={url} key={result.rev} id={result.id} title={result.name} />
+    })
+    .catch(err => {
+      try
+      {
+        const parsed = JSON.parse(err.error);
+        console.log(parsed);
+        if(parsed.error_summary === "unsupported_extension/.." || parsed.error_summary === "unsupported_extension/..." || parsed.error_summary === "unsupported_extension/." || parsed.error_summary === "unsupported_extension/")
+        {
+          return <Card src={nopreview} key={doc.info.rev} id={doc.info.id} title={doc.info.name} />
+        }
+      }
+      catch(err)
+      {
+        return err;
+      }
+    })
+    });
+
+    Promise.all(temp)
+    .then(result => {
+      setCards(result);
+    })
   },[rawDocs]);
 
 
@@ -86,12 +118,12 @@ const Browse = props => {
       </SkeletonTheme>
         </div>
        : 
-      <div style={{backgroundColor : "#777777",width : "100%",minHeight : 50,marginTop : 40,borderRadius : 45}}>
-        
+      <div className="browse" style={{backgroundColor : "#292e33",padding : 50,width : "100%",minHeight : 50,marginTop : 40,borderRadius : 45}}>
+      {cards}
       </div>}
 
 
-      <button type="button" class="btn btn-light mt-5" style={{width : 150,justifySelf : "center"}}>Load More</button>
+      <button type="button" class="btn btn-light mt-5 mb-5" style={{width : 150,justifySelf : "center"}}>Load More</button>
     </div>
   )
 }

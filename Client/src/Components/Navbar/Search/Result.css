@@ -1,0 +1,49 @@
+.details{
+    text-align: leftResult;
+    justify-self: start;
+}
+.profile-image{
+    background-color: red;
+    height: 50px;
+    width: 50px;
+    align-self: center;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.userResult{
+    width: "450px";
+    height: 70px;
+    background: none;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    border-bottom: solid 1px #d2d2d2;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.userResult:hover{
+    background-color: #d2d2d2;
+}
+.userResult>.leftResult{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-content: center;
+    justify-items: center;
+}
+.userResult>.rightResult{
+    display: grid;
+    align-content: center;
+    justify-items: center;
+}
+.userResult>.rightResult>button{
+    height: 30px;
+    width: 80px;
+    border-radius: 3px;
+    border: solid rgb(0, 119, 255) 2px;
+    background : none;
+    color: rgb(0, 119, 255);
+    transition: 0.2s;
+    cursor: pointer;
+}
+.userResult>.rightResult>button:hover{
+    background-color: rgb(239, 239, 255);
+}
