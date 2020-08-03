@@ -15,12 +15,26 @@ const Navbar = props => {
   const [mobileState,setMobileState] = useState(false);
 
   useEffect(()=>{
+    const backevent = document.addEventListener("backbutton",event => {
+      console.log(event);
+      if(mobileState)
+      {
+        setMobileState(false);
+        event.preventDefault();
+      }
+    },false);
     if(mobileState)
     {
       document.body.style.overflow = "hidden";
+
     }
     else{
       document.body.style.overflow = "initial";
+    }
+
+    return ()=>{
+      document.removeEventListener("backbutton",backevent);
+      
     }
   },[mobileState])
 
@@ -115,8 +129,8 @@ const Navbar = props => {
                 </div>
               </div>
             </li>
-            {auth.isConnected() ? <li style={{ lineHeight: 3 }}><Link to="/logout">sign out</Link></li> : <li style={{ lineHeight: 3 }}><Link to="/login">sign in</Link></li>}
-            {auth.isConnected() ? null : <li style={{ lineHeight: 3 }}><Link to="/signup"><button type="button" className="btn btn-light">
+            {auth.isConnected() ? <li className="authButtons" style={{ lineHeight: 3 }}><Link to="/logout">sign out</Link></li> : <li className="authButtons" style={{ lineHeight: 3 }}><Link to="/login">sign in</Link></li>}
+            {auth.isConnected() ? null : <li className="authButtons" style={{ lineHeight: 3 }}><Link to="/signup"><button type="button" className="btn btn-light">
               Sign up</button></Link></li>}
           </ul>
         </div>

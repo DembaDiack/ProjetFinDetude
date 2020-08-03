@@ -11,4 +11,11 @@
     .mobile-dropdown{
         display: none ;
     }
+    
+}
+@media (max-width : 800px)
+{
+    .authButtons {
+        display: none;
+    }
 }
