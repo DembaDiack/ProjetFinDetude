@@ -3,16 +3,18 @@ import Auth from "../../Auth/Auth";
 import { connect } from "react-redux";
 import "./Navbar.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faSignInAlt,faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faSignInAlt,faTimes,faBell } from '@fortawesome/free-solid-svg-icons'
 import { Link, useLocation } from "react-router-dom";
+import Search from "./Search/Search";
 
 const Navbar = props => {
 
   const location = useLocation();
   
   const [modal, setModal] = useState({
-    display: "none"
+    className: "default"
   })
+
   const initialNav = {
     position: "initial"
   }
@@ -52,23 +54,25 @@ const Navbar = props => {
     })
   }, []);
 
-
   const handleModal = event => {
-    if (modal.display === "none") {
+    if (modal.className === "swing-in-top-fwd") {
       setModal({
         ...modal,
-        display: "block"
+        className : "default"
       })
       document.body.style.overflowY = "hidden";
     }
-    if (modal.display === "block") {
+    else{
       setModal({
         ...modal,
-        display: "none"
+        className : "swing-in-top-fwd"
       })
       document.body.style.overflowY = "initial";
     }
   }
+
+
+  
   return (
     <div>
       <nav style={{ alignItems: "center", ...navStyle }}>
@@ -83,10 +87,11 @@ const Navbar = props => {
         <div className="right" style={{ justifySelf: "end", paddingRight: 55 }}>
           <ul style={{ padding: 0, margin: 0 }}>
             <li style={{ lineHeight: 3 }}><FontAwesomeIcon icon={faSearch} onClick={(e) => handleModal(e)} /></li>
+            <li style={{ lineHeight: 3 }}><FontAwesomeIcon icon={faBell} onClick={(e) => handleModal(e)} /></li>
             <li className="profile" style={{ lineHeight: 3 }}>
               {props.user ? <div style={{
                 height: 40, width: 40, background: "white", marginTop: 5, borderRadius: "50%",
-                backgroundImage: `url(${avatar})`
+                backgroundImage: `url(${avatar})`,margin : 5,backgroundSize : "cover",backgroundPosition : "50% 50%"
               }}>
               </div> : "profile"}
               <div className="profile-dropdown-container">
@@ -94,20 +99,13 @@ const Navbar = props => {
                 </div>
               </div>
             </li>
-            <li style={{ lineHeight: 3 }}><Link to="/login">sign in <FontAwesomeIcon icon={faSignInAlt} /></Link></li>
-            <li style={{ lineHeight: 3 }}><Link to="/signup"><button type="button" className="btn btn-light">
-              Sign up</button></Link></li>
+            {auth.isConnected() ? <li style={{ lineHeight: 3 }}><Link to="/logout">sign out</Link></li> : <li style={{ lineHeight: 3 }}><Link to="/login">sign in</Link></li>}
+            {auth.isConnected() ? null : <li style={{ lineHeight: 3 }}><Link to="/signup"><button type="button" className="btn btn-light">
+              Sign up</button></Link></li>}
           </ul>
         </div>
       </nav>
-
-      <div className="search-modal" style={{ ...modal }}>
-        <div className="form" style={{padding : 25}}>
-        <FontAwesomeIcon icon={faTimes} style={{position : "absolute" , top : 0, left : 0, margin : 10,cursor : "pointer"}} onClick={(e)=>handleModal(e)}/>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores aperiam voluptates id ex. Maiores, dolor.
-        </div>
-      </div>
-
+      <Search modal={modal} handleModal={handleModal}/>
     </div>
 
 

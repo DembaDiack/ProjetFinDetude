@@ -136,6 +136,7 @@ exports.loadDocs = (views,age,query = "") => {
         "info.client_modified" : age_order,
         "info.views" : views_order,
     })
+    .limit(16)
     .then(result => {
         console.log(result);
         return result;

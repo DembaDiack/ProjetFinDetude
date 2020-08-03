@@ -74,3 +74,42 @@
   display: "grid";
   grid-template-columns: "1fr 1fr 1fr 1fr";
 }
+
+
+
+
+
+
+.search-bar-browse
+    {
+        display: inline-flex;
+        height: 50px;
+        width: 100%;
+        background-color: rgb(103 103 103);
+        overflow: hidden;
+        border-radius: 25px;
+        margin-top: 30px;
+        color: white;
+    }
+    .search-bar-browse>div>input[type="text"]::placeholder{
+      color: rgb(223, 223, 223);
+    }
+    .search-icon-browse{
+        display: flex;
+        width: 40px;
+        align-items: center;
+        justify-content: center;
+    }
+    .input{
+        width: inherit;
+        height: inherit;
+    }
+    .search-bar-browse>div>input[type="text"]
+    {
+        height: 100%;
+        width: 100%;
+        border: none;
+        background : none;
+        outline: none;
+        color: white;
+    }

@@ -72,7 +72,8 @@ const Profile = (props) => {
         }
     })
     return (
-        <form>
+        <div className="container mt-5">
+            <form>
             <div>
                 <div className="container d-sm-flex justify-content-sm-center align-items-sm-center" style={{ paddingLeft: 0, paddingRight: 0 }}>
                     <div className="col"><strong style={{ color: 'rgb(255,255,255)', fontSize: 30 }}>Profile de {state.firstName} {state.lastName}</strong></div>
@@ -129,6 +130,7 @@ const Profile = (props) => {
                 </div>
             </div>
         </form>
+        </div>
     )
 }
 
