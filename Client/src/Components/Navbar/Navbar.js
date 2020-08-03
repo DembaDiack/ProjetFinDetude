@@ -3,7 +3,7 @@ import Auth from "../../Auth/Auth";
 import { connect } from "react-redux";
 import "./Navbar.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faSignInAlt,faTimes,faBell } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faSignInAlt,faTimes,faBell, faBars } from '@fortawesome/free-solid-svg-icons'
 import { Link, useLocation } from "react-router-dom";
 import Search from "./Search/Search";
 
@@ -60,14 +60,14 @@ const Navbar = props => {
         ...modal,
         className : "default"
       })
-      document.body.style.overflowY = "hidden";
+      document.body.style.overflowY = "initial";
     }
     else{
       setModal({
         ...modal,
         className : "swing-in-top-fwd"
       })
-      document.body.style.overflowY = "initial";
+      document.body.style.overflowY = "hidden";
     }
   }
 
@@ -82,6 +82,9 @@ const Navbar = props => {
             <li><Link to="/add">add documents</Link></li>
             <li><Link to="/browse">Browse</Link></li>
             <li><Link to="/list">my list</Link></li>
+          </ul>
+          <ul className="mobile">
+          <li><FontAwesomeIcon icon={faBars} style={{marginLeft : 30}}/></li>
           </ul>
         </div>
         <div className="right" style={{ justifySelf: "end", paddingRight: 55 }}>

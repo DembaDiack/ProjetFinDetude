@@ -29,6 +29,7 @@
 @media (max-width: 600px) {
   .browse{
       grid-template-columns: 1fr 1fr;
+      padding: 0 !important;
   }
 }
 .card{
