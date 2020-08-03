@@ -15,14 +15,15 @@ const Navbar = props => {
   const [mobileState,setMobileState] = useState(false);
 
   useEffect(()=>{
-    const backevent = document.addEventListener("hashchange",event => {
-      console.log(event);
+    const backevent = document.addEventListener("keydown",event => {
       if(mobileState)
       {
         setMobileState(false);
         event.preventDefault();
       }
-    },false);
+      console.log(event);
+    });
+
     if(mobileState)
     {
       document.body.style.overflow = "hidden";
