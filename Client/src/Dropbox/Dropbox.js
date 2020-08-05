@@ -1,7 +1,7 @@
 import { Dropbox } from "dropbox";
 import Axios from "axios";
 import Auth from "../Auth/Auth";
-const ACCESS_TOKEN = "TlKu2L-kEpAAAAAAAAABEWqjIn-NDIMHJGHasgjwJngf4PGGGiR_7QdKX42V9r9n";
+const ACCESS_TOKEN = "";
 const dropbox = new Dropbox({ accessToken: ACCESS_TOKEN });
 const auth = new Auth();
 

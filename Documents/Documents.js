@@ -162,3 +162,16 @@ exports.loadFeatured = () => {
         return err;
     })
 }
+
+exports.findDocByHash = (hash)=>{
+    const filter = {
+        "content_hash" : hash
+    }
+    return Document.findOne(filter)
+    .then(result => {
+        return result;
+    })
+    .catch(err => {
+        return err;
+    })
+}
