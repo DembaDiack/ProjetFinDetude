@@ -64,5 +64,6 @@ Router.post("/post",controller.getSinglePost);
 
 Router.post("/post/search",controller.searchPost);
 
+Router.post("/list/add",controller.addDocToList);
 
 exports.routes = Router;

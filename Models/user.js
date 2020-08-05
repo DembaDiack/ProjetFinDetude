@@ -70,6 +70,11 @@ const user = new Schema({
         type : String,
         required : false,
         default : null
+    },
+    list : {
+        type : Array,
+        default : [],
+        required : false
     }
 })
 

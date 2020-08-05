@@ -19,7 +19,6 @@ const Navbar = props => {
       if(mobileState)
       {
         setMobileState(false);
-        event.preventDefault();
       }
       console.log(event);
     });

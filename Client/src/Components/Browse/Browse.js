@@ -24,6 +24,8 @@ const Browse = props => {
     }
   });
   const handleSearch = event => {
+    setCards([]);
+    setRawDocs([]);
     setLoading(true);
     setQuery(event.target.value);
   }
@@ -49,7 +51,7 @@ const Browse = props => {
     .then(result => {
       console.log(doc.info);
       const url = URL.createObjectURL(result.fileBlob);
-      return <Card image={url} key={result.rev} id={result.id} title={result.name} />
+      return <Card email={doc.userInfo.email} views={doc.info.views} author={`${doc.userInfo.firstName} ${doc.userInfo.lastName} - ${doc.userInfo.matricule}`} image={url} key={result.rev} id={result.id} title={result.name} />
     })
     .catch(err => {
       try
@@ -58,7 +60,7 @@ const Browse = props => {
         console.log(parsed);
         if(parsed.error_summary === "unsupported_extension/.." || parsed.error_summary === "unsupported_extension/..." || parsed.error_summary === "unsupported_extension/." || parsed.error_summary === "unsupported_extension/")
         {
-          return <Card src={nopreview} key={doc.info.rev} id={doc.info.id} title={doc.info.name} />
+          return <Card email={doc.userInfo.email} views={doc.info.views} author={`${doc.userInfo.firstName} ${doc.userInfo.lastName}`} src={nopreview} key={doc.info.rev} id={doc.info.id} title={doc.info.name} />
         }
       }
       catch(err)

@@ -1,4 +1,5 @@
 const User = require("../Models/user");
+const Document = require("../Models/document");
 const crypto = require("crypto-js");
 const AES = require("crypto-js").AES;
 const passPhrase = "iscae";
@@ -306,5 +307,59 @@ exports.regexSearch = query => {
     })
     .catch(err => {
         return err;
+    })
+}
+
+exports.addDocToList = (email,docId)=>
+{
+    const userFilter = {
+        "email" : email
+    };
+    console.log("received email, :",email);
+    console.log("received id : ",docId);
+
+    return User.findOne(userFilter)
+    .then(result => {
+        if(result)
+        {
+            console.log("found user : ",result);
+
+            const docFilter = {
+                "info.id" : docId
+            }
+            return Document.findOne(docFilter)
+            .then(docResult => {
+                if(docResult)
+                {
+                    console.log("found doc : ",docResult);
+
+                    if(!result.list.includes(docId))
+                    {
+                        result.list.push(docId);
+                    }
+                    result.save();
+                    console.log("saved user : ",result);
+                    return {
+                        code : 1,
+                        result : result
+                    };
+                }
+                else{
+                    return "document not found"
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                return err;
+            })
+        }
+        else{
+            return "user not found";
+        }
+    })
+
+    .catch(err => {
+        console.log(err);
+        return err
     })
 }

@@ -2,6 +2,7 @@ const Auth = require("../Auth/Auth");
 const Documents = require("../Documents/Documents");
 const Post = require("../Posts/Posts");
 const { request } = require("http");
+const user = require("../Models/user");
 
 exports.loginController = (request,response) => {
     console.log(request.body);
@@ -271,3 +272,14 @@ exports.searchPost = (request,response) => {
     })
 }
 
+exports.addDocToList = (request,response) => {
+    const email = request.body.email;
+    const docId = request.body.id;
+    Auth.addDocToList(email,docId)
+    .then(result => {
+        response.send(result);
+    })
+    .catch(err => {
+        response.send(err);
+    })
+}
