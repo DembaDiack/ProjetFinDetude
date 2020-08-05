@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch,faBars } from '@fortawesome/free-solid-svg-icons'
@@ -14,7 +14,7 @@ const Browse = props => {
   const [rawDocs,setRawDocs] = useState([]);
   const [loading,setLoading] = useState(true);
   const [cards,setCards] = useState([]);
-
+  const index = useRef(0);
 
   useEffect(() => {
     document.body.style.backgroundColor = "rgb(36, 41, 46)";
@@ -42,7 +42,6 @@ const Browse = props => {
   useEffect(() => {
     loadDocuments();
   }, [query]);
-
 
   useEffect(()=>{
     const temp = rawDocs.map(doc => {
@@ -72,10 +71,26 @@ const Browse = props => {
     Promise.all(temp)
     .then(result => {
       setCards(result);
+      const temp = cards;
+      const newCards = temp.concat(result);
+      console.log("newCards",newCards);
+      setCards(newCards);
     })
   },[rawDocs]);
 
 
+
+  const handleLoadmore = event => {
+    Axios.get(`/search?index=${cards.length}&q=${query}`)
+      .then(result => {
+        console.log("loadMore : ",result);
+        setRawDocs(result.data);
+      })
+      .catch(err => {
+        loadDocuments();
+      })
+    
+  }
   return (
     <div className={"container"} style={{display : "grid"}}>
       <div className="search-bar-browse">
@@ -123,7 +138,7 @@ const Browse = props => {
       </div>}
 
 
-      <button type="button" class="btn btn-light mt-5 mb-5" style={{width : 150,justifySelf : "center"}}>Load More</button>
+      <button onClick={(e)=>handleLoadmore(e)} type="button" class="btn btn-light mt-5 mb-5" style={{width : 150,justifySelf : "center"}}>Load More</button>
     </div>
   )
 }

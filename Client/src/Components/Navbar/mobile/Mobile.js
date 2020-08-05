@@ -7,13 +7,21 @@ import {Link} from "react-router-dom"
 const Mobile = (props) => {
 
     useEffect(()=>{
-        window.addEventListener("resize",event => {
+        return ()=>{
+            props.setMobileState(false);
+        }
+    },[])
+    useEffect(()=>{
+        const event = window.addEventListener("resize",event => {
             console.log(event);
             if(window.innerWidth > 800)
             {
                 props.setMobileState(false);
             }
         })
+        return ()=>{
+            window.removeEventListener("resize",event);
+        }
     },[]);
 
   return (

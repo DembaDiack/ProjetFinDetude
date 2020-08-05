@@ -180,8 +180,9 @@ exports.getDocInfo = (request,response) => {
 exports.browse = (request,response) => {
     const age = request.query.age ? request.query.age === "asc" ? "asc" : "desc" : "asc";
     const views = request.query.views ? request.query.views === "asc" ? "asc" : "desc" : "asc";
+    const index = request.query.index;
     console.log("category",request.query.c);
-    Documents.loadDocs(views,age,request.query.q,request.query.c)
+    Documents.loadDocs(views,age,request.query.q,request.query.index)
     .then(result => {
         response.send(result);
     })

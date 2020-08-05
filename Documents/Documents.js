@@ -119,8 +119,8 @@ exports.getDocInfo = id => {
     })
 }
 
-exports.loadDocs = (views,age,query = "") => {
-
+exports.loadDocs = (views,age,query = "",index) => {
+    index = parseInt(index);
     const regex = [
         {"info.name" : {"$regex" : query , "$options" : "i"}},
         {"info.faculty" : {"$regex" : query , "$options" : "i"}},
@@ -136,7 +136,8 @@ exports.loadDocs = (views,age,query = "") => {
         "info.client_modified" : age_order,
         "info.views" : views_order,
     })
-    .limit(16)
+    .skip(index)
+    .limit(12)
     .then(result => {
         console.log(result);
         return result;
